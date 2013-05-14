@@ -1,0 +1,1179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Plan de tests FMS</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div xml:lang="fr-FR" class="book" title="Plan de tests FMS" lang="fr-FR"><div class="titlepage"><div><div><h1 class="title"><a id="idp4325952"></a>Plan de tests FMS</h1></div><div><div class="author"><h3 class="author"><span class="firstname">Benjamin</span> <span class="surname">Isnard</span></h3></div></div><div><div class="author"><h3 class="author"><span class="firstname">Ibrahima</span> <span class="surname">Cissé</span></h3></div></div><div><div class="author"><h3 class="author"><span class="firstname">Daouda</span> <span class="surname">Traoré</span></h3></div></div><div><div class="author"><h3 class="author"><span class="firstname">Eugène</span> <span class="surname">Pamba Capo-Chichi</span></h3></div></div><div><div class="author"><h3 class="author"><span class="firstname">Kevin</span> <span class="surname">Coulomb</span></h3></div></div><div><div class="author"><h3 class="author"><span class="firstname">Rodrigue</span> <span class="surname">Chakode</span></h3></div></div><div><div class="author"><h3 class="author"><span class="firstname">Benjamin</span> <span class="surname">Depardon</span></h3></div></div><div><div class="revhistory"><table border="1" width="100%" summary="Revision history"><tr><th align="left" valign="top" colspan="3"><b>Historique des versions</b></th></tr><tr><td align="left">Version 1</td><td align="left">25/03/11</td><td align="left">B. Isnard, I. Cissé, D. Traoré, E. Capo-Chichi</td></tr><tr><td align="left" colspan="3">
+          <p>
+            Version initiale
+          </p>
+        </td></tr><tr><td align="left">Version 2</td><td align="left">15/12/11</td><td align="left">I. Cissé, D. Traoré</td></tr><tr><td align="left" colspan="3">
+          <p>
+            Prise en compte de l'expression des besoins d’évolution de VISHNU :
+            ajout du test F1.CR2-B2:Create New directories et  F1.CR2-E4: Create
+            new directories
+          </p>
+        </td></tr><tr><td align="left">Version 3</td><td align="left">21/02/12</td><td align="left">E. Capo-Chichi</td></tr><tr><td align="left" colspan="3">
+          <p>
+            Correction du nom de la commande dans F1.DI4-B:Display content of directories
+          </p>
+        </td></tr><tr><td align="left">Version 4</td><td align="left">29/03/12</td><td align="left">I. Cissé</td></tr><tr><td align="left" colspan="3">
+          <p>
+            Ajout d'une note pour la prise en compte de transfert de gros fichiers
+          </p>
+        </td></tr><tr><td align="left">Version 5</td><td align="left">10/12/12</td><td align="left">E. Capo-Chichi</td></tr><tr><td align="left" colspan="3">
+          <p>
+            Renommage  des commandes FMS
+          </p>
+        </td></tr><tr><td align="left">Version 6</td><td align="left">21/01/13</td><td align="left">B. Depardon</td></tr><tr><td align="left" colspan="3">
+          <p>
+            Passage au format docbook de base. Problèmes de compilation réglés.
+          </p>
+        </td></tr></table></div></div></div><hr /></div><div class="toc"><p><b>Table des matières</b></p><dl><dt><span class="chapter"><a href="#idp4355568">1. Références</a></span></dt><dt><span class="chapter"><a href="#idp4360064">2. Présentation du document</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4360704">Objectifs du document</a></span></dt><dt><span class="section"><a href="#idp4365936">Structure du document</a></span></dt><dt><span class="section"><a href="#idp4368688">Glossaire, abréviations et acronymes</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4369328">Glossaire</a></span></dt><dt><span class="section"><a href="#idp4372784">Acronymes</a></span></dt><dt><span class="section"><a href="#idp4378032">Abréviations</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#idp4382512">3. Environnements et outils de tests</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4383152">Environnements de tests</a></span></dt><dt><span class="section"><a href="#idp4395376">Outils de tests </a></span></dt></dl></dd><dt><span class="chapter"><a href="#idp4401872">4. Cycle de vie du test</a></span></dt><dt><span class="chapter"><a href="#idp4406304">5. Liste des tests</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4406944">Tests fonctionnels</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4419568">Identifiant de tests</a></span></dt><dt><span class="section"><a href="#idp4423040">Tests de la Catégorie 1</a></span></dt><dt><span class="section"><a href="#idp4574880">Tests de la catégorie 2</a></span></dt><dt><span class="section"><a href="#idp4755408">Tests de la catégorie 3</a></span></dt><dt><span class="section"><a href="#idp4828992">Tests de catégorie 4 </a></span></dt></dl></dd><dt><span class="section"><a href="#idp5138400">Tests de stress</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5139040">Présentation</a></span></dt><dt><span class="section"><a href="#idp5140848">Environnement des tests</a></span></dt><dt><span class="section"><a href="#idp5142224">Identifiants de tests</a></span></dt><dt><span class="section"><a href="#idp5143552">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5167552">Contrôle des performances</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5168256">Présentation</a></span></dt><dt><span class="section"><a href="#idp5169648">Environnement de tests</a></span></dt><dt><span class="section"><a href="#idp5170800">Identifiants des tests</a></span></dt><dt><span class="section"><a href="#idp5172448">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5211888">Tests de charge</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5212528">Présentation</a></span></dt><dt><span class="section"><a href="#idp5213904">Environnement de tests</a></span></dt><dt><span class="section"><a href="#idp5216128">Identifiants de tests</a></span></dt><dt><span class="section"><a href="#idp5217648">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5237488">Contrôle de la qualité du code</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5238208">Présentation</a></span></dt><dt><span class="section"><a href="#idp5239728">Identifiants des tests</a></span></dt><dt><span class="section"><a href="#idp5247840">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5284752">Tests de compilation et d'installation</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5285392">Présentation</a></span></dt><dt><span class="section"><a href="#idp5287664">Environnement des tests</a></span></dt><dt><span class="section"><a href="#idp5288912">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5326304">Contrôle de la documentation utilisateur</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5326944">Présentation</a></span></dt><dt><span class="section"><a href="#idp5328384">Liste des tests</a></span></dt></dl></dd></dl></dd></dl></div><div class="list-of-figures"><p><b>Liste des illustrations</b></p><dl><dt>4.1. <a href="#refIllustration0">: Schema du test</a></dt></dl></div><div class="chapter" title="Chapitre 1. Références"><div class="titlepage"><div><div><h2 class="title"><a id="idp4355568"></a>Chapitre 1. Références</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>VISHNU_D1_1e-POL-TESTS : Politique de tests du projet VISHNU</p></li><li class="listitem"><p>VISHNU_D1_1a-SPECSGEN : Spécifications générales du projet VISHNU</p></li><li class="listitem"><p>VISHNU_D1_1b-STB : Spécifications Techniques des besoins</p></li><li class="listitem"><p>VISHNU_D1_1g-ARCH : VISHNU Technical Architecture</p></li></ul></div></div><div class="chapter" title="Chapitre 2. Présentation du document"><div class="titlepage"><div><div><h2 class="title"><a id="idp4360064"></a>Chapitre 2. Présentation du document</h2></div></div></div><div class="toc"><p><b>Table des matières</b></p><dl><dt><span class="section"><a href="#idp4360704">Objectifs du document</a></span></dt><dt><span class="section"><a href="#idp4365936">Structure du document</a></span></dt><dt><span class="section"><a href="#idp4368688">Glossaire, abréviations et acronymes</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4369328">Glossaire</a></span></dt><dt><span class="section"><a href="#idp4372784">Acronymes</a></span></dt><dt><span class="section"><a href="#idp4378032">Abréviations</a></span></dt></dl></dd></dl></div><div class="section" title="Objectifs du document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp4360704"></a>Objectifs du document</h2></div></div></div><p>Les objectifs de ce document sont les suivants :</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Présenter les fonctionnalités du module FMS à tester.</p></li><li class="listitem"><p>Présenter les différents types de tests permettant de valider les cas d'utilisation de chaque fonctionnalité du module FMS.</p></li><li class="listitem"><p>Présenter les méthodes et outils utilisés pour ces tests.</p></li><li class="listitem"><p>Donner des détails de l'environnement de test</p></li></ul></div></div><div class="section" title="Structure du document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp4365936"></a>Structure du document</h2></div></div></div><p>Le chapitre 1 présente le document.</p><p>Le chapitre 2 présente les environnements et outils de tests.</p><p>La chapitre 3 décrit la liste des tests qui s'appliquent aux fonctionnalités à tester.</p><p>La chapitre 4 présente les outils utilisés pour ces tests.</p></div><div class="section" title="Glossaire, abréviations et acronymes"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp4368688"></a>Glossaire, abréviations et acronymes</h2></div></div></div><div class="section" title="Glossaire"><div class="titlepage"><div><div><h3 class="title"><a id="idp4369328"></a>Glossaire</h3></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><span class="strong"><strong>Script de test</strong></span> : c'est un programme qui contient les instructions permettant de réaliser les tests.</p></li><li class="listitem"><p><span class="strong"><strong>Certificat</strong></span> : correspond à la clé de session (identifiant de session crypté)</p></li></ul></div></div><div class="section" title="Acronymes"><div class="titlepage"><div><div><h3 class="title"><a id="idp4372784"></a>Acronymes</h3></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>STB : Spécification Technique des Besoins</p></li><li class="listitem"><p>DSG : Document de Spécification générale</p></li><li class="listitem"><p>DSD : Document de Spécification Détaillées</p></li><li class="listitem"><p>API : Application Programming Interface (Interface de programmation d'applications)</p></li><li class="listitem"><p>MPI : Message Passing Interface</p><p></p></li></ul></div></div><div class="section" title="Abréviations"><div class="titlepage"><div><div><h3 class="title"><a id="idp4378032"></a>Abréviations</h3></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Id. Identifiant</p></li><li class="listitem"><p>Réf.Référence</p></li><li class="listitem"><p>Rel.#Numéro de release/version</p></li><li class="listitem"><p>Resp.Responsable(s)</p></li></ul></div></div></div></div><div class="chapter" title="Chapitre 3. Environnements et outils de tests"><div class="titlepage"><div><div><h2 class="title"><a id="idp4382512"></a>Chapitre 3. Environnements et outils de tests</h2></div></div></div><div class="toc"><p><b>Table des matières</b></p><dl><dt><span class="section"><a href="#idp4383152">Environnements de tests</a></span></dt><dt><span class="section"><a href="#idp4395376">Outils de tests </a></span></dt></dl></div><div class="section" title="Environnements de tests"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp4383152"></a>Environnements de tests</h2></div></div></div><p>Pour ces tests, nous allons utiliser les deux environnements de tests suivants avec des systèmes dédiés aux tests:</p><p>Environnement 1 :</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Système d'exploitation : c'est le système Linux décrit dans [STB] qui sera installé sur toutes les machines clientes et serveurs.</p></li><li class="listitem"><p>Nombre de machines clientes : une machine cliente décrite dans [STB] pour pouvoir lancer des tests à distance (selon le cas de test).</p></li><li class="listitem"><p>Nombre de machines serveurs : un serveur FMS décrit dans [ARCH].</p></li><li class="listitem"><p>Un serveur SysFera-DS dédié décrit dans [ARCH].</p></li><li class="listitem"><p>Mode de transfert : scp</p></li></ul></div><p>Environnement 2 :</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Système d'exploitation : c'est le système Linux décrit dans [STB] qui sera installé sur toutes les machines clientes et serveurs.</p></li><li class="listitem"><p>Nombre de machines clientes : une machine cliente décrite dans [STB] pour pouvoir lancer des tests à distance (selon le cas de test).</p></li><li class="listitem"><p>Nombre de machines serveurs: un serveur TMS décrit dans [ARCH]</p></li><li class="listitem"><p>Un serveur SysFera-DS dédié décrit dans [ARCH].</p></li><li class="listitem"><p>Mode de transfert : rsync</p></li></ul></div></div><div class="section" title="Outils de tests"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp4395376"></a>Outils de tests </h2></div></div></div><p>Les outils suivants seront utilisés pour les tests :</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Hudson (serveur d'intégration) sera utilisé pour les tests d'intégration continue (compilation, installation).</p></li><li class="listitem"><p>Boost test sera utilisé pour la réalisation des tests unitaires. </p></li><li class="listitem"><p>Des scripts batchs seront utilisés pour la réalisation des scripts de tests, des tests fonctionnels.</p></li><li class="listitem"><p>Squore et Logiscope seront utilisés régulièrement pour la qualité du code.</p></li><li class="listitem"><p>Valgrind sera utilisé pour la détection des fuites mémoires.</p></li></ul></div></div></div><div class="chapter" title="Chapitre 4. Cycle de vie du test"><div class="titlepage"><div><div><h2 class="title"><a id="idp4401872"></a>Chapitre 4. Cycle de vie du test</h2></div></div></div><p>Le schéma suivant donne une vue du plan de test sur un test à réaliser jusqu'à la réalisation du </p><p>rapport de test :</p><div class="figure"><a id="refIllustration0"></a><p class="title"><b>Figure 4.1. : Schema du test</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/img001.jpg" alt=": Schema du test" /></div></div></div><br class="figure-break" /><p></p></div><div class="chapter" title="Chapitre 5. Liste des tests"><div class="titlepage"><div><div><h2 class="title"><a id="idp4406304"></a>Chapitre 5. Liste des tests</h2></div></div></div><div class="toc"><p><b>Table des matières</b></p><dl><dt><span class="section"><a href="#idp4406944">Tests fonctionnels</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4419568">Identifiant de tests</a></span></dt><dt><span class="section"><a href="#idp4423040">Tests de la Catégorie 1</a></span></dt><dt><span class="section"><a href="#idp4574880">Tests de la catégorie 2</a></span></dt><dt><span class="section"><a href="#idp4755408">Tests de la catégorie 3</a></span></dt><dt><span class="section"><a href="#idp4828992">Tests de catégorie 4 </a></span></dt></dl></dd><dt><span class="section"><a href="#idp5138400">Tests de stress</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5139040">Présentation</a></span></dt><dt><span class="section"><a href="#idp5140848">Environnement des tests</a></span></dt><dt><span class="section"><a href="#idp5142224">Identifiants de tests</a></span></dt><dt><span class="section"><a href="#idp5143552">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5167552">Contrôle des performances</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5168256">Présentation</a></span></dt><dt><span class="section"><a href="#idp5169648">Environnement de tests</a></span></dt><dt><span class="section"><a href="#idp5170800">Identifiants des tests</a></span></dt><dt><span class="section"><a href="#idp5172448">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5211888">Tests de charge</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5212528">Présentation</a></span></dt><dt><span class="section"><a href="#idp5213904">Environnement de tests</a></span></dt><dt><span class="section"><a href="#idp5216128">Identifiants de tests</a></span></dt><dt><span class="section"><a href="#idp5217648">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5237488">Contrôle de la qualité du code</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5238208">Présentation</a></span></dt><dt><span class="section"><a href="#idp5239728">Identifiants des tests</a></span></dt><dt><span class="section"><a href="#idp5247840">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5284752">Tests de compilation et d'installation</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5285392">Présentation</a></span></dt><dt><span class="section"><a href="#idp5287664">Environnement des tests</a></span></dt><dt><span class="section"><a href="#idp5288912">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5326304">Contrôle de la documentation utilisateur</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5326944">Présentation</a></span></dt><dt><span class="section"><a href="#idp5328384">Liste des tests</a></span></dt></dl></dd></dl></div><div class="section" title="Tests fonctionnels"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp4406944"></a>Tests fonctionnels</h2></div></div></div><p>Les tests fonctionnels ou tests de boites noires permettent à partir des données en entrée d'observer les réactions du logiciel à tester.</p><p>Les fonctionnalités sont classées par catégories de tests :</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Catégorie 1 : regroupe les fonctionnalités permettant la création et suppression de fichiers qui sont :<span class="emphasis"><em> </em></span><span class="emphasis"><em>createFile</em></span><span class="emphasis"><em>, </em></span><span class="emphasis"><em>createDir, removeFile, removeDir</em></span><span class="emphasis"><em>.</em></span></p></li><li class="listitem"><p>Catégorie 2 : regroupe les fonctionnalités permettant la consultation des propriétés d'un fichier/répertoire sont : listDir, headOfFile, tailOfFile, contentOfFile<span class="emphasis"><em>, getFilesInfo.</em></span></p></li><li class="listitem"><p>Catégorie 3 : regroupe les fonctionnalités permettant la modification des propriétés d'un fichier/répertoire qui sont : chmod, chGrp.</p></li><li class="listitem"><p>Catégorie 4 : regroupe les fonctionnalités permettant la gestion des transferts de fichiers qui sont : copyFile<span class="emphasis"><em>, copyAsyncFile, moveFile, moveAsyncFile, stopFileTransfer, listFileTransfers.</em></span></p></li></ul></div><p>
+        <span class="emphasis"><em>Chaque test fonctionnel sera réalisé en utilisant chacune des interfaces d'accès suivantes : </em></span>
+        <span class="emphasis"><em>fonctions API/C++ et API/Python, ligne de commande utilisateur et API web services.</em></span>
+      </p><p>Nous allons dans cette section présenter les différentes stratégies de tests en utilisant des programmes exécutables ou des fonctions de l'API FMS puis en observant les résultats obtenus. Les deux conditions à vérifier sont :</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Est ce que le programme réalise les fonctions attendues en accord avec les spécifications?</p></li><li class="listitem"><p>Est ce que le programme fonctionne correctement ?</p></li></ul></div><div class="section" title="Identifiant de tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp4419568"></a>Identifiant de tests</h3></div></div></div><p>Les identifiants des tests sont de la forme: &lt;ID DSG&gt;-[B|E]:&lt;NOM_TEST&gt;-&lt;INTERFACE&gt; où 'ID DSG' est l'identifiant du cas d'utilisation dans le document [SDG] , 'B' la séquence de base (exécution du cas d'utilisation avec des paramètres valides), 'E' la séquence d'exception (comportement du cas d'utilisation en cas d'erreurs), 'NOM_TEST' le nom du test décrit dans [SDG] et 'INTERFACE' les différents codes des interfaces utilisées par VISHNU : <span class="emphasis"><em>fonctions API/C++(CPP), API/Python (PY), ligne de commande utilisateur (CLI) et API web services</em></span> (WS). L'absence du code de l'interface signifie que le test s'applique à toutes les interfaces précédentes.</p><p>Il faut noter que les tests avec des paramètres corrects sont effectués dans une session active avec un mode de fermeture à la déconnexion (CLOSE_ON_DISCONNECT) et un certificat de session valide.</p></div><div class="section" title="Tests de la Catégorie 1"><div class="titlepage"><div><div><h3 class="title"><a id="idp4423040"></a>Tests de la Catégorie 1</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="2.9cm" /><col width="9cm" /><col width="3.2cm" /><col width="2cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Actions</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Résultats</p>
+                </td><td>
+                  
+                  <p>Considérations particulières</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.CR1-B:Create New files </p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="strong"><strong>vishnu_create_file</strong></span> avec comme paramètres <span class="emphasis"><em>MA_1:/home/rep1/file1 </em></span>et 644. </p></li><li class="listitem"><p>Le fichier file1 est créé dans le répertoire /home/rep1 et il possède des droits de lecture et écriture pour le propriétaire et des droits de lecture uniquement pour les autres.</p></li><li class="listitem"><p>Lancer la commande <span class="strong"><strong>vishnu</strong></span>_<span class="emphasis"><em>l</em></span><span class="emphasis"><em>ist_d</em></span><span class="emphasis"><em>ir </em></span>avec comme paramètres <span class="emphasis"><em>MA_1:/home/rep1</em></span> et comme option <span class="emphasis"><em>-l </em></span>et vérifier que le fichier <span class="emphasis"><em>file1 </em></span>a bien été crée avec les droits spécifiés. La création du fichier a bien été validée.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="4" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits d'écriture et d'exécution sur le répertoire rep1.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.CR1-E1: Create new files</p>
+                  <p class="lineBreak">F1.CR1-E2: Create new files </p>
+                  <p>F1.CR1-E3: Create new files </p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : le chemin du fichier est invalide</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : il manque des droits d' accès pour la création du fichier</p></li><li class="listitem"><p>Cas E3 : l'identifiant machine est invalide</p><p></p></li></ul></div></li><li class="listitem"><p>Lancer la commande <span class="strong"><strong>vishnu_create_file</strong></span><span class="emphasis"><em> </em></span>avec le cas de test correspondant (E1, E2 ou E3)</p><p></p></li><li class="listitem"><p>Vérifier que son exécution échoue avec le message d'erreur renvoyé.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="4" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.CR2-B:Create New directories</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_create_</em></span><span class="emphasis"><em>dir</em></span> avec comme paramètres <span class="emphasis"><em>MA_1:/home/rep1/rep2</em></span>. </p></li><li class="listitem"><p>Le répertoire rep2 est créé dans le répertoire /home/rep1 et il possède des droits de lecture et écriture pour le propriétaire et des droits de lecture uniquement pour les autres.</p></li><li class="listitem"><p>Lancer la commande <span class="strong"><strong>vishnu</strong></span>_<span class="emphasis"><em>l</em></span><span class="emphasis"><em>ist_d</em></span><span class="emphasis"><em>ir </em></span>avec comme paramètres <span class="emphasis"><em>MA_1:/home/rep1</em></span> et comme option <span class="emphasis"><em>-l </em></span>et vérifier que le répertoire rep2 a bien été crée avec les droits spécifiés.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_create_</em></span><span class="emphasis"><em>file</em></span> /home/rep1/rep2/file1 et vérifier que rep2 contient bien le fichier file1. La création du répertoirte a bien été validée.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="5" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits d'écriture et d'éxécution sur le répertoire rep1.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.CR2-B2:Create New directories</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_create_</em></span><span class="emphasis"><em>dir</em></span> avec comme paramètres <span class="emphasis"><em>MA_1:/home/rep1/rep2, </em></span><span class="emphasis"><em>et en spécifiant </em></span><span class="emphasis"><em>l'option </em></span><span class="emphasis"><em>isRecursive</em></span><span class="emphasis"><em>.</em></span> </p></li><li class="listitem"><p>Les répertoires rep1 et resp2 sont créés et rep2 existe bien dans rep1.</p></li><li class="listitem"><p>Lancer la commande <span class="strong"><strong>vishnu</strong></span>_<span class="emphasis"><em>l</em></span><span class="emphasis"><em>ist_d</em></span><span class="emphasis"><em>ir </em></span>avec comme paramètres <span class="emphasis"><em>MA_1:/home/rep1</em></span> et vérifier que le répertoire rep2 a été créé dans rep1.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_create_</em></span><span class="emphasis"><em>file</em></span> /home/rep1/rep2/file1 et vérifier que rep2 contient bien le fichier file1. La création du répertoirte a bien été validée.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="5" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.CR2-E1: Create new direcrories</p>
+                  <p class="lineBreak">F1.CR2-E2: Create new directories</p>
+                  <p>F1.CR2-E3: Create new directories</p>
+                  <p>F1.CR2-E4: Create new directories</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : le chemin du répertoire est invalide </p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : il manque des droits d' accès pour la création du répertoire</p></li><li class="listitem"><p>Cas E3 : l'identifiant machine est invalide</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E4 : création récursive des répertoires avec une arborescence donnée et l'option <span class="strong"><strong>isRecursive</strong></span> est omise.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"></ul></div></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_create_</em></span><span class="emphasis"><em>dir</em></span><span class="emphasis"><em> </em></span>avec le cas de test correspondant (E1, E2 ou E3 ou E4)</p><p></p></li><li class="listitem"><p>Vérifier que son exécution échoue avec le message d'erreur renvoyé.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="4" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DE1-B : Delete files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande<span class="strong"><strong> </strong></span><span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>create_file</em></span> avec comme paramètres MA_1:/home/rep1/file1</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_list_dir</em></span><span class="emphasis"><em> </em></span>avec comme paramètres <span class="emphasis"><em>MA_1:/home/rep1</em></span> et vérifier que le fichier file1 a bien été supprimé. La suppression du fichier a bien été validée.</p><p></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Le fichier file1 est supprimé du répertoire /home/rep1 sur la machine d'identifiant MA_1.</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits d'écriture et d'exécution sur le répertoire rep1.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DE1-E1: Delete files</p>
+                  <p class="lineBreak">F1.DE2-E2: Delete files</p>
+                  <p>F1.DE3-E3: Delete files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : le chemin du fichier est invalide</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : il manque des droits d' accès pour la suppression du fichier.</p></li><li class="listitem"><p>Cas E3 : l'identifiant machine est invalide</p><p></p></li></ul></div></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>remove_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile </em></span>avec le cas de test correspondant (E1, E2 ou E3)</p><p></p></li><li class="listitem"><p>Vérifier que son exécution échoue avec le message d'erreur renvoyé.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="4" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DE2-B : Delete directories</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande<span class="strong"><strong> </strong></span><span class="emphasis"><em>vishnu</em></span><span class="strong"><strong>_</strong></span><span class="emphasis"><em>remove_</em></span><span class="emphasis"><em>d</em></span><span class="emphasis"><em>ir</em></span> avec comme paramètres MA_1:/home/rep1/rep2</p></li><li class="listitem"><p>Lancer le commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>l</em></span><span class="emphasis"><em>ist_d</em></span><span class="emphasis"><em>ir </em></span>avec comme paramètres <span class="emphasis"><em>MA_1:/home/rep1</em></span> et vérifier que le répertoire rep2 a bien été supprimé. La suppression du répertoire a bien été validée.</p><p></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Le répertoire rep2 est supprimé du répertoire /home/rep1 sur la machine d'identifiant MA_1.</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits d'écriture et d'exécution sur le répertoire rep1.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DE1-E1: Delete directories</p>
+                  <p class="lineBreak">F1.DE2-E2: Delete directories</p>
+                  <p>F1.DE3-E3: Delete directories</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : le chemin du répertoire est invalide</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : il manque des droits d' accès pour la suppression du répertoire.</p></li><li class="listitem"><p>Cas E3 : l'identifiant machine est invalide</p><p></p></li></ul></div></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>remove_</em></span><span class="emphasis"><em>d</em></span><span class="emphasis"><em>ir </em></span>avec le cas de test correspondant (E1, E2 ou E3)</p><p></p></li><li class="listitem"><p>Vérifier que son exécution échoue avec le message d'erreur renvoyé.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="4" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr></tbody></table></div></div><div class="section" title="Tests de la catégorie 2"><div class="titlepage"><div><div><h3 class="title"><a id="idp4574880"></a>Tests de la catégorie 2</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="2.9cm" /><col width="9.699999999999999cm" /><col width="2.1cm" /><col width="2.4cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Actions</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Résultats</p>
+                </td><td>
+                  
+                  <p>Considérations particulières</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DI1-B: Display head of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_head_of_file</em></span><span class="emphasis"><em> </em></span>avec les paramètres MA1<a class="ulink" href="../../../../../../../../A:/home/rep1/file1" target="_top">:/home/rep1/file1</a> et n.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>content_</em></span><span class="emphasis"><em>of_f</em></span><span class="emphasis"><em>ile</em></span> du fichier MA1<a class="ulink" href="../../../../../../../../A:/home/rep1/file1" target="_top">:/home/rep1/file1</a> et vérifier que les n premières retournées correspondent bien aux n premières lignes du fichier.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Les n premières lignes du fichier sont retournées</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits d'exécution sur le répertoire rep1et les droits de lecture sur le fichier file1.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DI1-E1: Display head of files</p>
+                  <p class="lineBreak">F1.DI1-E2: Display head of files</p>
+                  <p>F1.DI3-E3: Display head of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : le chemin du répertoire est invalide</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : il manque des droits d' accès pour pour la récupération du contenu du fichier.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E3 : l'identifiant machine est invalide</p><p></p></li></ul></div></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_head_of_file</em></span><span class="emphasis"><em> </em></span>avec le cas de test correspondant (E1, E2 ou E3)</p><p></p></li><li class="listitem"><p>Vérifier que son exécution échoue avec le message d'erreur renvoyé.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="4" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DI2-B: Display tail of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>tail</em></span><span class="emphasis"><em>_of_file</em></span><span class="emphasis"><em> </em></span>avec les paramètres MA1<a class="ulink" href="../../../../../../../../A:/home/rep1/file1" target="_top">:/home/rep1/file1</a> et n.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em></em></span><span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>content_</em></span><span class="emphasis"><em>of_f</em></span><span class="emphasis"><em>ile</em></span> du fichier MA1<a class="ulink" href="../../../../../../../../A:/home/rep1/file1" target="_top">:/home/rep1/file1</a> et vérifier que les <span class="emphasis"><em>n</em></span> dernières retournées correspondent bien aux n premières lignes du fichier.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Les <span class="emphasis"><em>n</em></span> dernières ligne du fichier sont retournées</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits d'exécution sur le répertoire rep1et les droits de lecture sur le fichier file1.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DI2-E1: Display tail of files</p>
+                  <p class="lineBreak">F1.DI2-E2: Display tail of files</p>
+                  <p>F1.DI2-E3: Display tail of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : le chemin du répertoire est invalide</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : il manque des droits d' accès pour pour la récupération du contenu du fichier</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E3 : l'identifiant machine est invalide</p><p></p></li></ul></div></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>tail</em></span><span class="emphasis"><em>_of_file</em></span><span class="emphasis"><em> </em></span>avec le cas de test correspondant (E1, E2 ou E3)</p><p></p></li><li class="listitem"><p>Vérifier que son exécution échoue avec le message d'erreur renvoyé.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="4" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DI3-B: Display content of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>content_</em></span><span class="emphasis"><em>of_f</em></span><span class="emphasis"><em>ile </em></span>avec les paramètres MA1<a class="ulink" href="../../../../../../../../A:/home/rep1/file1" target="_top">:/home/rep1/file1</a> </p></li><li class="listitem"><p>Lancer la commande scp sur la machine MA_1 pour récupérer le fichier file1 et vérifier que son contenu correspond à celui retourné par la commande <span class="strong"><strong></strong></span><span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>content_</em></span><span class="emphasis"><em>of_f</em></span><span class="emphasis"><em>ile</em></span></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Le contenu du fichier est retourné.</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits d'exécution sur le répertoire rep1et les droits de lecture sur le fichier file1.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DI3-E1: Display content of files</p>
+                  <p class="lineBreak">F1.DI3-E2: Display content of files</p>
+                  <p>F1.DI3-E3: Display content of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : le chemin du ficher est invalide</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : il manque des droits d'accès pour la récupération du contenu du fichier.</p></li><li class="listitem"><p>Cas E3 : l'identifiant machine est invalide</p><p></p></li></ul></div></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>content_</em></span><span class="emphasis"><em>of_f</em></span><span class="emphasis"><em>ile </em></span>avec le cas de test correspondant (E1, E2 ou E3)</p><p></p></li><li class="listitem"><p>Vérifier que son exécution échoue avec le message d'erreur renvoyé.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="4" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DI4-B: Display content of directories</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_list_dir </em></span>avec les paramètres MA1<a class="ulink" href="../../../../../../../../A:/home/rep1/file1" target="_top">:/home/rep1/</a>rep2</p></li><li class="listitem"><p>Lancer la commande scp -r sur la machine MA_1 pour récupérer le répertoir rep2 et vérifier que son contenu correspond à celui retourné par la commande <span class="strong"><strong></strong></span><span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>content_</em></span><span class="emphasis"><em>of_f</em></span><span class="emphasis"><em>ile</em></span></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Le contenu du fichier est retourné.</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits d'exécution sur le répertoire rep1et les droits de lecture sur le fichier file1.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DI4-E1: Display content of directories</p>
+                  <p class="lineBreak">F1.DI3-E2: Display content of directories</p>
+                  <p>F1.DI3-E3: Display content of directories</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : le chemin du répertoire est invalide</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : il manque des droits d' accès pour la récupération du contenu du répertoire</p></li><li class="listitem"><p>Cas E3 : l'identifiant machine est invalide</p><p></p></li></ul></div></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>content_</em></span><span class="emphasis"><em>of_</em></span><span class="emphasis"><em>dir</em></span><span class="emphasis"><em> </em></span>avec le cas de test correspondant (E1, E2 ou E3)</p><p></p></li><li class="listitem"><p>Vérifier que son exécution échoue avec le message d'erreur renvoyé.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="4" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DI5-B: Get information about remote files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="strong"><strong>get_</strong></span><span class="strong"><strong>f</strong></span><span class="strong"><strong>iles_</strong></span><span class="strong"><strong>i</strong></span><span class="strong"><strong>nfo</strong></span><span class="emphasis"><em> </em></span>avec les paramètres MA1<a class="ulink" href="../../../../../../../../A:/home/rep1/file1" target="_top">:/home/rep1/</a>file1</p></li><li class="listitem"><p>Récupérer le fichier <span class="emphasis"><em>file1</em></span> sur la machine d'identifiant MA_1 à l'aide de la commande.</p></li><li class="listitem"><p>Vérifier à l'aide de la fonction « fstat » que les propriétés retournées par la commande <span class="emphasis"><em>vishnu_get_f</em></span><span class="strong"><strong>iles_</strong></span><span class="strong"><strong>i</strong></span><span class="strong"><strong>nfo</strong></span> sont les mêmes que celles retournées par « fstat ».</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Les propriétés du fichier sont retournées.</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits d'exécution sur le répertoire rep1.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.DI5-E1: Get information about remote files</p>
+                  <p class="lineBreak">F1.DI5-E2: Get information about remote files</p>
+                  <p>F1.DI5-E3: Get information about remote files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : le chemin du répertoire est invalide</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : il manque des droits d' accès aux propriétés du fichier</p></li><li class="listitem"><p>Cas E3 : l'identifiant machine est invalide</p><p></p></li></ul></div></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em></em></span><span class="emphasis"><em>vishnu_get_f</em></span><span class="emphasis"><em>iles_</em></span><span class="emphasis"><em>i</em></span><span class="emphasis"><em>nfo </em></span>avec le cas de test correspondant (E1, E2 ou E3)</p><p></p></li><li class="listitem"><p>Vérifier que son exécution échoue avec le message d'erreur renvoyé.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="4" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr></tbody></table></div></div><div class="section" title="Tests de la catégorie 3"><div class="titlepage"><div><div><h3 class="title"><a id="idp4755408"></a>Tests de la catégorie 3</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="4.4cm" /><col width="6.6cm" /><col width="3.4cm" /><col width="2.7cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Actions</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Résultats</p>
+                </td><td>
+                  
+                  <p>Considérations particulières</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.CH1-B: Change access rights of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_ch_grp</em></span><span class="emphasis"><em> </em></span>avec les paramètres MA1<a class="ulink" href="../../../../../../../../A:/home/rep1/file1" target="_top">:/home/rep1/</a>file1 avec les nouveaux droits</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="strong"><strong>get_</strong></span><span class="strong"><strong>f</strong></span><span class="strong"><strong>iles_</strong></span><span class="strong"><strong>i</strong></span><span class="strong"><strong>nfo </strong></span>et vérifier que les droits founis en paramètre en ont été appliqués.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Les droits du fichiers ont été mis à jour.</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits d'exécution sur le répertoire rep1et les droits de lecture sur le fichier file1.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.CH1-E1: Change access rights of files </p>
+                  <p class="lineBreak">F1.CH1-E2: Change access rights of files</p>
+                  <p>F1.CH1-E3: Change access rights of files </p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : le chemin du répertoire est invalide</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : il manque des droits d' accès pour changer les propriéttés du fichier</p></li><li class="listitem"><p>Cas E3 : l'identifiant machine est invalide</p><p></p></li></ul></div></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="strong"><strong>ch_</strong></span><span class="strong"><strong>m</strong></span><span class="strong"><strong>od</strong></span><span class="emphasis"><em> </em></span>avec le cas de test correspondant (E1, E2 ou E3)</p><p></p></li><li class="listitem"><p>Vérifier que son exécution échoue avec le message d'erreur renvoyé.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="4" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.CH2-B: Change group owner of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>ch_</em></span><span class="emphasis"><em>m</em></span><span class="emphasis"><em>od </em></span>avec les paramètres MA1<a class="ulink" href="../../../../../../../../A:/home/rep1/file1" target="_top">:/home/rep1/</a>file1 avec le nouveau nom de groupe à associer au fichier</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>get_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>iles_</em></span><span class="emphasis"><em>i</em></span><span class="emphasis"><em>nfo</em></span><span class="strong"><strong> </strong></span>et vérifier que le nom du groupe associé au fichier à changer et que ce nom correspond à celui donné en paramètre de <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>ch_</em></span><span class="emphasis"><em>m</em></span><span class="emphasis"><em>od</em></span><span class="emphasis"><em>.</em></span></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Le nom du groupe associé au fichier été mis à jour.</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits d'exécution sur le répertoire rep1et les droits de lecture sur le fichier file1.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F1.CH2-E1: Change group owner of files </p>
+                  <p class="lineBreak">F1.CH2-E2: Change group owner of files</p>
+                  <p>F1.CH2-E3: Change group owner of files </p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : le chemin du répertoire est invalide</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : il manque des droits d' accès pour changer les propriétés du fichier</p></li><li class="listitem"><p>Cas E3 : l'identifiant machine est invalide</p><p></p></li></ul></div></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="strong"><strong>ch_</strong></span><span class="strong"><strong>grp</strong></span><span class="emphasis"><em> </em></span>avec le cas de test correspondant (E1, E2 ou E3)</p><p></p></li><li class="listitem"><p>Vérifier que son exécution échoue avec le message d'erreur renvoyé.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="4" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr></tbody></table></div></div><div class="section" title="Tests de catégorie 4"><div class="titlepage"><div><div><h3 class="title"><a id="idp4828992"></a>Tests de catégorie 4 </h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="3cm" /><col width="7.9cm" /><col width="3.4cm" /><col width="2.8cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Actions</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Résultats</p>
+                </td><td>
+                  
+                  <p>Considérations particulières</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F2.CP1-B:Execute a synchronous copy of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : les paramètres sont corrects.</p><p></p></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 1 : copie d'un fichier (ou répertoire) local vers un répertoire local.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 2 : copie d'un fichier (ou répertoire) local vers un répertoire distant.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 3 : copie d'un fichier (ou répertoire) distant vers un répertoire local.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 4 : copie d'un fichier (ou répertoire) distant vers un répertoire distant.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lister le répertoire destination pour les cas 1, 2, 3 et 4 à l'aide de la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>list_</em></span><span class="emphasis"><em>d</em></span><span class="emphasis"><em>ir </em></span>et vérifier que le fichier ou répertoire à copier n'existe pas.</p><p></p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>copy_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile </em></span>avec le nom du répertoire destination et les identifiants des machines sources et destinations pour les cas 1, 2, 3 et 4. </p><p></p></li><li class="listitem"><p>Utiliser la commande <span class="emphasis"><em>scp </em></span>pour récupérer le fichier (ou répertoire) copié<span class="emphasis"><em> </em></span>et l'enregistrer sous un autre nom.</p><p></p></li><li class="listitem"><p>Comparer le contenu des deux fichiers (ou répertoires).</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>Le fichier (ou répertoire) a été copié sur la destination spécifiée.</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits en lecture, écriture et exécution sur le répertoire destination et les droits de lecture, écriture et exécution sur le fichier (ou répertoire) à copier. Le transfert de gros fichiers a été pris en compte.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F2.CP1-E1:Execute a synchronous copy of files</p>
+                  <p>F2.CP1-E2:Execute a synchronous copy of files</p>
+                  <p>F2.CP1-E3:Execute a synchronous copy of files</p>
+                  <p>F2.CP1-E4:Execute a synchronous copy of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : chemin du fichier (ou répertoire) source est incorrect</p><p></p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : chemin du fichier (ou répertoire) destination est incorrect</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E3 : absence des droits d' accès au fichier (ou répertoire) source et/ou destination </p></li><li class="listitem"><p>Cas E4 : l'identifiant de la machine n'est pas enregistré dans VISHNU</p></li></ul></div></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>copy_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile</em></span> avec le cas de test correspondant (E1, E2, E3 ou E4) et vérifier que son exécution échoue.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="3" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F2.CP2-B:Execute a asynchronous copy of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : les paramètres sont corrects.</p><p></p></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 1 : copie d'un fichier (ou répertoire) local vers un répertoire local.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 2 : copie d'un fichier (ou répertoire) local vers un répertoire distant.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 3 : copie d'un fichier (ou répertoire) distant vers un répertoire local.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 4 : copie d'un fichier (ou répertoire) distant vers un répertoire distant.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lister le répertoire destination pour les cas 1, 2, 3 et 4 à l'aide de la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>list_</em></span><span class="emphasis"><em>d</em></span><span class="emphasis"><em>ir </em></span>et vérifier que le fichier ou répertoire à copier n'existe pas.</p><p></p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>async_</em></span><span class="emphasis"><em>copy_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile </em></span>avec le nom du répertoire destination et les identifiants des machines sources et destinations pour les cas 1, 2, 3 et 4 et conserver l'identifiant du transfert.</p><p></p></li><li class="listitem"><p>Attendre la fin du transfert et utiliser la commande <span class="emphasis"><em>scp </em></span>pour récupérer le fichier (ou répertoire) copié<span class="emphasis"><em> </em></span>et l'enregistrer sous un autre nom.</p><p></p></li><li class="listitem"><p>Comparer le contenu des deux fichiers (ou répertoires).</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>Le fichier (ou répertoire) a été copié sur la destination spécifiée.</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits en lecture, écriture et exécution sur le répertoire destination et les droits de lecture, écriture et exécution sur le fichier (ou répertoire) à copier.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F2.CP2-E1:Execute a asynchronous copy of files</p>
+                  <p>F2.CP2-E2:Execute a asynchronous copy of files</p>
+                  <p>F2.CP2-E3:Execute asynchronous copy of files</p>
+                  <p>F2.CP2-E4:Execute asynchronous copy of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : les paramètres sont incorrects.</p></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : chemin du fichier (ou répertoire) source est incorrect</p><p></p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : chemin du fichier (ou répertoire) destination est incorrect</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E3 : absence des droits d' accès au fichier (ou répertoire) source et/ou destination </p></li><li class="listitem"><p>Cas E4 : l'identifiant de la machine n'est pas enregistré dans VISHNU</p></li></ul></div></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>async_</em></span><span class="emphasis"><em>copy_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile</em></span> avec le cas de test correspondant (E1, E2, E3 ou E4) et vérifier que son exécution échoue.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="3" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F2.MV1-B:Execute a synchronous move of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : les paramètres sont corrects.</p><p></p></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 1 : déplacer un fichier (ou répertoire) local vers un répertoire local.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 2 : déplacer d'un fichier (ou répertoire) local vers un répertoire distant.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 3 : déplacer d'un fichier (ou répertoire) distant vers un répertoire local.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 4 : déplacer d'un fichier (ou répertoire) distant vers un répertoire distant.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lister le répertoire destination pour les cas 1, 2, 3 et 4 à l'aide de la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>list_</em></span><span class="emphasis"><em>d</em></span><span class="emphasis"><em>ir </em></span>et vérifier que le fichier ou répertoire à déplacer n'existe pas.</p><p></p></li><li class="listitem"><p>Faire une copie du fichier (ou répertoire) à déplacer dans le répertoire local.</p><p></p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>move_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile </em></span>avec le nom du répertoire destination et les identifiants des machines sources et destinations pour les cas 1, 2, 3 et 4.</p><p></p></li><li class="listitem"><p>Vérifier que le fichier ou répertoire à déplacer n'existe plus à l'aide de la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>list_</em></span><span class="emphasis"><em>d</em></span><span class="emphasis"><em>ir</em></span>. </p><p></p></li><li class="listitem"><p>Utiliser la commande <span class="emphasis"><em>scp </em></span>pour récupérer le fichier ou répertoire déplacé<span class="emphasis"><em> </em></span>et l'enregistrer sous un autre nom.</p><p></p></li><li class="listitem"><p>Comparer le contenu du fichier ou du répertoire de l'étape 3 avec le fichier (ou le répertoire) obtenu à l'aide de la commande scp.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>Le fichier (ou répertoire) a été déplacé sur la destination spécifiée.</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits en lecture, écriture et exécution sur le répertoire destination et les droits de lecture, écriture et exécution sur le fichier (ou répertoire) à copier.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F2.MV1-E1:Execute a synchronous move of files</p>
+                  <p>F2.MV1 -E2:Execute a synchronous move of files</p>
+                  <p>F2.MV1-E3:Execute a synchronous move of files</p>
+                  <p>F2.MV1 -E4:Execute a synchronous move of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : chemin du fichier (ou répertoire) source est incorrect</p><p></p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : chemin du fichier (ou répertoire) destination est incorrect</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E3 : absence des droits d' accès au fichier (ou répertoire) source et/ou destination </p></li><li class="listitem"><p>Cas E4 : l'identifiant de la machine n'est pas enregistré dans VISHNU</p></li></ul></div></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>move_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile</em></span> avec le cas de test correspondant (E1, E2, E3 ou E4) et vérifier que son exécution échoue.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="3" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F2.MV2-B:Execute a asynchronous move of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : les paramètres sont corrects.</p><p></p></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 1 : déplacer un fichier (ou répertoire) local vers un répertoire local.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 2 : déplacer d'un fichier (ou répertoire) local vers un répertoire distant.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 3 : déplacer d'un fichier (ou répertoire) distant vers un répertoire local.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas 4 : déplacer d'un fichier (ou répertoire) distant vers un répertoire distant.</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lister le répertoire destination pour les cas 1, 2, 3 et 4 à l'aide de la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>list_</em></span><span class="emphasis"><em>d</em></span><span class="emphasis"><em>ir </em></span>et vérifier que le fichier ou répertoire à déplacer n'existe pas.</p><p></p></li><li class="listitem"><p>Faire une copie du fichier (ou répertoire) à déplacer dans le répertoire local.</p><p></p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>move_</em></span><span class="emphasis"><em>a</em></span><span class="emphasis"><em>sync_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile </em></span>avec le nom du répertoire destination et les identifiants des machines sources et destinations pour les cas 1, 2, 3 et 4.</p><p></p></li><li class="listitem"><p>Vérifier que le fichier ou répertoire à déplacer n'existe plus à l'aide de la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>list_</em></span><span class="emphasis"><em>d</em></span><span class="emphasis"><em>ir</em></span>. </p><p></p></li><li class="listitem"><p>Attendre la fin du transfert et utiliser la commande <span class="emphasis"><em>scp </em></span>pour récupérer le fichier ou répertoire déplacé<span class="emphasis"><em> </em></span>et l'enregistrer sous un autre nom.</p><p></p></li><li class="listitem"><p>Comparer le contenu du fichier ou du répertoire de l'étape 3 avec le fichier (ou le répertoire) obtenu à l'aide de la commande scp.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>Le fichier (ou répertoire) a été déplacé sur la destination spécifiée.</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits en lecture, écriture et exécution sur le répertoire destination et les droits de lecture, écriture et exécution sur le fichier (ou répertoire) à copier.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F2.MV2-E1:Execute a asynchronous move of files</p>
+                  <p>F2.MV2 -E2:Execute a asynchronous move of files</p>
+                  <p>F2.MV2-E3:Execute a asynchronous move of files</p>
+                  <p>F2.MV2 -E4:Execute a asynchronous move of files</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : chemin du fichier (ou répertoire) source est incorrect</p><p></p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : chemin du fichier (ou répertoire) destination est incorrect</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E3 : absence des droits d' accès au fichier (ou répertoire) source et/ou destination </p></li><li class="listitem"><p>Cas E4 : l'identifiant de la machine n'est pas enregistré dans VISHNU</p></li></ul></div></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>move_</em></span><span class="emphasis"><em>a</em></span><span class="emphasis"><em>sync_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile</em></span> avec le cas de test correspondant (E1, E2, E3 ou E4) et vérifier que son exécution échoue.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="3" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F2.CA1-B:Cancel file transfers</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : les paramètres sont corrects.</p><p></p></li><li class="listitem"><p>Lancer deux fois le programme <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>copy_</em></span><span class="emphasis"><em>a</em></span><span class="emphasis"><em>sync_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile </em></span>pour transférer deux répertoires qui nécessitent un temps de transfert estimé à cinq minutes chacun en fonction des caractéristiques du réseau et de la taille du répertoire.</p><p></p></li><li class="listitem"><p>Vérifier que les transferts sont en cours d'exécution à l'aide de la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>list_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile_</em></span><span class="emphasis"><em>t</em></span><span class="emphasis"><em>ransfers.</em></span></p><p></p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>stop_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile_</em></span><span class="emphasis"><em>t</em></span><span class="emphasis"><em>ransfer </em></span>.</p><p></p></li><li class="listitem"><p>Lancer la commande<span class="emphasis"><em> </em></span><span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>list_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile_</em></span><span class="emphasis"><em>t</em></span><span class="emphasis"><em>ransfers </em></span>avant la fin des deux transferts et vérifier qu'ils sont annulés.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="6" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit avoir les droits en lecture, écriture et exécution sur le répertoire destination et les droits de lecture, écriture et exécution sur le répertoire à copier.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F2.CA1-E1:Cancel file transfers</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : les paramètres sont incorrects.</p></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : Aucun transfert en cours </p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>stop_</em></span><span class="emphasis"><em>f</em></span><span class="emphasis"><em>ile_</em></span><span class="emphasis"><em>t</em></span><span class="emphasis"><em>ransfer</em></span> avec le cas de test correspondant et vérifier que son exécution échoue.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="2" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F2.CA2-B:Cancel all users file transfers</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : Un administrateur liste les transferts de fichiers de l'utilisateur U_X. </p><p></p><p><span class="strong"><strong>Cas 1 : </strong></span>Supposons que l'utilisateur U_X est ajouté pour ce test à l'aide de la commande <span class="emphasis"><em>vishnu_add_user et </em></span>que l'administrateur se substitue à l'utilisateur U_X lors de l'ouverture de session avec l'option -s.</p><p>
+                        <span class="emphasis"><em></em></span>
+                      </p><p><span class="strong"><strong>Cas 2 : </strong></span>Supposons que l'administrateur liste les transferts de fichiers de l'utilisateur U_X.</p><p></p></li><li class="listitem"><p>Créer deux fichiers file1 et file2 dans votre répertoire local.</p><p></p></li><li class="listitem"><p>Copier les fichiers file1 et file2 de votre répertoire<span class="emphasis"><em> </em></span>local vers un répertoire distant à l'aide du programme <span class="emphasis"><em>vishnu_copy_async_file</em></span>.</p><p></p></li></ol></div>
+                  <p>Cas 1 :</p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>vishnu_list_file_transfers</em></span> et vérifier que les deux transferts de fichiers sont retournés.</p><p></p><p>Cas 2 :</p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>vishnu_list_file_transfers</em></span> avec <span class="emphasis"><em>l'option -i</em></span> suivie de U_X et vérifier que les deux transferts de fichiers précédents s'affichent sont retournés.</p><p></p><p></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="3" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur doit être un administrateur</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F2.LT1-B:List all file transfers</p>
+                  <p>F2.LT2-B:List all users file transfers</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : Un administrateur liste les transferts de fichiers de l'utilisateur donné. </p><p></p><p><span class="strong"><strong>Cas 1 : </strong></span>Supposons que l'utilisateur donné est ajouté pour ce test à l'aide de la commande <span class="emphasis"><em>vishnu_add_user et </em></span>que l'administrateur se substitue à l'utilisateur lors de l'ouverture de session avec l'option -s.</p><p>
+                        <span class="emphasis"><em></em></span>
+                      </p><p><span class="strong"><strong>Cas 2 : </strong></span>Supposons que l'administrateur liste les transferts de fichiers de l'utilisateur donné.</p><p></p></li><li class="listitem"><p>Créer deux fichiers file1 et file2 dans votre répertoire local.</p><p></p></li><li class="listitem"><p>Copier les fichiers file1 et file2 de votre répertoire<span class="emphasis"><em> </em></span>local vers un répertoire distant à l'aide du programme <span class="emphasis"><em>vishnu_copy_async_file</em></span>.</p><p></p></li></ol></div>
+                  <p>Cas 1 :</p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>vishnu_list_file_transfers</em></span> et vérifier que les deux transferts de fichiers sont retournés.</p><p></p><p>Cas 2 :</p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>vishnu_list_file_transfers</em></span> avec <span class="emphasis"><em>l'option -i</em></span> suivie de U_X et vérifier que les deux transferts de fichiers précédents s'affichent sont retournés.</p><p></p><p></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- La liste des fichiers en cours de transfert est affichée.</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>L'utilisateur qui effectue le cas de test est un administrateur</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>F2.LT1-E1:List all file transfers</p>
+                  <p>F2.LT1-E2:List all file transfers</p>
+                  <p>F2.LT1-E3:List all file transfers</p>
+                  <p>F2.LT2-E1:List all users file</p>
+                  <p>transfers</p>
+                  <p>F2.LT2-E2:List all users file</p>
+                  <p>F2.LT2-E3:List all users file</p>
+                  <p>F2.LT2-E4:List all users file</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas de test : paramètres non valides</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : le chemin du répertoire est invalide</p></li><li class="listitem"><p>Cas E2 : il manque des droits d' accès aux propriétés du fichier</p></li><li class="listitem"><p>Cas E3 : l'identifiant machine est invalide</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E4 : l'utilisateur n'est pas un administrateur</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer le programme<span class="emphasis"><em> vishnu_list_file_transfers </em></span>avec les cas d'exception précédents.</p><p></p></li><li class="listitem"><p>Vérifier que son exécution échoue avec le message d'erreur renvoyé.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                </td><td>
+                  
+                  
+                  
+                </td></tr></tbody></table></div></div></div><div class="section" title="Tests de stress"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp5138400"></a>Tests de stress</h2></div></div></div><div class="section" title="Présentation"><div class="titlepage"><div><div><h3 class="title"><a id="idp5139040"></a>Présentation</h3></div></div></div><p>Ces tests permettent de vérifier que la cible de test peut réussir à basculer et à récupérer pour différents dysfonctionnements matériels, logiciels ou réseaux sans qu'il y ait perte de données. Ils vérifient que lorsqu'une défaillance survient un système alternatif ou un système de sauvegarde prends le relai correctement sans perte de données ou de transactions.</p></div><div class="section" title="Environnement des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5140848"></a>Environnement des tests</h3></div></div></div><p>Nous utiliserons l'environnement de test 1 dans un environnement isolé (réseau et systèmes non partagés).</p></div><div class="section" title="Identifiants de tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5142224"></a>Identifiants de tests</h3></div></div></div><p>Les identifiants des tests sont de la forme: STR-&lt;Element stressé&gt;-&lt;Type de stress&gt;.</p></div><div class="section" title="Liste des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5143552"></a>Liste des tests</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="4.3cm" /><col width="6.9cm" /><col width="5.9cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Technique</p>
+                </td><td>
+                  
+                  <p>Critère de complétion</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>STR-SERV-DOWN</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer la commande de transfert de fichier</p>
+                  <p>- Arrêter le serveur FMS avant la fin d'exécution de la commande</p>
+                  <p>Cas 1 : Redémarrer le serveur FMS avant la fin de la copie</p>
+                  <p>Cas 2 : <span class="emphasis"><em></em></span><span class="emphasis"><em>Redémarrer le serveur </em></span><span class="emphasis"><em>F</em></span><span class="emphasis"><em>MS </em></span><span class="emphasis"><em>après la fin de la copie</em></span></p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Cas 1:Terminaison normale du transfert avec son statut mis à  COMPLETED  </p>
+                  <p>-Cas 2 : Statut du transfert mis à FAILED </p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>STR-AGENT-DOWN</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer la commande <span class="emphasis"><em>vishnu_copy_file</em></span></p>
+                  <p>- Arrêter l'agent SysFera-DS après l'exécution de la commande</p>
+                  <p>- Redémarrer l'agent SysFera-DS</p>
+                  <p>- Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>remove</em></span><span class="emphasis"><em>_</em></span><span class="emphasis"><em>file</em></span></p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Terminaison normale de la commande <span class="emphasis"><em>vishnu_remove_file</em></span></p>
+                </td></tr></tbody></table></div></div></div><div class="section" title="Contrôle des performances"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp5167552"></a>Contrôle des performances</h2></div></div></div><div class="section" title="Présentation"><div class="titlepage"><div><div><h3 class="title"><a id="idp5168256"></a>Présentation</h3></div></div></div><p>Ces tests ont pour objectif de vérifier que les exigences de performance quantifiées sont effectivement satisfaites. </p></div><div class="section" title="Environnement de tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5169648"></a>Environnement de tests</h3></div></div></div><p>Nous utiliserons l'environnement de test 1.</p></div><div class="section" title="Identifiants des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5170800"></a>Identifiants des tests</h3></div></div></div><p>Les identifiants des tests sont de la forme: CDP-&lt;ID STB&gt;-[NomdeCommande|IdentifiantDeTest] où 'ID STB' est l'identifiant de l'exigence spécifiée dans le document [STB] au paragraphe « performances, fiabilité et robustesse ». </p></div><div class="section" title="Liste des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5172448"></a>Liste des tests</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="5.2cm" /><col width="6.6cm" /><col width="5.3cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Technique</p>
+                </td><td>
+                  
+                  <p>Critère de completion</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDP-3.1-<span class="emphasis"><em>vishnu_copy_file</em></span></p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer une commande 'scp &lt;host&gt; &lt;fileToCopy&gt;' sur une machine serveur en mesurant le temps de réponse (temps de référence)</p>
+                  <p>- Lancer la commande<span class="emphasis"><em> </em></span><span class="emphasis"><em>vishnu_copy_file</em></span><span class="strong"><strong> </strong></span>en mesurant le temps de réponse</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>temps du même ordre que le temps de référence (valeur moyenne sur 10 itérations)</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDP-3.1-<span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>get_file_info</em></span></p>
+                </td><td>
+                  
+                  
+                  <p><span class="strong"><strong></strong></span>- Lancer une commande 'ssh &lt;host&gt; stat &lt;FileToDelete&gt;' sur une machine serveur en mesurant le temps de réponse (temps de référence).</p>
+                  <p>- Lancer la commande <span class="emphasis"><em>vishnu_</em></span><span class="emphasis"><em>get_fil</em></span><span class="emphasis"><em>e_</em></span><span class="emphasis"><em>info</em></span><span class="strong"><strong> </strong></span>en mesurant le temps de réponse</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>temps du même ordre que le temps de référence (valeur moyenne sur 10 itérations)</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDP-3.2.1-<span class="emphasis"><em>vishnu_copy_file</em></span></p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer la commande <span class="strong"><strong>vishnu_copy_file</strong></span> 100 fois </p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Consommation en mémoire virtuelle sur le serveur FMS inférieure à 500 Mégaoctets.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDP-3.2.2-<span class="emphasis"><em>vishnu_copy_file</em></span></p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer le serveur FMS</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Consommation CPU inférieure à 10%.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDP-MemServer</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer le serveur FMS</p>
+                  <p>- Laisser le serveur fonctionner sans utiliser les services pendant 24h</p>
+                  <p>- Vérifier que l'espace mémoire consommé par le processus serveur n'a pas augmenté.</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Consommation mémoire constante.</p>
+                </td></tr></tbody></table></div></div></div><div class="section" title="Tests de charge"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp5211888"></a>Tests de charge</h2></div></div></div><div class="section" title="Présentation"><div class="titlepage"><div><div><h3 class="title"><a id="idp5212528"></a>Présentation</h3></div></div></div><p>Les tests de charge ont pour objectif de vérifier que les exigences de capacité du système sont vérifiées.</p></div><div class="section" title="Environnement de tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5213904"></a>Environnement de tests</h3></div></div></div><p>Nous utiliserons l'environnement de test 1 avec un nombre de clients ou de serveurs tels que spécifié dans le cas de tests. Ces clients ou serveurs seront simulés sur une seule machine.</p><p>Par ailleurs, les requêtes envoyées en simultané seront en fait envoyées par une seule machine cliente avec un programme de synchronisation (MPI).</p></div><div class="section" title="Identifiants de tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5216128"></a>Identifiants de tests</h3></div></div></div><p>Les identifiants des tests sont de la forme: LOAD-&lt;ID STB&gt;-[NomdeCommande|IdentifiantDeTest] où 'ID STB' est l'identifiant de l'exigence spécifiée dans le document [STB]. </p></div><div class="section" title="Liste des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5217648"></a>Liste des tests</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="5.4cm" /><col width="6cm" /><col width="5.7cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Technique</p>
+                </td><td>
+                  
+                  <p>Résultats attendus</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>LOAD-2.1-vishnu_create_file</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer 100 commandes <span class="emphasis"><em>vishnu_create_file</em></span> simultanées</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Terminaison normale de toutes les commandes</p>
+                  <p>- Etat normal du serveur FMS</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>LOAD-2.1-vishnu_list_file_transfers</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer 100 commandes <span class="emphasis"><em>vishnu_liste_file_tranfers</em></span><span class="strong"><strong> </strong></span>simultanées</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Terminaison normale de toutes les commandes</p>
+                  <p>- Etat normal du serveur FMS</p>
+                </td></tr></tbody></table></div></div></div><div class="section" title="Contrôle de la qualité du code"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp5237488"></a>Contrôle de la qualité du code</h2></div></div></div><div class="section" title="Présentation"><div class="titlepage"><div><div><h3 class="title"><a id="idp5238208"></a>Présentation</h3></div></div></div><p>L'objectif de ces tests est de vérifier que le code source (C/C++ ou Java) respecte les contraintes de qualité logiciel fixées dans les spécifications et le cahier des charges.</p></div><div class="section" title="Identifiants des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5239728"></a>Identifiants des tests</h3></div></div></div><p>Les identifiants des tests sont de la forme: [IdentifiantDeTest]-[IdentifiantDesModules] où les identifiants sont les suivants:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Identifiants de tests</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>CRP: Conformité aux Règles de Programmation</p></li><li class="listitem"><p>MCC: Mesure de la Complexité du Code</p></li><li class="listitem"><p>DDC: Détection de Duplication du Code</p></li></ul></div></li><li class="listitem"><p>Identifiants de modules</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>CSC : C/C++ source code</p></li><li class="listitem"><p>JSC : Java source code</p></li></ul></div></li></ul></div></div><div class="section" title="Liste des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5247840"></a>Liste des tests</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="4.4cm" /><col width="6.3cm" /><col width="6.4cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Technique</p>
+                </td><td>
+                  
+                  <p>Résultats attendus</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CRP-CSC</p>
+                </td><td>
+                  
+                  
+                  <p>Audit du code C/C++ avec l'outil LOGISCOPE</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Le code respecte toutes les règles de codage de catégorie «REQUIRED » spécifiées pour le projet [SCL] sauf dérogation clairement documentée dans le code. </p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CRP-JSC</p>
+                </td><td>
+                  
+                  
+                  <p>Audit du code Java avec l'outil LOGISCOPE</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Le code respecte toutes les règles de codage de catégorie «REQUIRED » spécifiées pour le projet [SCL] sauf dérogation clairement documentée dans le code. </p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>MCC-CSC</p>
+                </td><td>
+                  
+                  
+                  <p>Audit du code C/C++ avec l'outil SQUORE</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Pas plus de 1% de composants classés « A risque » </p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>MCC-JSC</p>
+                </td><td>
+                  
+                  
+                  <p>Audit du code Java avec l'outil SQUORE</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Pas plus de 1% de composants classés « A risque » </p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>DDC-CSC</p>
+                </td><td>
+                  
+                  
+                  <p>Audit du code C/C++ avec l'outil SQUORE</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Moins de 10% de code dupliqué. </p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>DDC-JSC</p>
+                </td><td>
+                  
+                  
+                  <p>Audit du code Java avec l'outil SQUORE</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Moins de 10% de code dupliqué. </p>
+                </td></tr></tbody></table></div></div></div><div class="section" title="Tests de compilation et d'installation"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp5284752"></a>Tests de compilation et d'installation</h2></div></div></div><div class="section" title="Présentation"><div class="titlepage"><div><div><h3 class="title"><a id="idp5285392"></a>Présentation</h3></div></div></div><p>La compilation des différents exécutables et librairies composant le module UMS sera réalisée par un serveur d'intégration continue (du type HUDSON).</p><p>Par ailleurs les tests d'installation ont pour objectif de valider la procédure d'installation de l'ensemble des différents composants d'une plateforme VISHNU (clients, serveurs, agents SysFera-DS).</p></div><div class="section" title="Environnement des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5287664"></a>Environnement des tests</h3></div></div></div><p>Nous utiliserons les deux environnement de tests pour la compilation et l'installation.</p></div><div class="section" title="Liste des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5288912"></a>Liste des tests</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="4.4cm" /><col width="6.3cm" /><col width="6.4cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Technique</p>
+                </td><td>
+                  
+                  <p>Résultats attendus</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>COMP-CSC</p>
+                </td><td>
+                  
+                  
+                  <p>Compilation du code C/C++ avec l'outil GCC/CMake</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Compilation correcte de tous les exécutables</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>INS-SERVER-PGSQL</p>
+                  <p>INS-SERVER-ORACLE</p>
+                </td><td>
+                  
+                  
+                  <p>Installation des différents éléments serveur de la plateforme VISHNU</p>
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>serveur de calcul</p></li><li class="listitem"><p>serveur de stockage</p></li><li class="listitem"><p>serveur dédié VISHNU</p></li><li class="listitem"><p>serveur de base de données</p></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Tous les processus démarrés et operationnels</p>
+                  <p>- Documentation disponible (pages man)</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>INS-CLI</p>
+                </td><td>
+                  
+                  
+                  <p>Installation du client VISHNU en ligne de commande</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Toutes les commandes installées</p>
+                  <p>- Documentation disponible (pages man)</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>INS-PGAPI</p>
+                </td><td>
+                  
+                  
+                  <p>Installation des librairies API VISHNU (C++ et Python)</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Librairie C++ installée</p>
+                  <p>- Librairie Python installée et pouvant être chargée dans l'interpréteur Python 2.x</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>INS-WSAPI</p>
+                </td><td>
+                  
+                  
+                  <p>Installation des services web VISHNU sur le serveur JBoss</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Services operationnels (contrôle via la console webservices de JBoss)</p>
+                </td></tr></tbody></table></div></div></div><div class="section" title="Contrôle de la documentation utilisateur"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp5326304"></a>Contrôle de la documentation utilisateur</h2></div></div></div><div class="section" title="Présentation"><div class="titlepage"><div><div><h3 class="title"><a id="idp5326944"></a>Présentation</h3></div></div></div><p>L'objectif est de vérifier que la documentation utilisateur permet à l'utilisateur de comprendre et d'utiliser les fonctions spécifiées.</p></div><div class="section" title="Liste des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5328384"></a>Liste des tests</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="4.4cm" /><col width="6.3cm" /><col width="6.4cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Technique</p>
+                </td><td>
+                  
+                  <p>Résultats attendus</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDU-MAN</p>
+                </td><td>
+                  
+                  
+                  <p>Vérifier les pages de manuel attachées à chaque commande</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Toutes les pages de manuel contiennent toutes les informations nécessaires à l'utilisateur pour utiliser les commandes.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDU-USERGUIDE</p>
+                </td><td>
+                  
+                  
+                  <p>Suivre le guide de l'utilisateur </p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Le guide permet une prise en main rapide des fonctions du logiciel</p>
+                </td></tr></tbody></table></div></div></div></div></div></body></html>

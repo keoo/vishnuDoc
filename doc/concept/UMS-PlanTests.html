@@ -1,0 +1,1841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Plan de tests UMS</title><meta name="generator" content="DocBook XSL Stylesheets V1.75.2" /></head><body><div xml:lang="fr-FR" class="book" title="Plan de tests UMS" lang="fr-FR"><div class="titlepage"><div><div><h1 class="title"><a id="idp4325952"></a>Plan de tests UMS</h1></div><div><div class="author"><h3 class="author"><span class="firstname">Benjamin</span> <span class="surname">Isnard</span></h3></div></div><div><div class="author"><h3 class="author"><span class="firstname">Daouda</span> <span class="surname">Traoré</span></h3></div></div><div><div class="author"><h3 class="author"><span class="firstname">Eugène</span> <span class="surname">Pamba Capo-Chichi</span></h3></div></div><div><div class="author"><h3 class="author"><span class="firstname">Kevin</span> <span class="surname">Coulomb</span></h3></div></div><div><div class="author"><h3 class="author"><span class="firstname">Rodrigue</span> <span class="surname">Chakode</span></h3></div></div><div><div class="author"><h3 class="author"><span class="firstname">Benjamin</span> <span class="surname">Depardon</span></h3></div></div><div><div class="revhistory"><table border="1" width="100%" summary="Revision history"><tr><th align="left" valign="top" colspan="3"><b>Historique des versions</b></th></tr><tr><td align="left">Version 1</td><td align="left">25/01/11</td><td align="left">B. Isnard, D. Traoré, E. Capo-Chichi</td></tr><tr><td align="left" colspan="3">
+          <p>
+            Version initiale
+          </p>
+        </td></tr><tr><td align="left">Version 2</td><td align="left">14/12/11</td><td align="left">D. Traoré</td></tr><tr><td align="left" colspan="3">
+          <p>
+            Prise en compte de l'expression des besoins d'évolution de
+            VISHNU : ajout des cas de tests U1.1-B2:connect, U1.1-E3:connect,
+            U1.1-E4:connect, U1.1-E5:connect ,U1.1-E6:connect, U1.1-E7:connect ,
+            U1.5-B2:reconnect,  U1.5-E1:reconnect, U1.5-E2:reconnect,
+            U1.5-E3:reconnect, U1.5-E4:reconnect, U1.5-E5:reconnect,
+            U1.5-E6:reconnect et U1.5-E7:reconnect
+        </p>
+        </td></tr><tr><td align="left">Version 3</td><td align="left">27/01/12</td><td align="left">E. Capo-Chichi</td></tr><tr><td align="left" colspan="3">
+          <p>
+            Ajout du support LDAP dans VISHNU :
+            </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>modification des cas de tests :  U1.1-B2:connect , U1.5-B2:reconnect</p></li><li class="listitem"><p>Ajout des cas de tests : 
+                  U1.1-E8:connect, U1.5-E8:reconnect, 
+                  UA8-B : addAuthenticationSystem, 
+                  UA8.1-B : updateAuthenticationSystem, 
+                  UA8.2-B : deleteAuthenticationSystem, 
+                  U5 - B : listAuthenticationSystem, 
+                  U6 - B1 : addAuthAccount, 
+                  U6 - B2 : addAuthAccount, 
+                  U6.1 - B1 : updateAuthAccount,
+                  U6.1 - B2 : updateAuthAccount,  
+                  U6.2 - B1 : deleteAuthAccount,
+                  U6.2 - B2 : deleteAuthAccount,  
+                  U6.3 – B1 : listAuthAccounts, 
+                  U6.3 – B2 : listAuthAccounts 
+                </p></li><li class="listitem"><p>Ajout des cas d'exception correspondant au cas de tests précédents :
+                  UA8-E1:addAuthenticationSystem,
+                  UA8-E2:addAuthenticationSystem,
+                  UA8-E3:addAuthenticationSystem,
+                  UA8-E4:addAuthenticationSystem,
+                  UA8.1-E1:updateAuthenticationSystem,
+                  UA8.1-E2:updateAuthenticationSystem,
+                  UA8.1-E3:updateAuthenticationSystem,
+                  UA8.1-E4:updateAuthenticationSystem,
+                  UA8.2-E1:deleteAuthenticationSystem,
+                  U5-E1:listAuthenticationSystem,
+                  U6-E1:addAuthAccount,U6-E2:addAuthAccount,
+                  U6-E3:addAuthAccount, -E1:updateAuthAccount,
+                  U6.1-E2:updateAuthAccount, U6.1-E3:updateAuthAccoun,
+                  U6.1-E4:updateAuthAccount, U6.2-E1 : deleteAuthAccount, U6.2-E2:
+                  deleteAuthAccount,
+                  U6.2-E3: deleteAuthAccount,
+                  U6.2-E4: deleteAuthAccount, U6.3-E1:listAuthAccounts,
+                  U6.3-E2:listAuthAccounts
+                </p></li></ul></div><p>
+          </p>
+        </td></tr><tr><td align="left">Version 4</td><td align="left">06/03/12</td><td align="left">E. Capo-Chichi</td></tr><tr><td align="left" colspan="3">
+          <p>
+            Ajout des cas d'exception prenant en compte la variable $USERNAME
+            dans la définition des bases LDAP :
+            UA8-E5:addAuthenticationSystem,UA8.1-E5:updateAuthenticationSystem
+        </p>
+        </td></tr><tr><td align="left">Version 5</td><td align="left">03/09/12</td><td align="left">E. Capo-Chichi</td></tr><tr><td align="left" colspan="3">
+          <p>
+            Ajout des tests de compatibilités de version clients/serveurs
+        </p>
+        </td></tr><tr><td align="left">Version 6</td><td align="left">01/10/12</td><td align="left">E. Capo-Chichi</td></tr><tr><td align="left" colspan="3">
+          <p>
+            Ajout d'une variante de UA4-B:restoreConfig lorsque des données du
+            WebBoard sont enregistrées (cf. bugzilla 410)
+        </p>
+        </td></tr><tr><td align="left">Version 7</td><td align="left">21/01/13</td><td align="left">B. Depardon</td></tr><tr><td align="left" colspan="3">
+          <p>
+            Passage au format docbook de base. Problèmes de compilation réglés.
+          </p>
+        </td></tr></table></div></div></div><hr /></div><div class="toc"><p><b>Table des matières</b></p><dl><dt><span class="chapter"><a href="#idp4360496">1. Références</a></span></dt><dt><span class="chapter"><a href="#idp4364992">2. Présentation du document</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4365632">Objectifs du document</a></span></dt><dt><span class="section"><a href="#idp4370752">Structure du document</a></span></dt><dt><span class="section"><a href="#idp4373504">Glossaire, abréviations et acronymes</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4374144">Glossaire</a></span></dt><dt><span class="section"><a href="#idp4377600">Acronymes</a></span></dt><dt><span class="section"><a href="#idp4382592">Abréviations</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#idp4387072">3. Environnements et outils de tests</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4387712">Environnements de tests</a></span></dt><dt><span class="section"><a href="#idp4402064">Outils de tests </a></span></dt></dl></dd><dt><span class="chapter"><a href="#idp4407664">4. Cycle de vie du test</a></span></dt><dt><span class="chapter"><a href="#idp4411840">5. Liste des tests</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4412480">Tests fonctionnels</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4430080">Identifiant de tests</a></span></dt><dt><span class="section"><a href="#idp4431920">Tests de la Catégorie 1</a></span></dt><dt><span class="section"><a href="#idp4727216">Tests de la catégorie 2</a></span></dt><dt><span class="section"><a href="#idp4907584">Tests de la catégorie 3</a></span></dt><dt><span class="section"><a href="#idp5127280">Tests de catégorie 4</a></span></dt><dt><span class="section"><a href="#idp5218960">Tests de catégorie 5</a></span></dt><dt><span class="section"><a href="#idp5307520">Tests de catégorie 6</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5433104">Tests de stress</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5433744">Présentation</a></span></dt><dt><span class="section"><a href="#idp5435552">Environnement des tests</a></span></dt><dt><span class="section"><a href="#idp5436928">Identifiants de tests</a></span></dt><dt><span class="section"><a href="#idp5438080">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5460544">Contrôle des performances</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5461248">Présentation</a></span></dt><dt><span class="section"><a href="#idp5462640">Environnement de tests</a></span></dt><dt><span class="section"><a href="#idp5464016">Identifiants des tests</a></span></dt><dt><span class="section"><a href="#idp5465840">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5506512">Tests de charge</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5507152">Présentation</a></span></dt><dt><span class="section"><a href="#idp5508528">Environnement de tests</a></span></dt><dt><span class="section"><a href="#idp5510752">Identifiants de tests</a></span></dt><dt><span class="section"><a href="#idp5512272">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5555024">Contrôle de la qualité du code</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5555744">Présentation</a></span></dt><dt><span class="section"><a href="#idp5557264">Identifiants des tests</a></span></dt><dt><span class="section"><a href="#idp5565376">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5602288">Tests de compilation et d'installation</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5602928">Présentation</a></span></dt><dt><span class="section"><a href="#idp5605200">Environnement des tests</a></span></dt><dt><span class="section"><a href="#idp5606448">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5643840">Contrôle de la documentation utilisateur</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5644480">Présentation</a></span></dt><dt><span class="section"><a href="#idp5645920">Liste des tests</a></span></dt></dl></dd></dl></dd></dl></div><div class="list-of-figures"><p><b>Liste des illustrations</b></p><dl><dt>4.1. <a href="#refIllustration0">: Schema du test</a></dt></dl></div><div class="chapter" title="Chapitre 1. Références"><div class="titlepage"><div><div><h2 class="title"><a id="idp4360496"></a>Chapitre 1. Références</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>VISHNU_D1_1e-POL-TESTS : Politique de tests du projet VISHNU</p></li><li class="listitem"><p>VISHNU_D1_1a-SPECSGEN : Spécifications générales du projet VISHNU</p></li><li class="listitem"><p>VISHNU_D1_1b-STB : Spécifications Techniques des besoins</p></li><li class="listitem"><p>VISHNU_D1_1g-ARCH : VISHNU Technical Architecture</p></li></ul></div></div><div class="chapter" title="Chapitre 2. Présentation du document"><div class="titlepage"><div><div><h2 class="title"><a id="idp4364992"></a>Chapitre 2. Présentation du document</h2></div></div></div><div class="toc"><p><b>Table des matières</b></p><dl><dt><span class="section"><a href="#idp4365632">Objectifs du document</a></span></dt><dt><span class="section"><a href="#idp4370752">Structure du document</a></span></dt><dt><span class="section"><a href="#idp4373504">Glossaire, abréviations et acronymes</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4374144">Glossaire</a></span></dt><dt><span class="section"><a href="#idp4377600">Acronymes</a></span></dt><dt><span class="section"><a href="#idp4382592">Abréviations</a></span></dt></dl></dd></dl></div><div class="section" title="Objectifs du document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp4365632"></a>Objectifs du document</h2></div></div></div><p>Les objectifs de ce document sont les suivants :</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Présenter les fonctionnalités du module UMS à tester.</p></li><li class="listitem"><p>Présenter les différents types de tests permettant de valider les cas d'utilisation de chaque fonctionnalité du module UMS.</p></li><li class="listitem"><p>Présenter les méthodes et outils utilisés pour ces tests.</p></li><li class="listitem"><p>Donner des détails de l'environnement de test</p></li></ul></div></div><div class="section" title="Structure du document"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp4370752"></a>Structure du document</h2></div></div></div><p>Le chapitre 1 présente le document.</p><p>Le chapitre 2 présente les environnements et outils de tests.</p><p>La chapitre 3 décrit la liste des tests qui s'appliquent aux fonctionnalités à tester.</p><p>La chapitre 4 présente les outils utilisés pour ces tests.</p></div><div class="section" title="Glossaire, abréviations et acronymes"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp4373504"></a>Glossaire, abréviations et acronymes</h2></div></div></div><div class="section" title="Glossaire"><div class="titlepage"><div><div><h3 class="title"><a id="idp4374144"></a>Glossaire</h3></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p><span class="strong"><strong>Script de test</strong></span> : c'est un programme qui contient les instructions permettant de réaliser les tests.</p></li><li class="listitem"><p><span class="strong"><strong>Certificat</strong></span> : correspond à la clé de session (identifiant de session crypté)</p></li></ul></div></div><div class="section" title="Acronymes"><div class="titlepage"><div><div><h3 class="title"><a id="idp4377600"></a>Acronymes</h3></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>STB : Spécification Technique des Besoins</p></li><li class="listitem"><p>DSG : Document de Spécification générale</p></li><li class="listitem"><p>DSD : Document de Spécification Détaillées</p></li><li class="listitem"><p>API : Application Programming Interface (Interface de programmation d'applications)</p></li><li class="listitem"><p>MPI : Message Passing Interface</p></li></ul></div></div><div class="section" title="Abréviations"><div class="titlepage"><div><div><h3 class="title"><a id="idp4382592"></a>Abréviations</h3></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Id. Identifiant</p></li><li class="listitem"><p>Réf.Référence</p></li><li class="listitem"><p>Rel.#Numéro de release/version</p></li><li class="listitem"><p>Resp.Responsable(s)</p></li></ul></div></div></div></div><div class="chapter" title="Chapitre 3. Environnements et outils de tests"><div class="titlepage"><div><div><h2 class="title"><a id="idp4387072"></a>Chapitre 3. Environnements et outils de tests</h2></div></div></div><div class="toc"><p><b>Table des matières</b></p><dl><dt><span class="section"><a href="#idp4387712">Environnements de tests</a></span></dt><dt><span class="section"><a href="#idp4402064">Outils de tests </a></span></dt></dl></div><div class="section" title="Environnements de tests"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp4387712"></a>Environnements de tests</h2></div></div></div><p>Pour ces tests nous allons utiliser les deux environnements tests suivants :</p><p>Environnement test 1:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Système d'exploitation : c'est le système linux qui sera installé sur toutes les machines clientes et serveurs.</p></li><li class="listitem"><p>Nombre de machines clientes : au moins 1 machine cliente décrite dans [STB] pour pouvoir lancer des tests à distance (selon le cas de test).</p></li><li class="listitem"><p>Deux serveurs UMS décrit dans [STB].</p></li><li class="listitem"><p>Un serveur SysFera-DS dédié décrit dans [STB].</p></li><li class="listitem"><p>Un serveur de base de donnée Oracle 11.2.0.2.</p></li><li class="listitem"><p>Un serveur web JBOSS décrit dans [STB].</p></li></ul></div><p>Environnement test 2:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Système d'exploitation : c'est le système linux qui sera installé sur toutes les machines clientes et serveurs.</p></li><li class="listitem"><p>Nombre de machines clientes : au moins 1 machine cliente décrite dans [STB] pour pouvoir lancer des tests à distance (selon le cas de test).</p></li><li class="listitem"><p>Deux serveurs UMS décrit dans [STB].</p></li><li class="listitem"><p>Un serveur SysFera-DS dédié décrit dans [STB].</p></li><li class="listitem"><p>Un serveur de base de donnée PostgreSQL.</p></li><li class="listitem"><p>Un serveur web JBOSS décrit dans [STB].</p></li></ul></div><p>Pour chacun des environnements, nous allons utiliser une base de données avec 100 utilisateurs, 10 machines serveurs,</p><p>10 000 sessions et 100 000 enregistrements de commandes utilisateurs. </p></div><div class="section" title="Outils de tests"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp4402064"></a>Outils de tests </h2></div></div></div><p>Les outils suivants seront utilisés pour les tests :</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Hudson (serveur d'intégration) sera utilisé pour les tests d'intégration continue (compilation, installation).</p></li><li class="listitem"><p>Boost test sera utilisé pour la réalisation des tests unitaires. </p></li><li class="listitem"><p>Des scripts batchs seront utilisés pour la réalisation des scripts de tests, des tests fonctionnels.</p></li><li class="listitem"><p>Squore et Logiscope seront utilisés régulièrement pour la qualité du code.</p></li></ul></div></div></div><div class="chapter" title="Chapitre 4. Cycle de vie du test"><div class="titlepage"><div><div><h2 class="title"><a id="idp4407664"></a>Chapitre 4. Cycle de vie du test</h2></div></div></div><p>Le schéma suivant donne une vue du plan de test sur un test à réaliser jusqu'à la réalisation du </p><p>rapport de test :</p><div class="figure"><a id="refIllustration0"></a><p class="title"><b>Figure 4.1. : Schema du test</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/img001.jpg" alt=": Schema du test" /></div></div></div><br class="figure-break" /></div><div class="chapter" title="Chapitre 5. Liste des tests"><div class="titlepage"><div><div><h2 class="title"><a id="idp4411840"></a>Chapitre 5. Liste des tests</h2></div></div></div><div class="toc"><p><b>Table des matières</b></p><dl><dt><span class="section"><a href="#idp4412480">Tests fonctionnels</a></span></dt><dd><dl><dt><span class="section"><a href="#idp4430080">Identifiant de tests</a></span></dt><dt><span class="section"><a href="#idp4431920">Tests de la Catégorie 1</a></span></dt><dt><span class="section"><a href="#idp4727216">Tests de la catégorie 2</a></span></dt><dt><span class="section"><a href="#idp4907584">Tests de la catégorie 3</a></span></dt><dt><span class="section"><a href="#idp5127280">Tests de catégorie 4</a></span></dt><dt><span class="section"><a href="#idp5218960">Tests de catégorie 5</a></span></dt><dt><span class="section"><a href="#idp5307520">Tests de catégorie 6</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5433104">Tests de stress</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5433744">Présentation</a></span></dt><dt><span class="section"><a href="#idp5435552">Environnement des tests</a></span></dt><dt><span class="section"><a href="#idp5436928">Identifiants de tests</a></span></dt><dt><span class="section"><a href="#idp5438080">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5460544">Contrôle des performances</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5461248">Présentation</a></span></dt><dt><span class="section"><a href="#idp5462640">Environnement de tests</a></span></dt><dt><span class="section"><a href="#idp5464016">Identifiants des tests</a></span></dt><dt><span class="section"><a href="#idp5465840">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5506512">Tests de charge</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5507152">Présentation</a></span></dt><dt><span class="section"><a href="#idp5508528">Environnement de tests</a></span></dt><dt><span class="section"><a href="#idp5510752">Identifiants de tests</a></span></dt><dt><span class="section"><a href="#idp5512272">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5555024">Contrôle de la qualité du code</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5555744">Présentation</a></span></dt><dt><span class="section"><a href="#idp5557264">Identifiants des tests</a></span></dt><dt><span class="section"><a href="#idp5565376">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5602288">Tests de compilation et d'installation</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5602928">Présentation</a></span></dt><dt><span class="section"><a href="#idp5605200">Environnement des tests</a></span></dt><dt><span class="section"><a href="#idp5606448">Liste des tests</a></span></dt></dl></dd><dt><span class="section"><a href="#idp5643840">Contrôle de la documentation utilisateur</a></span></dt><dd><dl><dt><span class="section"><a href="#idp5644480">Présentation</a></span></dt><dt><span class="section"><a href="#idp5645920">Liste des tests</a></span></dt></dl></dd></dl></div><div class="section" title="Tests fonctionnels"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp4412480"></a>Tests fonctionnels</h2></div></div></div><p>Les tests fonctionnels ou tests de boites noires permettent à partir des données en entrée d'observer les réactions du logiciel à tester.</p><p>Les fonctionnalités (<span class="emphasis"><em>fonctions API/C++ et API/Python, ligne de commande utilisateur, API web service</em></span>) sont classées par catégories de tests. A chaque catégorie correspond un ensemble de fonctionnalités. Les catégories de tests sont les suivantes :</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Catégorie 1 : regroupe les fonctionnalités permettant la gestion des sessions qui sont :<span class="emphasis"><em> connect, reconnect, listSessions, listHistoryCmd et close.</em></span></p></li><li class="listitem"><p>Catégorie 2 : regroupe les fonctionnalités permettant la gestion des utilisateurs qui sont : <span class="emphasis"><em>addVishnuUser, updateUser, deleteUser, listUsers, changePassword et resetPassword.</em></span></p></li><li class="listitem"><p>Catégorie 3 : regroupe les fonctionnalités permettant la gestion des configurations qui sont : <span class="emphasis"><em>addLocalAccount, updateLocalAccount, deleteLocalAccount, ListLocalAccount,</em></span> <span class="emphasis"><em>saveConfiguration, restoreConfiguration, configureDefaultOption et listOptions.</em></span></p></li><li class="listitem"><p>Catégorie 4 : regroupe les fonctionnalités permettant la gestion des machines qui sont : <span class="emphasis"><em>addMachine, updateMachine, deleteMachine et listMachines.</em></span></p></li><li class="listitem"><p>Catégorie 5 : regroupe les fonctionnalités permettant la gestion des systèmes d'authentification utilisateurs qui sont :<span class="emphasis"><em> add</em></span><span class="emphasis"><em>AuthenticationSystem</em></span><span class="emphasis"><em>, update</em></span><span class="emphasis"><em>AuthenticationSystem</em></span><span class="emphasis"><em>, delete</em></span><span class="emphasis"><em>AuthenticationSystem</em></span><span class="emphasis"><em> et list</em></span><span class="emphasis"><em>AuthenticationSystem</em></span><span class="emphasis"><em>.</em></span></p></li><li class="listitem"><p>Catégorie 6 : regroupe les fonctionnalités permettant la gestion des configurations associés aux systèmes d'authentification utilisateurs  :<span class="emphasis"><em> add</em></span><span class="emphasis"><em>AuthAccount</em></span><span class="emphasis"><em>, update</em></span><span class="emphasis"><em>AuthAccount</em></span><span class="emphasis"><em>, delete</em></span><span class="emphasis"><em>AuthAccount</em></span><span class="emphasis"><em> et listAuthAccounts</em></span><span class="emphasis"><em>.</em></span></p></li></ul></div><p>Nous allons dans cette section présenter les différentes stratégies de tests en utilisant des programmes exécutables ou des fonctions de l'API UMS puis en observant les résultats obtenus. Les deux conditions à vérifier sont :</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Est ce que le programme réalise les fonctions attendues en accord avec les spécifications?</p></li><li class="listitem"><p>Est ce que le programme fonctionne correctement ?</p></li></ul></div><div class="section" title="Identifiant de tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp4430080"></a>Identifiant de tests</h3></div></div></div><p>Les identifiants des tests sont de la forme: &lt;ID DSG&gt;-[B|E] où 'ID DSG' est l'identifiant du cas d'utilisation dans le document [SDG] , 'B' la séquence de base (exécution du cas d'utilisation avec des paramètres valides) et 'E' la séquence d'exécution (comportement du cas d'utilisation en cas d'erreurs) </p></div><div class="section" title="Tests de la Catégorie 1"><div class="titlepage"><div><div><h3 class="title"><a id="idp4431920"></a>Tests de la Catégorie 1</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="2.9cm" /><col width="9cm" /><col width="3.2cm" /><col width="2cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Actions</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Résultats</p>
+                </td><td>
+                  
+                  <p>Considérations particulières</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.1-B1:connect </p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> 1: les paramètres sont corrects et enregistrés dans la base de données.</p></li><li class="listitem"><p>Vérifier qu'il n'y a aucune session ouverte sur la machine de test. Sinon désactiver la session ouverte.</p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>connect</em></span> avec comme paramètres le userId (login) et le mot de passe de l'utilisateur. </p></li><li class="listitem"><p>Un certificat de session est créé et envoyé à l'utilisateur.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listSessions</em></span><span class="emphasis"><em> </em></span>avec la valeur du certificat retourné. Si le certificat est valide, l'exécution de <span class="emphasis"><em>listSessions</em></span> réussit donc la connexion est validée.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="6" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                  <p>La durée d'inactivité de la session doit avoir une valeur assez élevée pour permettre l'exécution du test dans de bonnes conditions </p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.1-B2:connect </p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : utilisation du fichier .netrc. Les paramètres du fichier .netrc sont corrects et enregistrés dans la base de données.</p><p>Cas 1 : Connect avec userId et mot de passe vides</p></li><li class="listitem"><p>Vérifier qu'il n'y a aucune session ouverte sur la machine de test. Sinon désactiver la session ouverte.</p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>connect</em></span> sans donner en entrée le userId <span><a id="__DdeLink__4608_337821222"></a></span>(login) et le mot de passe de l'utilisateur (ou donner des chaînes vides si c'est l'interface C++ ou Python qui est utilisées). </p></li><li class="listitem"><p>Un certificat de session est créé et envoyé à l'utilisateur. Lancer la commande <span class="emphasis"><em>listSessions</em></span><span class="emphasis"><em> </em></span>avec la valeur du certificat retourné. Si le certificat est valide, l'exécution de <span class="emphasis"><em>listSessions</em></span> réussit donc la connexion est validée.</p><p>Cas 2 : Connect avec une liste de couples (userId, mot de passe)</p></li><li class="listitem"><p><span class="strong"><strong></strong></span>Vérifier qu'il n'y a aucune session ouverte sur la machine de test. Sinon désactiver la session ouverte.</p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>connect</em></span> avec une liste de couples userId (login)/ mot de passe et au moins un couple enregistré dans la base de données.</p></li><li class="listitem"><p>Un certificat de session est créé et envoyé à l'utilisateur. Lancer la commande <span class="emphasis"><em>listSessions</em></span><span class="emphasis"><em> </em></span>avec la valeur du certificat retourné. Si le certificat est valide, l'exécution de <span class="emphasis"><em>listSessions</em></span> réussit donc la connexion est validée.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="8" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                  <p>La durée d'inactivité de la session doit avoir une valeur assez élevée pour permettre l'exécution du test dans de bonnes conditions</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.1-E1:connect </p>
+                  <p class="lineBreak">U1.1-E2:connect</p>
+                  <p>U1.1-E3:connect U1.1-E4:connect</p>
+                  <p>U1.1-E5:connect U1.1-E6:connect </p>
+                  <p>U1.1-E7:connect</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : l'identifiant de l'utilisateur est invalide</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E2 : mot de passe incorrect.</p></li><li class="listitem"><p>Cas E3 : le fichier .netrc est introuvable.</p></li><li class="listitem"><p>Cas E4 : les droits d'accès au fichier .netrc sont différents de 600.</p></li><li class="listitem"><p>Cas E5 : la machine vishnu est introuvable dans le fichier .netrc.</p></li><li class="listitem"><p>Cas E6 : le login n'est pas défini ou ne précède pas le mot de passe dans le fichier .netrc.</p></li><li class="listitem"><p>Cas E7 : le mot de passe n'est pas défini dans le fichier .netrc. </p></li><li class="listitem"><p>Cas E8 : Aucun couple dans la liste de couple (userId, mot de passe) n'est présent dans la base de données.</p></li></ul></div></li><li class="listitem"><p>Vérifier qu'il n'y a aucune session ouverte sur la machine de test. Sinon désactiver la session ouverte.</p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>connect </em></span>avec le cas de test correspondant (E1, E2, E3, E4, E5, E6, E7, E8).</p></li><li class="listitem"><p>Lancer une commande (<span class="emphasis"><em>listSessions</em></span>) et vérifier que son exécution échoue.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="5" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1-B1:close </p>
+                  <p>U1-B2:close </p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: les paramètres sont corrects et enregistrés dans la base de données.</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas B1-close : l'option CLOSE_ON_DISCONNECT fixée à vrai</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas B2-close : l'option CLOSE_ON_TIMEOUT est fixée à vrai</p></li></ul></div></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Vérifier qu'il n'y a aucune session ouverte sur la machine de test. Sinon désactiver la session ouverte.</p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>connect</em></span> avec comme paramètres le login et le mot de passe de l'utilisateur et l'option choisie. </p></li><li class="listitem"><p>Un certificat de session est créé et envoyé à l'utilisateur.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listSessions</em></span><span class="emphasis"><em> </em></span>avec la valeur du certificat retourné. Si le certificat est valide, l'exécution de <span class="emphasis"><em>listSessions</em></span> réussit (Ceci permet de vérifier que la session a été correctement ouverte).</p></li></ol></div>
+                  <p><span class="strong"><strong>Pour le cas B1 </strong></span>:</p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Fermer le poste ou le terminal sur lequel le programme <span class="emphasis"><em>connect </em></span>a été lancé.</p></li><li class="listitem"><p>Démarrer le poste client ou le terminal et vérifier que l'exécution d'un programme échoue (ex :<span class="emphasis"><em> listSessions</em></span>) .</p></li></ol></div>
+                  <p>Pour le cas B2 : </p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Ne lancer aucun programme pendant un certain temps (temps supérieur au temps d'inactivité fixé).</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listSessions </em></span>et vérifier que son exécution échoue.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="3" type="1"></ol></div></li></ul></div>
+                  <p><span class="strong"><strong>Cas B2</strong></span> : </p>
+                  <p>- La session a été fermée automatiquement après le temps d'inactivité fixé</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.1-E1:connect </p>
+                  <p>U1-E1:close</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test : </strong></span>paramètres non valides</p></li></ol></div>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Cas E1 : l'option de fermeture est inconnue</p></li><li class="listitem"><p>Cas E2 : aucune session n'est ouverte</p></li></ul></div></li><li class="listitem"><p>Vérifier qu'il n'y a aucune session ouverte sur la machine de test. Sinon désactiver la session ouverte.</p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>connect </em></span>avec le cas de test correspondant.</p></li><li class="listitem"><p>Aucun certificat de session n'est crée.</p></li><li class="listitem"><p>Lancer une commande (<span class="emphasis"><em>listSessions</em></span>) et vérifier que son exécution échoue.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>close </em></span>et vérifier que son exécution échoue.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="7" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.5-B:reconnect </p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres valides.</p></li><li class="listitem"><p>Lancer le programme<span class="strong"><strong> </strong></span><span class="emphasis"><em>connect</em></span> dans deux environnements capables de se connecter à VISHNU pour avoir deux identifiants de session dans la base de données par le même utilisateur.</p></li><li class="listitem"><p>Faire un <span class="emphasis"><em>listSessions </em></span>dans chacun des environnements et récupérer l'identifiant de session.</p></li><li class="listitem"><p>Essayer de se reconnecter en utilisant l'identifiant de session de l'autre environnement.</p></li><li class="listitem"><p>Vérifier que la reconnexion s'est bien passée dans les deux environnements.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Le certificat courant a été réinitialisé au certificat correspondant à l'identifiant de session et le login donné en paramètre.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.5-B2:reconnect </p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : utilisation du fichier .netrc. Les paramètres du fichier .netrc sont corrects et enregistrés dans la base de données.</p><p>Cas 1 : Reconnect avec userId et mot de passe vides</p></li><li class="listitem"><p>Lancer le programme<span class="strong"><strong> </strong></span><span class="emphasis"><em>connect</em></span> dans deux environnements capables de se connecter à VISHNU pour avoir deux identifiants de session dans la base de données par le même utilisateur.</p></li><li class="listitem"><p>Faire un <span class="emphasis"><em>listSessions </em></span>dans chacun des environnements et récupérer l'identifiant de session.</p></li><li class="listitem"><p>Essayer de se reconnecter sans login et sans mot de passe en utilisant l'identifiant de session de l'autre environnement.</p></li><li class="listitem"><p>Vérifier que la reconnexion s'est bien passée dans les deux environnements.</p><p>Cas 2 : Reconnect avec une liste de couples (userId, mot de passe)</p></li><li class="listitem"><p>Lancer le programme<span class="strong"><strong> </strong></span><span class="emphasis"><em>connect</em></span> dans deux environnements capables de se connecter à VISHNU pour avoir deux identifiants de session dans la base de données par le même utilisateur.</p></li><li class="listitem"><p>Faire un <span class="strong"><strong></strong></span><span class="emphasis"><em>listSessions </em></span>dans chacun des environnements et récupérer l'identifiant de session.</p></li><li class="listitem"><p>Essayer de se reconnecter en utilisant une liste de couples userId (login)/ mot de passe et au moins un couple enregistré dans la base de données.</p></li><li class="listitem"><p>Vérifier que la reconnexion s'est bien passée dans les deux environnements.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="10" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.5-E1:reconnect</p>
+                  <p>U1.5-E2:reconnect</p>
+                  <p>U1.5-E3:reconnect</p>
+                  <p>U1.5-E4:reconnect</p>
+                  <p>U1.5-E5:reconnect</p>
+                  <p>U1.5-E6:reconnect</p>
+                  <p>U1.5-E7:reconnect </p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres non valides</p><p>Cas 1 : le login incorrect et l'identifiant de session correct.</p><p>Cas 2 : le login correct et l'identifiant de session incorrect.</p><p>Cas 3 : le fichier .netrc est introuvable.</p><p>Cas 4 : les droits d'accès au fichier .netrc sont différents de 600.</p><p>Cas 5 : la machine vishnu est introuvable dans le fichier .netrc.</p><p>Cas 6 : le login n'est pas défini ou ne précède pas le mot de passe dans le fichier .netrc.</p><p>Cas 7 : le mot de passe n'est pas défini dans le fichier .netrc. </p><p>Cas 8 : Aucun couple dans la liste de couple (userId, mot de passe) n'est présent dans la base de données.</p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>reconnect</em></span></p></li><li class="listitem"><p>Son exécution échoue</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" start="4" type="1"></ol></div></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.3.5-B:listSessions</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : connexion en tant qu'utilisateur VISHNU</p></li><li class="listitem"><p>Ouvrir plusieurs sessions en lançant les commandes <span class="emphasis"><em>connect</em></span> l'une après l'autre.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listSessions</em></span> sans paramètre.</p></li><li class="listitem"><p>Inspecter la base de données pour vérifier que le nombre de sessions retournées par la commande <span class="emphasis"><em>listSessions </em></span>est égal au nombre de sessions dans la base de données, que chaque identifiant est bien enregistré dans la base de données.</p></li><li class="listitem"><p>Désactiver les sessions ouvertes en utilisant plusieurs fois la commande <span class="emphasis"><em>close</em></span> </p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- La liste des sessions de l'utilisateur est affichée.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.3.5-E:listSessions</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test :</strong></span> paramètres non valides</p><p>Cas 1 : le certificat de session est incorrect </p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>listSessions</em></span></p></li><li class="listitem"><p>Son exécution échoue</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message d'erreur correspondant au cas de test est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA5.1-B:listSessions</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: connexion en tant qu'administrateur de VISHNU</p></li><li class="listitem"><p>Ouvrir plusieurs sessions en lançant les programmes <span class="emphasis"><em>connect</em></span> l'une après l'autre.</p></li><li class="listitem"><p>Lancer le programme <span class="strong"><strong>listSessions</strong></span> avec comme paramètre un identifiant de session ouverte.</p></li><li class="listitem"><p>Vérifier que les informations obtenues correspondent aux informations sur l'identifiant de session qui a été donné en paramètre (par exemple que le <span class="emphasis"><em>certificat obtenu</em></span> correspond au <span class="emphasis"><em>certificat de l'identifiant de session donné en paramètre</em></span>).</p></li><li class="listitem"><p>Désactiver les sessions ouvertes en utilisant plusieurs fois la commande <span class="emphasis"><em>close</em></span>.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- La liste des sessions de tous les l'utilisateurs est affichée.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA5.1-E:listSessions</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test :</strong></span> paramètres non valides</p><p>Cas 1 : le certificat de session est incorrect </p><p>Cas 2 : l'identifiant de session donné en paramètre est incorrect.</p></li><li class="listitem"><p>Lancer le programme <span class="strong"><strong>listSessions </strong></span>avec les cas 1 et 2</p></li><li class="listitem"><p>Son exécution échoue</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Le message d'erreur correspondant au cas de test est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA5.1-B:listSessions</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: connexion en tant qu'administrateur de VISHNU</p></li><li class="listitem"><p>Ouvrir plusieurs sessions en lançant les programmes <span class="emphasis"><em>connect</em></span> l'une après l'autre.</p></li><li class="listitem"><p>Ouvrir plusieurs sessions avec l'identifiant d'un utilisateur déjà ajouté.</p></li><li class="listitem"><p>Lancer le programme <span class="strong"><strong>listSessions</strong></span> avec l'identifiant de cet utilisanteur (étape 3). </p></li><li class="listitem"><p>Vérifier que la liste des sessions obtenues correspond aux sessions ouvertes par cet utilisateur (étape 3). </p></li><li class="listitem"><p>Désactiver les sessions ouvertes en utilisant plusieurs fois la commande close.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- La liste des sessions de tous les l'utilisateurs est affichée.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA5.1-E:listSessions</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test :</strong></span> paramètres non valides</p><p>Cas 1 : le certificat de session est incorrect </p><p>Cas 2 : l'identifiant de l'utilisaetur donné en paramètre est incorrect.</p></li><li class="listitem"><p>Lancer le programme <span class="strong"><strong>listSessions </strong></span>avec les cas 1 et 2</p></li><li class="listitem"><p>Son exécution échoue</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Le message d'erreur correspondant au cas de test est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.2-B:close</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>connect</em></span> pour ouvrir une session.</p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>close </em></span>sans paramètres.</p></li><li class="listitem"><p>Vérifier que la commande<span class="strong"><strong> </strong></span><span class="emphasis"><em>listSession</em></span><span class="emphasis"><em> </em></span>ou <span class="emphasis"><em>listHistorycmd</em></span> échoue.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- La session a été déactivée, aucune commande ne peut être lancée dans la session</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.2-E1:close </p>
+                  <p>U1.2-E2:close </p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test :</strong></span> paramètres non valides</p><p>Cas E1 : le certificat de session n'est valide</p><p>Cas E2 : la session est déjà fermée.</p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>close</em></span></p></li><li class="listitem"><p>Son exécution échoue</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Le message d'erreur correspondant au cas de test est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.3.4-B:listHistory</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Ouvrir une session et lancer la commande <span class="emphasis"><em>listSession</em></span> plusieurs fois.</p></li><li class="listitem"><p>Lancer la commande<span class="emphasis"><em> </em></span><span class="emphasis"><em>listHistoryCmd</em></span> sans paramètres</p></li><li class="listitem"><p>Inspecter la base de données pour vérifier que le nombre de commandes retournées par la commande listHistoryCmd est égal au nombre de listHistoryCmd est égal au nombre de commandes dans la base de données, que chaque l'identifiant de chaque commande est bien enregistré dans la base de données.</p></li><li class="listitem"><p>Désactiver la session courante en utilisant la commande <span class="emphasis"><em>close</em></span><span class="emphasis"><em>.</em></span></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- L'historique des commandes est bien affichée.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.3.4-E:listHistory</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test :</strong></span> paramètres non valides</p><p>Cas E1 : le certificat de session n'est valide</p></li><li class="listitem"><p>Lancer le programme <span class="strong"><strong>list</strong></span><span class="strong"><strong>HistoryCmd</strong></span></p></li><li class="listitem"><p>Son exécution échoue</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message correspondant au cas d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr></tbody></table></div></div><div class="section" title="Tests de la catégorie 2"><div class="titlepage"><div><div><h3 class="title"><a id="idp4727216"></a>Tests de la catégorie 2</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="2.9cm" /><col width="9.699999999999999cm" /><col width="2.1cm" /><col width="2.4cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Actions</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Résultats</p>
+                </td><td>
+                  
+                  <p>Considérations particulières</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA1-B:addUser</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU.</p></li><li class="listitem"><p>Ouvrir une session sur la machine à l'aide du programme<span class="emphasis"><em> connect</em></span>.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listUsers </em></span>et vérifier que l'utilisateur n'est pas déjà enregistré dans la base.</p></li><li class="listitem"><p>Lancer la commande avec les prénom, le nom, l'adresse e-mail et le privilège qui sera affecté au futur utilisateur.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listUser </em></span>pour vérifier l'ajout de l'utilisateur.</p></li><li class="listitem"><p>Désactiver la session courante à l'aide de la commande<span class="emphasis"><em> close.</em></span></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Le nouvel utilisateur est créé et ajouté dans la base de données.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA1.1-E1:addUser</p>
+                  <p>UA1.1-E2:addUser</p>
+                  <p>UA1.1-E3:addUser</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E1 : l'utilisateur n'est pas un administrateur VISHNU</p></li><li class="listitem"><p>Cas E2 : aucune session n'est ouverte</p></li></ol></div></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>addUser</em></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listUsers </em></span>et vérifier que l'utilisateur dont l'administrateur voulait ajouter n'est pas dans la liste.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message d'erreur correspond au cas d'erreur est affiché </p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA4.1-B:updateUser</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU.</p></li><li class="listitem"><p>Ouvrir une session sur la machine à l'aide du programme<span class="emphasis"><em> connect</em></span>.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listUsers pour </em></span>vérifier la présence de l'utilisateur dans la base de données.</p></li><li class="listitem"><p>Lancer la commande avec les nformations à mettre à jour sur l'utilisateur.</p></li><li class="listitem"><p>Les informations à mettre à jour de l'utilisateur ont changé</p></li><li class="listitem"><p>Désactiver la session courante à l'aide de la commande<span class="emphasis"><em> close.</em></span></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Les informations sur l'utilisateur ont été mises à jour</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA4.1-E1:updateUser</p>
+                  <p>UA4.1-E2:updateUser</p>
+                  <p>UA4.1-E3:updateUser</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E1 : l'identifiant de l'utilisateur est inconnu</p></li><li class="listitem"><p>Cas E2 : aucune session n'est ouverte</p></li><li class="listitem"><p>Cas E5 : l'utilisateur n'est pas un administrateur VISHNU</p></li></ol></div></li><li class="listitem"><p>Lancer le programme <span class="strong"><strong>update</strong></span><span class="emphasis"><em>User</em></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listUsers </em></span>et vérifier que l'utilisateur à ajouter n'est pas dans la liste.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message correspondant au code d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA4.2-B:deleteUser</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU.</p></li><li class="listitem"><p>Ouvrir une session sur la machine à l'aide de la commande<span class="emphasis"><em> connect</em></span>.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listUsers </em></span>pour vérifier que l'utilisateur existe bien dans la liste.</p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>deleteUser</em></span><span class="emphasis"><em> </em></span>avec les paramètres de test</p></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>listUsers</em></span> pour vérifier que l'utilisateur n'existe plus dans la liste.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- L'utilisateur est supprimé dans VISHNU.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA4.2-E1:deleteUser</p>
+                  <p>UA4.2-E2:deleteUser</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E1 : le nom de l'utilisateur est inconnu</p></li><li class="listitem"><p>Cas E2 : l'utilisateur n'est pas un administrateur VISHNU</p></li></ol></div><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer le programme <span class="strong"><strong>delete</strong></span><span class="emphasis"><em>User</em></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message correspondant au cas d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA5.2-B:listUser</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU.</p></li><li class="listitem"><p>Ouvrir une session sur la machine à l'aide de la commande<span class="emphasis"><em> connect</em></span>.</p></li><li class="listitem"><p>Lancer la commande listUsers, récupérer le nombre d'utilisateurs déjà enregistrés dans la base. Enregistrer cette liste dans un fichier.</p></li><li class="listitem"><p>Créer plusieurs utilisateurs à l'aide de la commande <span class="strong"><strong>addUser</strong></span>. Ajouter la liste de ces nouveaux utilisateurs dans la liste du fichier.</p></li><li class="listitem"><p>Exécuter la commande <span class="emphasis"><em>listUsers</em></span><span class="emphasis"><em> </em></span>et vérifier que la taille de la liste enregistrée dans le fichier est égale à celle trouvée par <span class="emphasis"><em>listUsers</em></span>, le contenu des listes est le même.</p></li><li class="listitem"><p>Désactiver la session courante à l'aide de la commande<span class="emphasis"><em> close.</em></span></p></li><li class="listitem"><p>Créer (<span class="emphasis"><em>addVishn</em></span><span class="emphasis"><em>uU</em></span><span class="emphasis"><em>ser</em></span>) plusieurs utilisateurs avec toutes les informations nécessaires sur chaque utilisateur. Enregistrer chaque utilisateur avec ces informations dans un fichier.</p></li><li class="listitem"><p>Exécuter la commande <span class="emphasis"><em>listUsers </em></span>avec l'option l'identifiant d'un utilisateur choisi aléatoirement dans la liste du fichier sauvegardé. Vérifier que les informations obtenues sont les mêmes que celles de l'utilisateur dans le fichier.</p></li><li class="listitem"><p>Désactiver la session courante à l'aide de la commande<span class="emphasis"><em> close.</em></span></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- La liste des utilisateurs enregistrés est affichée.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA5.2-E1:listUser</p>
+                  <p>UA5.2-E2:listUser</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E1 : aucune session n'est ouverte</p></li><li class="listitem"><p>Cas E2 : l'utilisateur n'est pas un administrateur VISHNU</p></li></ol></div></li><li class="listitem"><p>Lancer le programme<span class="emphasis"><em> </em></span><span class="emphasis"><em>listUser</em></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Le message d'erreur correspondant au cas d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.3.3-B:changePassword</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU.</p></li><li class="listitem"><p>Ouvrir une session à l'aide de la commande <span class="emphasis"><em>connect</em></span>.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listUsers </em></span>pour vérifier la présence de l'utilisateur dans la base de données.</p></li><li class="listitem"><p>Fermer la session ouverte à l'aide de la commande <span class="emphasis"><em>close.</em></span></p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>changePassword</em></span> avec l'identifiant de l'utilisateur , son ancien mot de passe et son nouveau mot de passe.</p></li><li class="listitem"><p>Vérifier que le changement a été bien effectuer en lançant la commande <span class="emphasis"><em>connect</em></span> avec l'identifiant de l'utilisateur et son nouveau mot de passe. </p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Le mot de passe de l'utilisateur est changé</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.3.3-E2:changePassword</p>
+                  <p>U1.3.3-E2:changePassword</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E1 : l'identifiant de l'utilisateur est inconnu</p></li><li class="listitem"><p>Cas E2 : l'utilisateur n'est pas un administratuer VISHNU</p></li></ol></div></li><li class="listitem"><p>Lancer le programme <span class="strong"><strong>c</strong></span><span class="strong"><strong>hange</strong></span><span class="emphasis"><em>Password</em></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message correspondant au cas d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA2-B:resetPassword</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU.</p></li><li class="listitem"><p>Ouvrir une session sur la machine à l'aide de la commande<span class="emphasis"><em> </em></span><span class="emphasis"><em>connect</em></span>.</p></li><li class="listitem"><p>Lancer le programme <span class="strong"><strong>reset</strong></span><span class="emphasis"><em>Password</em></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>Le mot de passe de l'utilisateur est réinitialisé.</p></li><li class="listitem"><p>Vérifier que l'utilisateur peut lancer une commande (par exemple connect) avec son login et son nouveau mot de passe.</p></li><li class="listitem"><p>Déactiver la session courante à l'aide de la commande<span class="emphasis"><em> close.</em></span></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Le mot de passe de l'utilisateur a été mis à jour</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA2-E1:resetPassword</p>
+                  <p>UA2-E2:resetPassword</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E1 : l'identifiant de l'utilisateur est inconnu</p></li><li class="listitem"><p>Cas E2 : l'utilisateur n'est pas un administrateur VISHNU</p></li></ol></div></li><li class="listitem"><p>Lancer le programme <span class="strong"><strong>resetPassword</strong></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message correspondant au cas d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr></tbody></table></div></div><div class="section" title="Tests de la catégorie 3"><div class="titlepage"><div><div><h3 class="title"><a id="idp4907584"></a>Tests de la catégorie 3</h3></div></div></div><p><span class="strong"><strong>Note</strong></span> : Lors du test de chacune des fonctions, une session sera ouverte (si aucune session n'est ouverte) à l'aide de la commande <span class="emphasis"><em>conne</em></span><span class="emphasis"><em>c</em></span><span class="emphasis"><em>t </em></span>et fermer (à l'aide de la commande <span class="emphasis"><em>close</em></span>) à la fin des actions à mener pour réaliser le test.</p><div class="informaltable"><table border="1"><colgroup><col width="4.4cm" /><col width="6.6cm" /><col width="3.4cm" /><col width="2.7cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Actions</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Résultats</p>
+                </td><td>
+                  
+                  <p>Considérations particulières</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U4-B:addLocalAccount</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>ListLocalAccount </em></span>et enregistrer les configurations déjà ajoutées. </p></li><li class="listitem"><p>Lancer la commande avec l'identifiant de l'utilisateur, le chemin vers la clé, le chemin vers le répertoire personnel de l'utilisateur et l'identifiant de la machine à laquelle la configuration sera rattachée. </p></li><li class="listitem"><p>Vérifier qu'une nouvelle configuration a été ajoutée à l'aide de la commande <span class="emphasis"><em>ListLocalAccount </em></span>et la liste enregistrée précédemment à l'étape 2.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Une nouvelle configuration a été créée pour l'utilisateur donné</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U4-E1:addLocalAccount</p>
+                  <p>U4-E2:addLocalAccount</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E1 : le nom de la machine est inconnu</p></li><li class="listitem"><p>Cas E2 : l'utilisateur n'est pas connu</p></li></ol></div></li><li class="listitem"><p>Lancer le programme <span class="strong"><strong>addLocalAccount</strong></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U4.1-B:updateLocalAccount</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides.</p></li><li class="listitem"><p>A l'aide de la commande <span class="emphasis"><em>ListLocalAccount, </em></span>enregistrer les informations sur la configuration qui sera mise à jour.</p></li><li class="listitem"><p>Pour chaque information à mettre à jour faire :</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Lancer la commande avec le login de l'utilisateur et l'identifiant de la machine à laquelle la configuration sera rattachée. </p></li><li class="listitem"><p>A l'aide de la commande listLocalAccount, vérifier la mise à jour des informations en les comparant à celles enregistrées.</p></li></ul></div></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Les informations sur la configuration donnée ont été mises à jour</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U4.1-E:updateLocalAccount</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E1 : le nom de la machine est inconnu</p></li><li class="listitem"><p>Cas E2 : l'utilisateur n'est pas connu</p></li></ol></div></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>updateLocalAccount</em></span><span class="emphasis"><em> </em></span>avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U4.2-B:deleteLocalAccount</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides.</p></li><li class="listitem"><p>Lancer la commande avec le login de l'utilisateur et l'identifiant de la machine à laquelle la configuration sera rattachée. </p></li><li class="listitem"><p>Vérifier que la configuration a été supprimée à l'aide de la commande <span class="emphasis"><em>listLocalAccount</em></span>.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- La configuration donnée a été supprimée.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U4.2-E:deleteLocalAccount</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E1 : le nom de la machine est inconnu</p></li><li class="listitem"><p>Cas E2 : l'utilisateur n'est pas connu</p></li></ol></div></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>delete</em></span><span class="strong"><strong>LocalAccount</strong></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message correspondant au cas d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA3-B:saveConfig</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU.</p></li><li class="listitem"><p>Lancer la commande de sauvegarde.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>saveConfiguration</em></span>.</p></li><li class="listitem"><p>Vérifier que le fichier de sauvegarde dans le dossier <span class="emphasis"><em>.vishnu/configurationSaved</em></span> (qui se trouve dans le repertoire personnel de l'utilisateur) contient l'ensemble des configurations.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- La configuration donnée a été sauvegardée dans un fichier.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA3-E:saveConfig</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p></li><li class="listitem"><p>
+                        Lancer le
+                        programme <span class="emphasis"><em>saveConfiguration</em></span> avec
+                        les paramètres correspondant à chaque cas.
+                      </p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message correspondant au cas d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA4-B:restoreConfig</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU.</p></li><li class="listitem"><p>Lancer <span class="emphasis"><em>restoreConfiguration</em></span> avec le fichier contenant la sauvegarde.</p></li><li class="listitem"><p>Lancer les commandes, <span class="emphasis"><em>listUsers</em></span>, <span class="emphasis"><em>listMachines</em></span> et <span class="emphasis"><em>listLocalAccount</em></span> pour vérifier que les configurations ont été restaurées.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>Le contenu du fichier donné a permis de restaurer la configuration.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA4-E:restoreConfig</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E1 : le nom du fichier n'est pas connu</p></li></ol></div></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>restoreConfiguration</em></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message correspondant au cas d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U4.3-B:listLocalAccount</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU.</p></li><li class="listitem"><p>Lancer la commande sans paramètre</p></li><li class="listitem"><p>Inspecter la base de données pour vérifier que le nombre d'utilisateurs retourné par la commande <span class="emphasis"><em>listLocalAccount</em></span><span class="emphasis"><em> </em></span>est égal au nombre de configurations dans la base de données, que chaque configuration est bien enregistrée dans la base de données.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- La liste de l'ensemble des configurations est affichée.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U4.3-E:listLocalAccount</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E1 : le nom de la machine est inconnu</p></li><li class="listitem"><p>Cas E2 : l'utilisateur n'est pas un administrateur VISHNU</p></li></ol></div></li><li class="listitem"><p>Lancer le programme <span class="strong"><strong>listLocalAccount</strong></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>-Un message correspondant au cas d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA7-B:configureDefaultOption</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listOptions </em></span>pour avoir la liste des configurations par défaut.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>configureDefaultOption </em></span>avec le nom de l'option et sa valeur.</p></li><li class="listitem"><p>Lancer la comme <span class="emphasis"><em>listOptions </em></span>pour vérifier si la configuration par défaut a été mise à jour.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- La configuration est fixée comme configuration par défaut.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA7-E1:configureDefaultOption</p>
+                  <p>UA7-E2:configureDefaultOption</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E1 : le nom de l'option n'est valide</p></li><li class="listitem"><p>Cas E2 : la valeur de l'option n'est pas valide</p></li></ol></div></li><li class="listitem"><p>Lancer le programme <span class="strong"><strong>configureDefaultOption</strong></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message correspondant au code d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.3.2-B:listOptions</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides</p></li><li class="listitem"><p>Lancer la commande sans paramètres</p></li><li class="listitem"><p>Inspecter la base de données pour vérifier que le nombre d'options retourné par la commande listOptions est égal au nombre d'options dans la base de données, que l'identifiant de chaque option est bien enregistré dans la base de données.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- L'ensemble des options est affiché.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.3.2-E:listOptions</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E : le nom de l'option n'est pas connu</p></li></ol></div></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>listOptions </em></span>avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message correspondant au cas d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.3.1-B:configureOption</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides .</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listOptions </em></span>pour avoir la liste des options.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>configureOption </em></span>avec le nom de l'option et sa valeur.</p></li><li class="listitem"><p>Lancer la comme <span class="emphasis"><em>listOptions </em></span>pour vérifier si la configuration a été mise à jour.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- L'option a été configurée</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U1.3.1-E1:configureOption</p>
+                  <p>U1.3.1-E2:configureOption</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Cas E1 : le nom de l'option n'est valide</p></li><li class="listitem"><p>Cas E2 : la valeur de l'option n'est pas valide</p></li></ol></div></li><li class="listitem"><p>Lancer le programme <span class="strong"><strong>configureOption</strong></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message d'erreur correspondant au cas d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr></tbody></table></div></div><div class="section" title="Tests de catégorie 4"><div class="titlepage"><div><div><h3 class="title"><a id="idp5127280"></a>Tests de catégorie 4</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="3cm" /><col width="7.9cm" /><col width="3.4cm" /><col width="2.8cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Actions</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Résultats</p>
+                </td><td>
+                  
+                  <p>Considérations particulières</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA6.1-B:addMachine</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listMachines </em></span>et enregistrer le nombre de machines déjà enregistrées.</p></li><li class="listitem"><p>Lancer la commande avec le nom de la machine.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listMachines </em></span>pour vérifier l'ajout de la machine.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>La nouvelle machine est créée.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA6.1-E:addMachine</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres invalides</p><p>-Cas E1 : aucune session n'est ouverte</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>addMachine</em></span></p></li><li class="listitem"><p>Son exécution échoue </p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>-Un message d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA6.4-B:updateMachine</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU.</p></li><li class="listitem"><p>Lancer la commande listMachines permettant d'avoir toutes les informations sur une machine.</p></li><li class="listitem"><p>Lancer la commande avec le nom de la machine et l'information à mettre jour.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listMachines </em></span>pour vérifier la mise à jour des informations sur la machine.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>Les informations sur la machine ont été mises à jour</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA6.4-E:updateMachine</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres invalides</p><p>-Cas E1 : aucune session n'est ouverte</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>updateMachine</em></span></p></li><li class="listitem"><p>Son exécution échoue </p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA6.2-B:deleteMachine</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU. </p></li><li class="listitem"><p>Lancer la commande listMachines avec l'option permettant de vérifier si la machine est présente.</p></li><li class="listitem"><p>Lancer la commande avec l'identifiant de la machine</p></li><li class="listitem"><p>Lancer la commande listMachines pour vérifier que la machine n'existe plus dans la liste.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>La machine est supprimée dans VISHNU.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA6.2-E:deleteMachine</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres invalides</p><p>-Cas E1 : l'identifiant de la machine n'existe pas</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>deleteMachine</em></span></p></li><li class="listitem"><p>Son exécution échoue </p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message d'erreur est affiché correspondant au cas d'erreur</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA6.3-B:listMachine</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test </strong></span>: paramètres valides et l'utilisateur est un administrateur du système VISHNU.</p></li><li class="listitem"><p>Lancer la commande sans paramètres</p></li><li class="listitem"><p>Inspecter la base de données pour vérifier que le nombre de machines retourné par la commande <span class="emphasis"><em>listMachine </em></span>est égal au nombre de machines dans la base de données, que chaque l'identifiant de machine est bien enregistré dans la base de données.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>La liste des machines est affichée</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA6.3-E:listMachine</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><span class="strong"><strong>Cas de test</strong></span> : paramètres invalides</p><p>-Cas E1 : aucune session n'est ouverte</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listMachines</em></span></p></li><li class="listitem"><p>Son exécution échoue </p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message d'erreur est affiché correspondant au cas d'erreur</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr></tbody></table></div></div><div class="section" title="Tests de catégorie 5"><div class="titlepage"><div><div><h3 class="title"><a id="idp5218960"></a>Tests de catégorie 5</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="3cm" /><col width="7.9cm" /><col width="3.4cm" /><col width="2.8cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Actions</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Résultats</p>
+                </td><td>
+                  
+                  <p>Considérations particulières</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA8-B:addAuthenticationSystem, </p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>list</em></span><span class="emphasis"><em>AuthenticationSystem</em></span><span class="emphasis"><em> </em></span>et enregistrer le nombre de systèmes d'authentification utilisateurs déjà enregistrés.</p></li><li class="listitem"><p>Lancer la commande <span><a id="__DdeLink__4270_13030205921"></a></span><span class="emphasis"><em>add</em></span><span class="emphasis"><em>AuthenticationSystem</em></span><span class="emphasis"><em> </em></span>avec le nom du système d'authentification, son adresse de connexion et les autres paramètres nécessaires.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>list</em></span><span class="emphasis"><em>AuthenticationSystem</em></span><span class="emphasis"><em> </em></span>pour vérifier l'ajout du système d'authentification utilisateurs.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>La nouveau système d'authentification utilisateurs est ajouté dans VISHNU.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA8-E1:addAuthenticationSystem</p>
+                  <p>UA8-E2:addAuthenticationSystem</p>
+                  <p>UA8-E3:addAuthenticationSystem</p>
+                  <p>UA8-E4:addAuthenticationSystem</p>
+                  <p>UA8-E5:addAuthenticationSystem</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>add</em></span><span class="emphasis"><em>AuthenticationSystem </em></span>avec les cas précédents et vérifier que son exécution échoue. </p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>-Un message d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA8.1-B:updateAuthenticationSystem</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>list</em></span><span class="emphasis"><em>AuthenticationSystem </em></span>avec l'option -f permettant d'avoir toutes les informations sur une machine.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>update</em></span><span class="emphasis"><em>AuthenticationSystem </em></span>avec l'identifiant du système d'authentification et l'information à mettre jour.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>list</em></span><span class="emphasis"><em>AuthenticationSystem</em></span><span class="emphasis"><em> </em></span>pour vérifier la mise à jour de l'information.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>Les informations sur le système d'authentification ont été mises à jour</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA8.1-E1:updateAuthenticationSystem</p>
+                  <p>UA8.1-E2:updateAuthenticationSystem</p>
+                  <p>UA8.1-E3:updateAuthenticationSystem</p>
+                  <p>UA8.1-E4:updateAuthenticationSystem</p>
+                  <p>UA8.1-E5:updateAuthenticationSystem</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>update</em></span><span class="emphasis"><em>AuthenticationSystem </em></span>et vérifier que son exécution échoue. </p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message d'erreur est affiché</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA8.2-B:deleteAuthenticationSystem</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>list</em></span><span class="emphasis"><em>AuthenticationSystem</em></span> et récupérer dans la liste l'identifiant du système d'authentification à supprimer.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>delete</em></span><span class="emphasis"><em>AuthenticationSystem</em></span><span class="strong"><strong> </strong></span>avec l'identifiant du système d'authentification à supprimer de l'étape précédente.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listAuthenticationSystem</em></span> pour vérifier que le système d'authentification utilisateurs n'existe plus dans la liste.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>Le système d'authentification est supprimée dans VISHNU.</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>UA8.2-E1:deleteAuthenticationSystem</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>delete</em></span><span class="emphasis"><em>AuthenticationSystem </em></span>et vérifier que<span class="emphasis"><em> s</em></span>on exécution échoue. </p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message d'erreur est affiché correspondant au cas d'erreur</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U5-B:listAuthenticationSystem</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande avec l'option -a pour avoir la liste de tous les systèmes d'authentification utilisateurs</p></li><li class="listitem"><p>Inspecter la base de données pour vérifier que le nombre retourné par la commande <span class="emphasis"><em>list</em></span><span class="emphasis"><em>AuthenticationSystem</em></span> est égal au nombre de systèmes d'authentification utilisateurs dans la base de données</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>La liste des systèmes d'authentification utilisateur est affichée</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U5-E1:listAuthenticationSystem</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>list</em></span><span class="emphasis"><em>AuthenticationSystem </em></span>et vérifier que son exécution échoue </p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message d'erreur est affiché correspondant au cas d'erreur</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr></tbody></table></div></div><div class="section" title="Tests de catégorie 6"><div class="titlepage"><div><div><h3 class="title"><a id="idp5307520"></a>Tests de catégorie 6</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="3cm" /><col width="7.9cm" /><col width="3.4cm" /><col width="2.8cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Actions</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Résultats</p>
+                </td><td>
+                  
+                  <p>Considérations particulières</p>
+                </td></tr><tr><td align="justify">
+                  
+                  
+                  <p>U6-B1: addAuthAccount</p>
+                  <p>U6-B2: addAuthAccount</p>
+                </td><td align="left">
+                  
+                  
+                  <p><span class="strong"><strong>Cas de test B1</strong></span>: paramètres valides avec un utilisateur sans privilège d'administration.</p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listAuthAccounts</em></span><span class="emphasis"><em> </em></span>et enregistrer les configurations d'authentification. </p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>addAuthAccount </em></span>avec l'identifiant du système d'authentification utilisateur auquel la configuration sera rattachée et l'identifiant (uid) du compte utilisateur dans le système d'authentification précédent. </p></li><li class="listitem"><p>Vérifier qu'une nouvelle configuration a été ajoutée à l'aide de la commande <span class="emphasis"><em>listAuthAccounts </em></span><span class="emphasis"><em></em></span>et la liste enregistrée précédemment.</p></li></ol></div>
+                  <p><span class="strong"><strong>Cas de test B2</strong></span>: paramètres valides et l'utilisateur est un administrateur.</p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listAuthAccounts</em></span><span class="emphasis"><em> </em></span>avec l'option -u<span class="emphasis"><em> </em></span>et l'identifiant de l'utilisateur dont on veut définir une configuration pour l'authentification, puis enregistrer les configurations associées à l'utilisateur. </p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>addAuthAccount </em></span>avec l'identifiant du système d'authentification utilisateurs auquel la configuration sera rattachée, l'identifiant (uid) du compte utilisateur dans le système d'authentification précédent et l'identifiant de l'utilisateur auquel la configuration sera rajoutée. </p></li><li class="listitem"><p>Vérifier qu'une nouvelle configuration a été ajoutée à l'aide de la commande <span class="emphasis"><em>listAuthAccounts </em></span>avec l'option -u suivie l'identifiant de l'utilisateur précédent<span class="emphasis"><em> </em></span>et la liste enregistrée précédemment.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Une nouvelle configuration a été créée pour l'utilisateur donné</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U6-E1:addAuthAccount</p>
+                  <p>U6- E2:addAuthAccount</p>
+                  <p>U6-E3:addAuthAccount</p>
+                </td><td>
+                  
+                  
+                  <p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p>
+                  <p>- Cas E1 : l'identifiant du système d'authentification est inconnu</p>
+                  <p>- Cas E2 : l'identifiant de l'utilisateur est inconnu</p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" type="1"></ol></div></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>addAuthAccount</em></span> avec les paramètres correspondant à chaque cas et vérifier que son exécution échoue.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U6.1-B1:updateAuthAccount</p>
+                  <p>U6.1-B2:updateAuthAccount</p>
+                </td><td align="left">
+                  
+                  
+                  <p><span class="strong"><strong>Cas de test B1</strong></span>: paramètres valides avec un utilisateur sans privilège d'administration.</p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listAuthAccounts</em></span><span class="emphasis"><em> </em></span>et enregistrer les configurations d'authentification. </p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>update</em></span><span class="emphasis"><em>AuthAccount </em></span>avec l'identifiant du système d'authentification et le nouvel identifiant (uid) du compte utilisateur dans le système d'authentification précédent. </p></li><li class="listitem"><p>Vérifier que la configuration précédente a été modifiée à l'aide de la commande <span class="emphasis"><em>listAuthAccounts </em></span>avec l'option -i et l'identifiant du système d'authentification de l'étape 2.</p></li></ol></div>
+                  <p><span class="strong"><strong>Cas de test B2</strong></span>: paramètres valides et l'utilisateur est un administrateur.</p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listAuthAccounts</em></span><span class="emphasis"><em> </em></span>avec l'option -u<span class="emphasis"><em> </em></span>et l'identifiant de l'utilisateur dont on veut modifier une configuration pour l'authentification, puis enregistrer les configurations associées à l'utilisateur. </p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>updateAuthAccount </em></span>avec l'identifiant du système d'authentification utilisateur auquel la configuration sera rattachée, et l'option -l avec le nouvel identifiant (uid) du compte utilisateur dans le système d'authentification précédent et l'option -u avec l'identifiant de l'utilisateur dont la configuration sera modifiée. </p></li><li class="listitem"><p>Vérifier la configuration correspondante a été modifiée à l'aide de la commande <span class="emphasis"><em>listAuthAccounts </em></span>avec l'option -u suivie l'identifiant de l'utilisateur précédent<span class="emphasis"><em> </em></span>et la liste enregistrée précédemment.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Les informations sur la configuration donnée ont été mises à jour</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U6.1-E1:updateAuthAccount</p>
+                  <p>U6.1-E2:updateAuthAccount</p>
+                  <p>U6.1-E3:updateAuthAccount</p>
+                  <p>U6.1-E4:updateAuthAccount</p>
+                </td><td>
+                  
+                  
+                  <p><span class="strong"><strong>Cas de test</strong></span> : paramètres non valides</p>
+                  <p>- Cas E1 : l'identifiant du système d'authentification est inconnu</p>
+                  <p>- Cas E2 : l'identifiant de l'utilisateur est inconnu</p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><div class="orderedlist"><ol class="orderedlist" type="1"></ol></div></li><li class="listitem"><p>Lancer le programme <span class="emphasis"><em>updateAuthAccount</em></span> avec les paramètres correspondant à chaque cas.</p></li><li class="listitem"><p>L'exécution de la commande échoue et un message d'erreur est affiché.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td align="justify">
+                  
+                  
+                  <p>U6.2-B1: deleteAuthAccount</p>
+                  <p>U6.2-B2: deleteAuthAccount</p>
+                </td><td align="left">
+                  
+                  
+                  <p><span class="strong"><strong>Cas de test B1</strong></span>: paramètres valides avec un utilisateur sans privilège d'administration.</p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listAuthAccounts</em></span> et récupérer l'identifiant du système d'authentification de la configuration à supprimer.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>delete</em></span><span class="emphasis"><em>AuthAccount</em></span><span class="strong"><strong> </strong></span>avec l'identifiant du système d'authentification de l'étape précédente.</p></li><li class="listitem"><p>Lancer la commande<span class="emphasis"><em> listAuthAccounts</em></span> pour vérifier que la configuration n'existe plus dans la liste.</p></li></ol></div>
+                  <p><span class="strong"><strong>Cas de test B2</strong></span>: paramètres valides et l'utilisateur est un administrateur.</p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listAuthAccounts</em></span> avec l'option -u suivie de l'identifiant de l'utilisateur dont la configuration sera supprimée. Puis récupérer l'identifiant du système d'authentification de la configuration à supprimer.</p></li><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>delete</em></span><span class="emphasis"><em>AuthAccount</em></span><span class="strong"><strong> </strong></span>avec l'option -u suivie de l'identifiant de l'utilisateur dont on veut supprimer la configuration et l'identifiant du système d'authentification de l'étape précédente.</p></li><li class="listitem"><p>Lancer Lancer la commande <span class="emphasis"><em>listAuthAccounts</em></span> pour avec l'option -u suivie de l'identifiant de l'utilisateur de l'étape précédente et vérifier que la configuration n'existe plus dans la liste.</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>La configuration d'authentification est supprimée dans VISHNU</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td align="justify">
+                  
+                  
+                  <p>U6.2-E1: deleteAuthAccount</p>
+                  <p>U6.2-E2: deleteAuthAccount</p>
+                  <p>U6.2-E3: deleteAuthAccount</p>
+                  <p>U6.2-E4: deleteAuthAccount</p>
+                </td><td>
+                  
+                  
+                </td><td>
+                  
+                  
+                  <p>- Un message d'erreur est affiché correspondant au cas d'erreur</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td align="justify">
+                  
+                  
+                  <p>U6.2-B1: listAuthAccounts</p>
+                  <p>U6.2-B2: listAuthAccounts</p>
+                </td><td align="left">
+                  
+                  
+                  <p><span class="strong"><strong>Cas de test B1: </strong></span>paramètres valides avec un utilisateur sans privilège d'administration.</p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listAuthAccounts </em></span>avec pour avoir la liste des configurations.</p></li><li class="listitem"><p>Inspecter la base de données pour vérifier que le nombre retourné par la commande <span class="emphasis"><em>listAuthAccounts</em></span> est égal au nombre de configurations d'authentification pour l'utilisateur dans la base de données.</p></li></ol></div>
+                  <p><span class="strong"><strong>Cas de test B2</strong></span>: paramètres valides et l'utilisateur est un administrateur.</p>
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listAuthAccounts </em></span>avec l'option -u suivie de l'identifiant de l'utilisateur et enregistrer la liste des configurations.</p></li><li class="listitem"><p>Inspecter la base de données pour vérifier que le nombre retourné par la commande <span class="emphasis"><em>listAuthAccounts</em></span> est égal au nombre de configurations d'authentification pour l'utilisateur dans la base de données</p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>La liste des configurations d'authentification est affichée</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr><tr><td>
+                  
+                  
+                  <p>U6.3-E1:listAuthAccounts</p>
+                  <p>U6.3-E2:listAuthAccounts</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Lancer la commande <span class="emphasis"><em>listAuthAccounts</em></span><span class="emphasis"><em> </em></span>et vérifier que son exécution échoue </p></li></ol></div>
+                </td><td>
+                  
+                  
+                  <p>- Un message d'erreur est affiché correspondant au cas d'erreur</p>
+                </td><td>
+                  
+                  
+                  
+                </td></tr></tbody></table></div></div></div><div class="section" title="Tests de stress"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp5433104"></a>Tests de stress</h2></div></div></div><div class="section" title="Présentation"><div class="titlepage"><div><div><h3 class="title"><a id="idp5433744"></a>Présentation</h3></div></div></div><p>Ces tests permettent de vérifier que la cible de test peut réussir à basculer et à récupérer pour différents dysfonctionnements matériels, logiciels ou réseaux sans qu'il y ait perte de données. Ils vérifient que lorsqu'une défaillance survient un système alternatif ou un système de sauvegarde prends le relai correctement sans perte de données ou de transactions.</p></div><div class="section" title="Environnement des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5435552"></a>Environnement des tests</h3></div></div></div><p>Nous utiliserons l'environnement de test 2 dans un environnement isolé (réseau et systèmes non partagés).</p></div><div class="section" title="Identifiants de tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5436928"></a>Identifiants de tests</h3></div></div></div><p>Les identifiants des tests sont de la forme: STR-&lt;Element stressé&gt;-&lt;Type de stress&gt;.</p></div><div class="section" title="Liste des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5438080"></a>Liste des tests</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="4.3cm" /><col width="6.9cm" /><col width="5.9cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Technique</p>
+                </td><td>
+                  
+                  <p>Critère de complétion</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>STR-SERV-DOWN</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer la commande <span class="strong"><strong>connect</strong></span></p>
+                  <p>- Arrêter le serveur UMS après l'exécution de la commande</p>
+                  <p>- Redémarrer le serveur UMS</p>
+                  <p>- Lancer la commande <span class="strong"><strong>close</strong></span></p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Terminaison normale de la commande close</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>STR-AGENT-DOWN</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer la commande <span class="strong"><strong>connect</strong></span></p>
+                  <p>- Arrêter l'agent SysFera-DS après l'exécution de la commande</p>
+                  <p>- Redémarrer l'agent SysFera-DS</p>
+                  <p>- Lancer la commande <span class="strong"><strong>close</strong></span></p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Terminaison normale de la commande close</p>
+                </td></tr></tbody></table></div></div></div><div class="section" title="Contrôle des performances"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp5460544"></a>Contrôle des performances</h2></div></div></div><div class="section" title="Présentation"><div class="titlepage"><div><div><h3 class="title"><a id="idp5461248"></a>Présentation</h3></div></div></div><p>Ces tests ont pour objectif de vérifier que les exigences de performance quantifiées sont effectivement satisfaites. </p></div><div class="section" title="Environnement de tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5462640"></a>Environnement de tests</h3></div></div></div><p>Nous utiliserons l'environnement de test 2 dans un environnement isolé (réseau et systèmes non partagés).</p></div><div class="section" title="Identifiants des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5464016"></a>Identifiants des tests</h3></div></div></div><p>Les identifiants des tests sont de la forme: CDP-&lt;ID STB&gt;-[NomdeCommande|IdentifiantDeTest] où 'ID STB' est l'identifiant de l'exigence spécifiée dans le document [STB] au paragraphe « performances, fiabilité et robustesse ». </p></div><div class="section" title="Liste des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5465840"></a>Liste des tests</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="5.2cm" /><col width="6.6cm" /><col width="5.3cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Technique</p>
+                </td><td>
+                  
+                  <p>Critère de completion</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDP-3.1-connect</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer une commande 'ssh &lt;host&gt; uname' sur une machine serveur en mesurant le temps de réponse (temps de référence)</p>
+                  <p>- Lancer la commande <span class="strong"><strong>connect </strong></span>en mesurant le temps de réponse</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>temps inférieur au temps de référence (valeur moyenne sur 10 itérations)</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDP-3.1-close</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer la commande <span class="strong"><strong>connect </strong></span></p>
+                  <p>- Lancer une commande 'ssh &lt;host&gt; uname' sur une machine serveur en mesurant le temps de réponse (temps de référence).</p>
+                  <p>- Lancer la commande <span class="strong"><strong>c</strong></span><span class="strong"><strong>lose</strong></span><span class="strong"><strong> </strong></span>en mesurant le temps de réponse</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>temps inférieur au temps de référence (valeur moyenne sur 10 itérations)</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDP-3.1-listSession,</p>
+                  <p>CDP-3.1-listHistoryCmd,</p>
+                  <p>CDP-3.1-listUsers,</p>
+                  <p>CDP-3.1-listMachines,</p>
+                  <p>CDP-3.1-listOptions</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer la commande <span class="strong"><strong>connect </strong></span></p>
+                  <p>- Lancer une commande 'ssh &lt;host&gt; uname' sur une machine serveur en mesurant le temps de réponse (temps de référence).</p>
+                  <p>- Lancer la commande <span class="strong"><strong>listSession/listHistoryCmd/listUsers/listMachines/listOptions</strong></span><span class="strong"><strong> </strong></span>en mesurant le temps de réponse</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>temps inférieur au temps de référence (valeur moyenne sur 10 itérations)</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDP-3.2.1-connect</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer la commande connect 100 fois </p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Consommation en mémoire virtuelle sur le serveur UMS inférieure à 500 Mégaoctets.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDP-3.2.2-connect</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer le serveur UMS</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Consommation CPU inférieure à 10%.</p>
+                </td></tr></tbody></table></div></div></div><div class="section" title="Tests de charge"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp5506512"></a>Tests de charge</h2></div></div></div><div class="section" title="Présentation"><div class="titlepage"><div><div><h3 class="title"><a id="idp5507152"></a>Présentation</h3></div></div></div><p>Les tests de charge ont pour objectif de vérifier que les exigences de capacité du système sont vérifiées.</p></div><div class="section" title="Environnement de tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5508528"></a>Environnement de tests</h3></div></div></div><p>Nous utiliserons l'environnement de test 2 avec un nombre de clients ou de serveurs tels que spécifié dans le cas de tests. Ces clients ou serveurs seront simulés sur une seule machine.</p><p>Par ailleurs, les requêtes envoyées en simultané seront en fait envoyées par une seule machine cliente avec un programme de synchronisation (MPI).</p></div><div class="section" title="Identifiants de tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5510752"></a>Identifiants de tests</h3></div></div></div><p>Les identifiants des tests sont de la forme: LOAD-&lt;ID STB&gt;-[NomdeCommande|IdentifiantDeTest] où 'ID STB' est l'identifiant de l'exigence spécifiée dans le document [STB]. </p></div><div class="section" title="Liste des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5512272"></a>Liste des tests</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="5.4cm" /><col width="6cm" /><col width="5.7cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Technique</p>
+                </td><td>
+                  
+                  <p>Résultats attendus</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>LOAD-2.1-connect</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer 100 commandes <span class="strong"><strong>connect</strong></span> simultanées</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Terminaison normale de toutes les commandes</p>
+                  <p>- Etat normal du serveur UMS</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>LOAD-2.1-listSessions,</p>
+                  <p>LOAD-2.1-listHistoryCmd,</p>
+                  <p>LOAD-2.1-listUsers,</p>
+                  <p>LOAD-2.1-listMachines,</p>
+                  <p>LOAD-2.1-listOptions</p>
+                </td><td>
+                  
+                  
+                  <p>- Lancer 100 commandes <span class="strong"><strong>listSessions/ listHistoryCmd / listUsers / listMachines/ listOptions</strong></span> simultanées</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Terminaison normale de toutes les commandes</p>
+                  <p>- Etat normal du serveur UMS</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>LOAD-2.2-connect</p>
+                </td><td>
+                  
+                  
+                  <p>- Ajouter 1000 utilisateurs dans la base de données</p>
+                  <p>- Lancer la commande <span class="strong"><strong>connect</strong></span></p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Terminaison normale de toutes les commandes </p>
+                  <p>- Etat normal du serveur UMS</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>LOAD-2.3-connect</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>- Configurer 10 machines serveurs dans la base de données Vishnu</p></li><li class="listitem"><p>- Lancer la commande <span class="strong"><strong>connect</strong></span></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Terminaison normale de toutes les commandes </p>
+                  <p>- Etat normal du serveur UMS</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>LOAD-2.4-connect</p>
+                </td><td>
+                  
+                  
+                  <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>- Configurer 1000 machines serveurs dans la base de données Vishnu</p></li><li class="listitem"><p>- Lancer la commande <span class="strong"><strong>connect</strong></span></p></li></ol></div>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Terminaison normale de toutes les commandes </p>
+                  <p>- Etat normal du serveur UMS</p>
+                </td></tr></tbody></table></div></div></div><div class="section" title="Contrôle de la qualité du code"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp5555024"></a>Contrôle de la qualité du code</h2></div></div></div><div class="section" title="Présentation"><div class="titlepage"><div><div><h3 class="title"><a id="idp5555744"></a>Présentation</h3></div></div></div><p>L'objectif de ces tests est de vérifier que le code source (C/C++ ou Java) respecte les contraintes de qualité logiciel fixées dans les spécifications et le cahier des charges.</p></div><div class="section" title="Identifiants des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5557264"></a>Identifiants des tests</h3></div></div></div><p>Les identifiants des tests sont de la forme: [IdentifiantDeTest]-[IdentifiantDesModules] où les identifiants sont les suivants:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Identifiants de tests</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>CRP: Conformité aux Règles de Programmation</p></li><li class="listitem"><p>MCC: Mesure de la Complexité du Code</p></li><li class="listitem"><p>DDC: Détection de Duplication du Code</p></li></ul></div></li><li class="listitem"><p>Identifiants de modules</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>CSC : C/C++ source code</p></li><li class="listitem"><p>JSC : Java source code</p></li></ul></div></li></ul></div></div><div class="section" title="Liste des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5565376"></a>Liste des tests</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="4.4cm" /><col width="6.3cm" /><col width="6.4cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Technique</p>
+                </td><td>
+                  
+                  <p>Résultats attendus</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CRP-CSC</p>
+                </td><td>
+                  
+                  
+                  <p>Audit du code C/C++ avec l'outil LOGISCOPE</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Le code respecte toutes les règles de codage de catégorie «REQUIRED » spécifiées pour le projet [SCL] sauf dérogation clairement documentée dans le code. </p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CRP-JSC</p>
+                </td><td>
+                  
+                  
+                  <p>Audit du code Java avec l'outil LOGISCOPE</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Le code respecte toutes les règles de codage de catégorie «REQUIRED » spécifiées pour le projet [SCL] sauf dérogation clairement documentée dans le code. </p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>MCC-CSC</p>
+                </td><td>
+                  
+                  
+                  <p>Audit du code C/C++ avec l'outil SQUORE</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Pas plus de 1% de composants classés « A risque » </p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>MCC-JSC</p>
+                </td><td>
+                  
+                  
+                  <p>Audit du code Java avec l'outil SQUORE</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Pas plus de 1% de composants classés « A risque » </p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>DDC-CSC</p>
+                </td><td>
+                  
+                  
+                  <p>Audit du code C/C++ avec l'outil SQUORE</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Moins de 10% de code dupliqué. </p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>DDC-JSC</p>
+                </td><td>
+                  
+                  
+                  <p>Audit du code Java avec l'outil SQUORE</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Moins de 10% de code dupliqué. </p>
+                </td></tr></tbody></table></div></div></div><div class="section" title="Tests de compilation et d'installation"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp5602288"></a>Tests de compilation et d'installation</h2></div></div></div><div class="section" title="Présentation"><div class="titlepage"><div><div><h3 class="title"><a id="idp5602928"></a>Présentation</h3></div></div></div><p>La compilation des différents exécutables et librairies composant le module UMS sera réalisée par un serveur d'intégration continue (du type HUDSON).</p><p>Par ailleurs les tests d'installation ont pour objectif de valider la procédure d'installation de l'ensemble des différents composants d'une plateforme VISHNU (clients, serveurs, agents SysFera-DS).</p></div><div class="section" title="Environnement des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5605200"></a>Environnement des tests</h3></div></div></div><p>Nous utiliserons les deux environnement de tests pour la compilation et l'installation.</p></div><div class="section" title="Liste des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5606448"></a>Liste des tests</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="4.4cm" /><col width="6.3cm" /><col width="6.4cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Technique</p>
+                </td><td>
+                  
+                  <p>Résultats attendus</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>COMP-CSC</p>
+                </td><td>
+                  
+                  
+                  <p>Compilation du code C/C++ avec l'outil GCC/CMake</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Compilation correcte de tous les exécutables</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>INS-SERVER-PGSQL</p>
+                  <p>INS-SERVER-ORACLE</p>
+                </td><td>
+                  
+                  
+                  <p>Installation des différents éléments serveur de la plateforme VISHNU</p>
+                  <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>serveur de calcul</p></li><li class="listitem"><p>serveur de stockage</p></li><li class="listitem"><p>serveur dédié VISHNU</p></li><li class="listitem"><p>serveur de base de données</p></li></ul></div>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Tous les processus démarrés et operationnels</p>
+                  <p>- Documentation disponible (pages man)</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>INS-CLI</p>
+                </td><td>
+                  
+                  
+                  <p>Installation du client VISHNU en ligne de commande</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Toutes les commandes installées</p>
+                  <p>- Documentation disponible (pages man)</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>INS-PGAPI</p>
+                </td><td>
+                  
+                  
+                  <p>Installation des librairiesAPI VISHNU (C++ et Python)</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Librairie C++ installée</p>
+                  <p>- Librairie Python installée et pouvant être chargée dans l'interpréteur Python 2.x</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>INS-WSAPI</p>
+                </td><td>
+                  
+                  
+                  <p>Installation des services web VISHNU sur le serveur JBoss</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>- Services operationnels (contrôle via la console webservices de JBoss)</p>
+                </td></tr></tbody></table></div></div></div><div class="section" title="Contrôle de la documentation utilisateur"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="idp5643840"></a>Contrôle de la documentation utilisateur</h2></div></div></div><div class="section" title="Présentation"><div class="titlepage"><div><div><h3 class="title"><a id="idp5644480"></a>Présentation</h3></div></div></div><p>L'objectif est de vérifier que la documentation utilisateur permet à l'utilisateur de comprendre et d'utiliser les fonctions spécifiées.</p></div><div class="section" title="Liste des tests"><div class="titlepage"><div><div><h3 class="title"><a id="idp5645920"></a>Liste des tests</h3></div></div></div><div class="informaltable"><table border="1"><colgroup><col width="4.4cm" /><col width="6.3cm" /><col width="6.4cm" /></colgroup><tbody><tr><td>
+                  
+                  
+                  
+                  <p>Identifiant de tests</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Technique</p>
+                </td><td>
+                  
+                  <p>Résultats attendus</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDU-MAN</p>
+                </td><td>
+                  
+                  
+                  <p>Vérifier les pages de manuel attachées à chaque commande</p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Toutes les pages de manuel contiennent toutes les informations nécessaires à l'utilisateur pour utiliser les commandes.</p>
+                </td></tr><tr><td>
+                  
+                  
+                  <p>CDU-USERGUIDE</p>
+                </td><td>
+                  
+                  
+                  <p>Suivre le guide de l'utilisateur </p>
+                </td><td>
+                  
+                  
+                  
+                  <p>Le guide permet une prise en main rapide des fonctions du logiciel</p>
+                </td></tr></tbody></table></div></div></div></div></div></body></html>
