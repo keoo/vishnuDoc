@@ -35,8 +35,14 @@
         <surname>Cissé</surname>
       </personname>
     </author>
+    <author>
+      <personname>
+        <firstname>Rodrigue</firstname>
+        <surname>Chakode</surname>
+      </personname>
+    </author>
     <title> VISHNU User Manual</title>
-    <date>March 8, 2011</date>
+    <date>June 21, 2012</date>
     <revhistory>
       <revision>
         <revnumber>1</revnumber>
@@ -134,6 +140,44 @@
         <authorinitials>SysFera</authorinitials>
         <revdescription>
       <para>Add of VISHNU commands for LDAP support and for connection and reconnection using multiples VISHNU accounts.</para></revdescription>
+      </revision>
+      <revision>
+        <revnumber>13</revnumber>
+        <date>11/04/2012</date>
+        <authorinitials>SysFera</authorinitials>
+        <revdescription>
+      <para>Add of Grid Engine batch scheduler. </para></revdescription>
+      </revision>
+      <revision>
+        <revnumber>14</revnumber>
+        <date>22/05/2012</date>
+        <authorinitials>SysFera</authorinitials>
+        <revdescription>
+      <para>Add FAQ section. </para></revdescription>
+      </revision>
+      <revision>
+        <revnumber>15</revnumber>
+        <date>21/06/2012</date>
+        <authorinitials>SysFera</authorinitials>
+        <revdescription>
+      
+    <para>Add a section for the service vishnu_set_ssh_key in UMS that allows to configure ssh keys for remote accounts. </para></revdescription>
+      </revision>
+      <revision>
+        <revnumber>16</revnumber>
+        <date>28/06/2012</date>
+        <authorinitials>SysFera</authorinitials>
+        <revdescription>
+      
+    <para>Add a section for the copy/move commands in FMS with the client out of the DNS. </para></revdescription>
+      </revision>
+      <revision>
+        <revnumber>17</revnumber>
+        <date>04/09/2012</date>
+        <authorinitials>SysFera</authorinitials>
+        <revdescription>
+      
+    <para>Add option -l on list job. </para></revdescription>
       </revision>
     </revhistory>
     <copyright>
@@ -409,6 +453,11 @@
 	      and must be added by the user in the ssh authorized key directory of the UNIX account.
 	      Doing this allows VISHNU to be directly connected on this UNIX account, running tasks as if it was the owner of the UNIX account.
 	    </para>
+            <para>  
+	      With the command <emphasis role="italic">&quot;vishnu_set_ssh_key&quot;</emphasis> you can automatically add a local ssh public key to a remote account (in the authorized_keys file). This command also allows to remove a given key to that file. See the command reference section for the usage. <emphasis
+                  role="bold">Note</emphasis> that to enable rollback in case of an inappropriate removal, the command makes a backup of the authorized_keys file in a file named <emphasis
+                  role="italic">&quot;authorized_keys.bak&quot;</emphasis> before altering it.
+	    </para>
           </section>
           <section>
             <title> Local user configuration update </title>
@@ -472,7 +521,8 @@
           <para>
 	    To submit a job, via VISHNU, to the batch scheduler of a specific machine, the user needs: an active VISHNU session, 
 	    a local user configuration registered on VISHNU that corresponds to an existing UNIX account on the specified machine and a script that describes 
-	    the job to submit. In the current implementation of VISHNU, it is possible to use the directives for two batch schedulers: TORQUE, LoadLeveler, SLURM and LSF.
+	    the job to submit. In the current implementation of VISHNU, it is possible to use the directives for several batch schedulers: TORQUE, LoadLeveler, SLURM, LSF and
+	    Grid Engine.
 	    In order to use the same script on different batch schedulers, a generic script with generic VISHNU directives is used.
 	    The <emphasis role="bold">vishnu_submit_job</emphasis> command allows a user to submit a job in the shell terminal.
 	    To obtain information on a job, the user can use the <emphasis role="bold">vishnu_get_job_info</emphasis> or 
@@ -536,7 +586,7 @@
               </itemizedlist>
 	    </para>
             <para>
-        It is important to note that the user can also add directives specific to a batch scheduler (TORQUE, LoadLeveler, SLURM or LSF). Such specific directives must be added directly after the generic directives. Here is an example:
+        It is important to note that the user can also add directives specific to a batch scheduler (TORQUE, LoadLeveler, SLURM, LSF or Grid Engine). Such specific directives must be added directly after the generic directives. Here is an example:
       </para>
             <programlisting>
         #!/bin/sh
@@ -564,6 +614,12 @@
         #BSUB -e myJob-%J.err
         #BSUB -W 01:02
         #BSUB -q priority
+	#The following lines are Grid Engine specific section
+	#$ -N myFristJob
+	#$ -o myJob-$JOB_ID.out
+	#$ -e myJob-$JOB_ID.err 
+	#$ -l s_rt=01:02:20
+	#$ -q myFavoriteQueue
       </programlisting>
           </section>
         </section>
@@ -658,10 +714,10 @@
             <itemizedlist>
               <listitem>
                 <para> copy (or move) file between two hosts by the commands <emphasis
-                      role="bold">vishnu_copy_file</emphasis> (or <emphasis role="bold">vishnu_move_file</emphasis>) </para>
+                      role="bold">vishnu_copy_file</emphasis> (or <emphasis role="bold">vishnu_move_file</emphasis>). To use the copy/move commands from a client out of the DNS, one must use 'localhost' as a machine id for the local machine. </para>
               </listitem>
               <listitem>
-                <para> copy  (or move) file between two hosts in asynchronous way by the commands <emphasis
+                <para> copy (or move) file between two hosts in asynchronous way by the commands <emphasis
                       role="bold">vishnu_copy_async_file</emphasis> (or <emphasis
                       role="bold">vishnu_move_async_file</emphasis>) </para>
               </listitem>
@@ -692,11 +748,49 @@
       </section>
       <section>
         <title> Troubleshooting functions </title>
-        <para> The <emphasis role="italic">&quot;There is no session in this terminal&quot;</emphasis> error can be solved by connecting to VISHNU using 
-	  the <emphasis role="bold">vishnu_connect</emphasis> command.
-	</para>
-        <para> If a message similar to &quot;warning input stream error&quot; happens when calling vishnu_connect but the call is successful, try cleaning the .vishnu directory.
-	</para>
+        <itemizedlist>
+          <listitem>
+            <para> The <emphasis role="italic">&quot;There is no session in this terminal&quot;</emphasis> error can be solved by connecting to VISHNU using 
+		the <emphasis role="bold">vishnu_connect</emphasis> command.
+	    </para>
+          </listitem>
+          <listitem>
+            <para> If a message similar to <emphasis role="italic">&quot;warning input stream error&quot;</emphasis> happens when calling vishnu_connect but the call is successful, try cleaning the .vishnu directory.
+	    </para>
+          </listitem>
+          <listitem>
+            <para>
+		The <emphasis role="italic">&quot;DIET initialization failed&quot;</emphasis> error, possibly caused by the number of omniorb connection limit, can be solved in the previous case by 
+		using the variable maxGIOPConnectionPerServer on the omniorb configuration file as follows : maxGIOPConnectionPerServer = 1000. It is also advisable to put the variable maxServerThreadPoolSize to 1000. 
+		The value 1000 is an example value.
+	      </para>
+          </listitem>
+          <listitem>
+            <para>
+	      If the message <emphasis role="italic">&quot;locale::facet::_S_create_c_locale name not valid&quot;</emphasis> occurs after calling vishnu_connect command, you must export environment variable LANG 
+	      as follows : export LANG=C.
+	    </para>
+          </listitem>
+          <listitem>
+            <para>
+	      If the message <emphasis role="italic">&quot;The batch scheduler indicates an error [SGE ERROR: warning: username your job is not allowed to run in any queue]&quot;</emphasis> is returned after
+	      job submission on the batch scheduler SGE, you have to check the existence of a queue by using the command: <emphasis
+                  role="bold"> qconf -sql</emphasis>. If there is no queue, you must add one by using the command <emphasis
+                  role="bold">qconf -aq </emphasis>.
+	    </para>
+          </listitem>
+        </itemizedlist>
+      </section>
+      <section>
+        <title> FAQ </title>
+        <itemizedlist>
+          <listitem>
+            <para> If the JAVA API (using the WS or the JAVA jars directly fails), with an error such as undefined reference in a JNI
+              call, please add the flags <emphasis role="italic">-Wl,--add-stdcall-alias</emphasis> at the compilation of the VISHNU
+              target in the swigAPI/CMakeLists.txt.
+	    </para>
+          </listitem>
+        </itemizedlist>
       </section>
     </section>
   </chapter>
@@ -3329,6 +3423,84 @@ The required parameters are : the VISHNU user identifier, the user-authenticatio
         <para>vishnu_list_auth_accounts</para>
       </refsect1>
     </refentry>
+    <refentry>
+      <refmeta>
+        <refentrytitle>vishnu_set_ssh_key</refentrytitle>
+        <manvolnum>1</manvolnum>
+      </refmeta>
+      <refnamediv>
+        <refname>vishnu_set_ssh_key</refname>
+        <refpurpose>Allows to add or remove a given key to/from the authorized keys of a user's remote account.</refpurpose>
+      </refnamediv>
+      <refsynopsisdiv>
+        <cmdsynopsis><command>vishnu_set_ssh_key</command><arg choice="opt"><option>-h</option></arg><arg
+              choice="opt"><option>-a</option></arg><arg choice="opt"><option>-r</option></arg><arg
+              choice="plain"><replaceable>rlogin</replaceable></arg><arg choice="plain"><replaceable>sshPubKey</replaceable></arg></cmdsynopsis>
+      </refsynopsisdiv>
+      <refsect1 id="description">
+        <title>DESCRIPTION</title>
+        <para>This command allows to add or remove a given key to/from the authorized keys of a user's remote account</para>
+      </refsect1>
+      <refsect1 id="options">
+        <title>OPTIONS</title>
+        <variablelist>
+          <varlistentry>
+            <term><option>-h <replaceable>help</replaceable></option></term>
+            <listitem>
+              <para>help about the command.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-a <replaceable>addOption</replaceable></option></term>
+            <listitem>
+              <para>option for adding a key.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-r <replaceable>removeOption</replaceable></option></term>
+            <listitem>
+              <para>option for removing a key.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </refsect1>
+      <refsect1 id="environment">
+        <title>ENVIRONMENT</title>
+        <variablelist>
+          <varlistentry>
+            <term><envar>VISHNU_CONFIG_FILE</envar></term>
+            <listitem>
+              <para>Contains the path to the local configuration file for VISHNU.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </refsect1>
+      <refsect1 id="diagnostics">
+        <title>DIAGNOSTICS</title>
+        <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
+        <variablelist>
+          <varlistentry>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Undefined error&quot; [16]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;The name of the user option is unknown&quot; [41]</term>
+            <listitem/>
+          </varlistentry>
+        </variablelist>
+      </refsect1>
+      <refsect1 id="example">
+        <title>EXAMPLE</title>
+        <para>To add the public key located localy at $HOME/.ssh/rsa_id.pub to the authorized_keys of the user tartampion on the machine named slurm.intranet.lan : </para>
+        <para>vishnu_set_ssh_key -a $HOME/.ssh/rsa_id.pub tartampion@slurm.intranet.lan</para>
+        <para>To remote the key added previously:</para>
+        <para>vishnu_set_ssh_key -r $HOME/.ssh/rsa_id.pub tartampion@slurm.intranet.lan</para>
+      </refsect1>
+    </refentry>
   </reference>
   <reference>
     <title>TMS Command reference</title>
@@ -3339,7 +3511,7 @@ The required parameters are : the VISHNU user identifier, the user-authenticatio
       </refmeta>
       <refnamediv>
         <refname>vishnu_submit_job</refname>
-        <refpurpose>submits a job on a machine through the use of a script (scriptFilePath). If the machine identifier is equal to autom, the job will be automatically submitted on a best machine (for now three criterions are used: minimum number of waiting jobs, minimum number of running jobs and the total number of jobs) through the use of a script (scriptFilePath) which must be generic script  using  VISHNU's generic directives for all batch schedulers</refpurpose>
+        <refpurpose>Allows to submit a job consisting in running a given script on a machine.</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
         <cmdsynopsis><command>vishnu_submit_job</command><arg choice="opt"><option>-h</option></arg><arg
@@ -3356,8 +3528,11 @@ The required parameters are : the VISHNU user identifier, the user-authenticatio
               choice="opt"><option>-g <replaceable>group</replaceable></option></arg><arg
               choice="opt"><option>-D <replaceable>workingDir</replaceable></option></arg><arg
               choice="opt"><option>-T <replaceable>cpuTime</replaceable></option></arg><arg
-              choice="opt"><option>-Q</option></arg><arg choice="plain"><replaceable>machineId</replaceable></arg><arg
-              choice="plain"><replaceable>scriptFilePath</replaceable></arg></cmdsynopsis>
+              choice="opt"><option>-Q</option></arg><arg choice="opt"><option>-L <replaceable>loadType</replaceable></option></arg><arg
+              choice="opt"><option>-F <replaceable>fileParams</replaceable></option></arg><arg
+              choice="opt"><option>-V <replaceable>textParams</replaceable></option></arg><arg
+              choice="opt"><option>-w <replaceable>workId</replaceable></option></arg><arg
+              choice="plain"><replaceable>machineId</replaceable></arg><arg choice="plain"><replaceable>scriptFilePath</replaceable></arg></cmdsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -3457,6 +3632,44 @@ If the machine identifier is equal to autom, the job will be automatically submi
               <para>allows to select automatically a queue which has the number of nodes requested by the user.</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term><option>-L <replaceable>loadType</replaceable></option></term>
+            <listitem>
+              <para>The criterion to automatically submit a job (for now three criterions are used: minimum number of waiting jobs, minimum number of running jobs and the total number of jobs). This option is used only if the machine identifier is equal to autom (this keyword is used to submit automatically a job).
+The value must be an integer. Predefined values are: 0 (USE_NB_WAITING_JOBS), 1 (USE_NB_JOBS), 2 (USE_NB_RUNNING_JOBS).</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-F <replaceable>fileParams</replaceable></option></term>
+            <listitem>
+              <para>Sets a list of local files as parameters for the script.  
+These files will be  uploaded onto the server before computing the script. At the execution time,  each path can be accessed through an environment variable.
+E.g. --fileParams &quot;PFILE1=/path/to/file1 PFILE2=/path/to/file2&quot; or -F &quot;PFILE1=/path/to/file1 PFILE2=/path/to/file2&quot;.
+At the execution, the environment variable $PFILE1, for example, will point to the uploaded copy of the file /path/to/file1. 
+
+The option --fileParam or -f allows to set each file individually.
+
+NOTE: The name of parameter as well as those of the corresponding environment are case-insensitive.
+.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-V <replaceable>textParams</replaceable></option></term>
+            <listitem>
+              <para>Sets a list of parameters for the script so at the execution, each of parameter can be used as an environment variable.
+E.g. --textParams &quot;PARAM1=value1 PARAM2=value2&quot; or -F &quot;PARAM1=value1 PARAM2=value2&quot;, will set the environment variables named PARAM1 and PARAM2 with value1 and value2, respectively. 
+
+The option --textParam or -v allows to set each file individually.
+
+NOTE: The name of parameter as well as those of the corresponding environment are case-insensitive..</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-w <replaceable>workId</replaceable></option></term>
+            <listitem>
+              <para>Sets the identifier of the Work to which the job is related.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
       </refsect1>
       <refsect1 id="job output environment variables">
@@ -3493,6 +3706,12 @@ If the machine identifier is equal to autom, the job will be automatically submi
               <para>Set the total number of nodes in the job's resource allocation.</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term><envar>VISHNU_OUTPUT_DIR</envar></term>
+            <listitem>
+              <para>Define a generic directory where files generated by scripts can be stored in order to be get out easily via the appropriate VISHNU commands (vishnu_get_output, vishnu_get_completed_jobs_output). The directory is really set at the execution time with a directory automatically generated within the job's working directory.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
       </refsect1>
       <refsect1 id="environment">
@@ -3501,7 +3720,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
           <varlistentry>
             <term><envar>VISHNU_CONFIG_FILE</envar></term>
             <listitem>
-              <para>Contains the path to the local configuration file for VISHNU..</para>
+              <para>Contains the path to the local configuration file for VISHNU.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -3570,13 +3789,17 @@ If the machine identifier is equal to autom, the job will be automatically submi
             <term>&quot;Permission denied&quot; [104]</term>
             <listitem/>
           </varlistentry>
+          <varlistentry>
+            <term>&quot;The work id is unknown&quot; [109]</term>
+            <listitem/>
+          </varlistentry>
         </variablelist>
       </refsect1>
       <refsect1 id="example">
         <title>EXAMPLE</title>
         <para>To submit on machine_1 the script toto:</para>
         <para>vishnu_submit_job machine_1 toto</para>
-        <para>To submit automatically the script toto on the best machine (by the default the machine which has the minimum number of waiting jobs is seleted):</para>
+        <para>To submit automatically the script toto on the best machine (by the default the machine which has the minimum number of waiting jobs is selected):</para>
         <para>vishnu_submit_job autom toto</para>
         <para>To submit automatically the script toto on the best machine by using a machine which has the minimum total number of jobs:</para>
         <para>vishnu_submit_job autom toto -L 1</para>
@@ -3616,7 +3839,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
           <varlistentry>
             <term><envar>VISHNU_CONFIG_FILE</envar></term>
             <listitem>
-              <para>Contains the path to the local configuration file for VISHNU..</para>
+              <para>Contains the path to the local configuration file for VISHNU.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -3737,7 +3960,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
           <varlistentry>
             <term><envar>VISHNU_CONFIG_FILE</envar></term>
             <listitem>
-              <para>Contains the path to the local configuration file for VISHNU..</para>
+              <para>Contains the path to the local configuration file for VISHNU.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -3839,7 +4062,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
           <varlistentry>
             <term><envar>VISHNU_CONFIG_FILE</envar></term>
             <listitem>
-              <para>Contains the path to the local configuration file for VISHNU..</para>
+              <para>Contains the path to the local configuration file for VISHNU.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -3919,7 +4142,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
       </refmeta>
       <refnamediv>
         <refname>vishnu_list_jobs</refname>
-        <refpurpose>gets a list of all submitted jobs on a machine. If machine identifier is equal to all, submitted jobs on all machines are listed</refpurpose>
+        <refpurpose>gets a list of all submitted jobs on a machine.</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
         <cmdsynopsis><command>vishnu_list_jobs</command><arg choice="opt"><option>-h</option></arg><arg
@@ -3932,7 +4155,8 @@ If the machine identifier is equal to autom, the job will be automatically submi
               choice="opt"><option>-p <replaceable>priority</replaceable></option></arg><arg
               choice="opt"><option>-q <replaceable>queue</replaceable></option></arg><arg
               choice="opt"><option>-S <replaceable>multipleStatus</replaceable></option></arg><arg
-              choice="opt"><option>-b</option></arg><arg choice="plain"><replaceable>machineId</replaceable></arg></cmdsynopsis>
+              choice="opt"><option>-b</option></arg><arg choice="opt"><option>-w <replaceable>workId</replaceable></option></arg><arg
+              choice="opt"><option>-l</option></arg><arg choice="plain"><replaceable>machineId</replaceable></arg></cmdsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -4009,6 +4233,18 @@ The value must be an integer. Predefined values are: -1 (UNDEFINED), 1 (VERY_LOW
               <para>allows to select all jobs submitted  through the underlying batch scheduler  (jobs submitted through vishnu and out of vishnu).</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term><option>-w <replaceable>workId</replaceable></option></term>
+            <listitem>
+              <para>Allows to gather information about jobs related to a given Work..</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-l <replaceable>listAll</replaceable></option></term>
+            <listitem>
+              <para>lists all information of the job.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
       </refsect1>
       <refsect1 id="environment">
@@ -4017,7 +4253,7 @@ The value must be an integer. Predefined values are: -1 (UNDEFINED), 1 (VERY_LOW
           <varlistentry>
             <term><envar>VISHNU_CONFIG_FILE</envar></term>
             <listitem>
-              <para>Contains the path to the local configuration file for VISHNU..</para>
+              <para>Contains the path to the local configuration file for VISHNU.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -4133,7 +4369,7 @@ The value must be an integer. Predefined values are: -1 (UNDEFINED), 1 (VERY_LOW
           <varlistentry>
             <term><envar>VISHNU_CONFIG_FILE</envar></term>
             <listitem>
-              <para>Contains the path to the local configuration file for VISHNU..</para>
+              <para>Contains the path to the local configuration file for VISHNU.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -4244,7 +4480,7 @@ The value must be an integer. Predefined values are: -1 (UNDEFINED), 1 (VERY_LOW
           <varlistentry>
             <term><option>-o <replaceable>outDir</replaceable></option></term>
             <listitem>
-              <para>Specifies the output directory where the files will be stored (by default, the current directory)..</para>
+              <para>Specifies the output directory where the files will be stored (by default, the current directory).</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -4255,7 +4491,7 @@ The value must be an integer. Predefined values are: -1 (UNDEFINED), 1 (VERY_LOW
           <varlistentry>
             <term><envar>VISHNU_CONFIG_FILE</envar></term>
             <listitem>
-              <para>Contains the path to the local configuration file for VISHNU..</para>
+              <para>Contains the path to the local configuration file for VISHNU.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -4335,7 +4571,7 @@ The value must be an integer. Predefined values are: -1 (UNDEFINED), 1 (VERY_LOW
       </refmeta>
       <refnamediv>
         <refname>vishnu_cancel_job</refname>
-        <refpurpose>cancels a job from its id. If job id is equal to all, all submitted jobs by all users will be cancelled if the user is an administrator, and only jobs submitted by the user will be cancelled if the user is not an administrator.</refpurpose>
+        <refpurpose>Allows to cancel a job submitted on a given machine.</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
         <cmdsynopsis><command>vishnu_cancel_job</command><arg choice="opt"><option>-h</option></arg><arg
@@ -4343,7 +4579,7 @@ The value must be an integer. Predefined values are: -1 (UNDEFINED), 1 (VERY_LOW
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
-        <para>This command allows canceling a job submitted on a specific machine's batch scheduler.</para>
+        <para>cancels a job from its id. If job id is equal to all, all submitted jobs by all users will be cancelled if the user is an administrator, and only jobs submitted by the user will be cancelled if the user is not an administrator.</para>
       </refsect1>
       <refsect1 id="options">
         <title>OPTIONS</title>
@@ -4362,7 +4598,7 @@ The value must be an integer. Predefined values are: -1 (UNDEFINED), 1 (VERY_LOW
           <varlistentry>
             <term><envar>VISHNU_CONFIG_FILE</envar></term>
             <listitem>
-              <para>Contains the path to the local configuration file for VISHNU..</para>
+              <para>Contains the path to the local configuration file for VISHNU.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -4443,6 +4679,221 @@ The value must be an integer. Predefined values are: -1 (UNDEFINED), 1 (VERY_LOW
         <para>vishnu_cancel_job machine_1 J_1</para>
         <para>To cancel cancel all submitted jobs on machine_1</para>
         <para>vishnu_cancel_job machine_1 all</para>
+      </refsect1>
+    </refentry>
+    <refentry>
+      <refmeta>
+        <refentrytitle>vishnu_add_work</refentrytitle>
+        <manvolnum>1</manvolnum>
+      </refmeta>
+      <refnamediv>
+        <refname>vishnu_add_work</refname>
+        <refpurpose>Allows to create a work consisting in running jobs.</refpurpose>
+      </refnamediv>
+      <refsynopsisdiv>
+        <cmdsynopsis><command>vishnu_add_work</command><arg choice="opt"><option>-h</option></arg><arg
+              choice="opt"><option>-a <replaceable>applicationId</replaceable></option></arg><arg
+              choice="opt"><option>-n <replaceable>subject</replaceable></option></arg><arg
+              choice="opt"><option>-l <replaceable>priority</replaceable></option></arg><arg
+              choice="opt"><option>-u <replaceable>owner</replaceable></option></arg><arg
+              choice="opt"><option>-e <replaceable>estimatedHour</replaceable></option></arg><arg
+              choice="opt"><option>-d <replaceable>description</replaceable></option></arg><arg
+              choice="opt"><option>-p <replaceable>projectId</replaceable></option></arg><arg
+              choice="opt"><option>-m <replaceable>machineId</replaceable></option></arg><arg
+              choice="opt"><option>-n <replaceable>nbCPU</replaceable></option></arg></cmdsynopsis>
+      </refsynopsisdiv>
+      <refsect1 id="description">
+        <title>DESCRIPTION</title>
+        <para>This command adds a work in vishnu</para>
+      </refsect1>
+      <refsect1 id="options">
+        <title>OPTIONS</title>
+        <variablelist>
+          <varlistentry>
+            <term><option>-h <replaceable>help</replaceable></option></term>
+            <listitem>
+              <para>help about the command.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-a <replaceable>applicationId</replaceable></option></term>
+            <listitem>
+              <para>Is the id of the machine on which the job has been submitted..</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-n <replaceable>subject</replaceable></option></term>
+            <listitem>
+              <para>Represents the name assigned to the work..</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-l <replaceable>priority</replaceable></option></term>
+            <listitem>
+              <para>Represents the work priority. .</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-u <replaceable>owner</replaceable></option></term>
+            <listitem>
+              <para>Represents the job owner..</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-e <replaceable>estimatedHour</replaceable></option></term>
+            <listitem>
+              <para>Is the maximum wall-clock time during which the job can run (in seconds).</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-d <replaceable>description</replaceable></option></term>
+            <listitem>
+              <para>Is the textual description of the job..</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-p <replaceable>projectId</replaceable></option></term>
+            <listitem>
+              <para>Is the id of the session that contained the job submission command.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-m <replaceable>machineId</replaceable></option></term>
+            <listitem>
+              <para>Is the id of the session that contained the job submission command.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><option>-n <replaceable>nbCPU</replaceable></option></term>
+            <listitem>
+              <para>The current status of the job..</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </refsect1>
+      <refsect1 id="job output environment variables">
+        <title>JOB OUTPUT ENVIRONMENT VARIABLES</title>
+        <para>The VISHNU Job Manager set the following variables in the environment of the batch script.</para>
+        <variablelist>
+          <varlistentry>
+            <term><envar>VISHNU_BATCHJOB_ID</envar></term>
+            <listitem>
+              <para>Set the  identifier assigned to the job by the batch system.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><envar>VISHNU_BATCHJOB_NAME</envar></term>
+            <listitem>
+              <para>Set the name of the job.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><envar>VISHNU_SUBMIT_MACHINE_NAME</envar></term>
+            <listitem>
+              <para>Set  the name of the machine on which the job has been submitted.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><envar>VISHNU_BATCHJOB_NODEFILE</envar></term>
+            <listitem>
+              <para>Set the name of the file contain the list of nodes assigned to the job.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><envar>VISHNU_BATCHJOB_NUM_NODES</envar></term>
+            <listitem>
+              <para>Set the total number of nodes in the job's resource allocation.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><envar>VISHNU_OUTPUT_DIR</envar></term>
+            <listitem>
+              <para>Define a generic directory where files generated by scripts can be stored in order to be get out easily via the appropriate VISHNU commands (vishnu_get_output, vishnu_get_completed_jobs_output). The directory is really set at the execution time with a directory automatically generated within the job's working directory.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </refsect1>
+      <refsect1 id="environment">
+        <title>ENVIRONMENT</title>
+        <variablelist>
+          <varlistentry>
+            <term><envar>VISHNU_CONFIG_FILE</envar></term>
+            <listitem>
+              <para>Contains the path to the local configuration file for VISHNU.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </refsect1>
+      <refsect1 id="diagnostics">
+        <title>DIAGNOSTICS</title>
+        <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
+        <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (SSH error)&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Error invalid parameters&quot; [10]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;There is no open session in this terminal&quot; [13]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Missing parameters&quot; [14]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu initialization failed&quot; [15]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Undefined error&quot; [16]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;The sessionKey is expired. The session is closed.&quot; [29]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;The machine id is unknown&quot; [32]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;The batch scheduler type is unknown&quot; [101]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;The batch scheduler indicates an error&quot; [102]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Permission denied&quot; [104]</term>
+            <listitem/>
+          </varlistentry>
+        </variablelist>
+      </refsect1>
+      <refsect1 id="example">
+        <title>EXAMPLE</title>
+        <para>To add a work called toto:</para>
+        <para>vishnu_add_work toto</para>
       </refsect1>
     </refentry>
   </reference>
@@ -5410,7 +5861,7 @@ values can be obtained using the vishnu_list_machine command).
       </refmeta>
       <refnamediv>
         <refname>vishnu_list_dir</refname>
-        <refpurpose>displays  the content of a remote directory. </refpurpose>
+        <refpurpose>displays  the content of a remote directory</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
         <cmdsynopsis><command>vishnu_list_dir</command><arg choice="opt"><option>-h</option></arg><arg
@@ -5549,13 +6000,13 @@ i.e. a local copy cannot be handled by this command.
           <varlistentry>
             <term><option>-r <replaceable>isRecursive</replaceable></option></term>
             <listitem>
-              <para>It specifies when the copy is recursive (case of directory) or not..</para>
+              <para>It specifies when the copy is recursive (case of directory) or not.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><option>-t <replaceable>trCommand</replaceable></option></term>
             <listitem>
-              <para>the command to use to perform file transfer..
+              <para>the command to use to perform file transfer.
 The value must be an integer. Predefined values are: 0 (SCP), 1 (RSYNC), 2 (UNDEFINED).</para>
             </listitem>
           </varlistentry>
@@ -5670,13 +6121,13 @@ The command listFileTransfers can be used to check the status of the transfer af
           <varlistentry>
             <term><option>-r <replaceable>isRecursive</replaceable></option></term>
             <listitem>
-              <para>It specifies when the copy is recursive (case of directory) or not..</para>
+              <para>It specifies when the copy is recursive (case of directory) or not.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><option>-t <replaceable>trCommand</replaceable></option></term>
             <listitem>
-              <para>the command to use to perform file transfer..
+              <para>the command to use to perform file transfer.
 The value must be an integer. Predefined values are: 0 (SCP), 1 (RSYNC), 2 (UNDEFINED).</para>
             </listitem>
           </varlistentry>
@@ -5806,13 +6257,13 @@ i.e. a local move cannot be handled by this command.
           <varlistentry>
             <term><option>-r <replaceable>isRecursive</replaceable></option></term>
             <listitem>
-              <para>It specifies when the copy is recursive (case of directory) or not..</para>
+              <para>It specifies when the copy is recursive (case of directory) or not.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><option>-t <replaceable>trCommand</replaceable></option></term>
             <listitem>
-              <para>the command to use to perform file transfer..
+              <para>the command to use to perform file transfer.
 The value must be an integer. Predefined values are: 0 (SCP), 1 (RSYNC), 2 (UNDEFINED).</para>
             </listitem>
           </varlistentry>
@@ -5927,13 +6378,13 @@ The command listFileTransfers can be used to check the status of the transfer af
           <varlistentry>
             <term><option>-r <replaceable>isRecursive</replaceable></option></term>
             <listitem>
-              <para>It specifies when the copy is recursive (case of directory) or not..</para>
+              <para>It specifies when the copy is recursive (case of directory) or not.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><option>-t <replaceable>trCommand</replaceable></option></term>
             <listitem>
-              <para>the command to use to perform file transfer..
+              <para>the command to use to perform file transfer.
 The value must be an integer. Predefined values are: 0 (SCP), 1 (RSYNC), 2 (UNDEFINED).</para>
             </listitem>
           </varlistentry>
@@ -6439,7 +6890,7 @@ The value must be an integer. Predefined values are: 0 (UNDEFINED), 1 (SHELL).</
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;Vishnu initialization failes&quot; [15]</term>
+            <term>&quot;Vishnu initialization failed&quot; [15]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -6537,7 +6988,7 @@ The value must be an integer. Predefined values are: 0 (UNDEFINED), 1 (CPUUSE), 
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;Vishnu initialization failes&quot; [15]</term>
+            <term>&quot;Vishnu initialization failed&quot; [15]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -6646,7 +7097,7 @@ The value must be an integer. Predefined values are: 0 (UNDEFINED), 1 (CPUUSE), 
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;Vishnu initialization failes&quot; [15]</term>
+            <term>&quot;Vishnu initialization failed&quot; [15]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -6732,7 +7183,7 @@ The value must be an integer. Predefined values are: 0 (UNDEFINED), 1 (CPUUSE), 
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;Vishnu initialization failes&quot; [15]</term>
+            <term>&quot;Vishnu initialization failed&quot; [15]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -6825,7 +7276,7 @@ The value must be an integer. Predefined values are: 0 (UNDEFINED), 1 (CPUUSE), 
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;Vishnu initialization failes&quot; [15]</term>
+            <term>&quot;Vishnu initialization failed&quot; [15]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -8040,7 +8491,7 @@ The session's status is either 0 (inactive) or 1 (active).</para>
           <varlistentry>
             <term><emphasis>options</emphasis></term>
             <listitem>
-              <para>Input argument. Allows the user to list sessions using several optional criteria such as: the state of sessions (actives or inactives, by default, all sessions are listed), a period, a specific session or for admin to list all sessions of all users or sessions of a specific user..</para>
+              <para>Input argument. Allows the user to list sessions using several optional criteria such as: the state of sessions (actives or inactives, by default, all sessions are listed), a period, a specific session or for admin to list all sessions of all users or sessions of a specific user.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -8718,7 +9169,7 @@ The required parameters are : the VISHNU user identifier, the user-authenticatio
       </refmeta>
       <refnamediv>
         <refname>submitJob</refname>
-        <refpurpose>submits a job on a machine through the use of a script (scriptFilePath). If the machine identifier is equal to autom, the job will be automatically submitted on a best machine (for now three criterions are used: minimum number of waiting jobs, minimum number of running jobs and the total number of jobs) through the use of a script (scriptFilePath) which must be generic script  using  VISHNU's generic directives for all batch schedulers</refpurpose>
+        <refpurpose>Allows to submit a job consisting in running a given script on a machine.</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
         <funcsynopsis><funcprototype><funcdef>int <function>vishnu::submitJob</function></funcdef><paramdef>const string&amp; <parameter>sessionKey</parameter></paramdef><paramdef>const string&amp; <parameter>machineId</parameter></paramdef><paramdef>const string&amp; <parameter>scriptFilePath</parameter></paramdef><paramdef>Job&amp; <parameter>jobInfo</parameter></paramdef><paramdef>const SubmitOptions&amp; <parameter>options = SubmitOptions()</parameter></paramdef></funcprototype></funcsynopsis>
@@ -8746,7 +9197,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
           <varlistentry>
             <term><emphasis>scriptFilePath</emphasis></term>
             <listitem>
-              <para>Input argument. The path to the file containing the characteristics (job command, and batch scheduler directive required or optional) of the job to submit..</para>
+              <para>Input argument. The path to the file containing the characteristics (job command, and batch scheduler directive required or optional) of the job to submit.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -8758,7 +9209,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
           <varlistentry>
             <term><emphasis>options</emphasis></term>
             <listitem>
-              <para>Input argument. Is an instance of the class SubmitOptions. Each optional value is associated to a set operation (e.g: setNbCpu(...)) in the class SubmitOptions.  If no set operation is not called on the instance object  options, the job is submitted with the options defined in the scriptFilePath. Otherewise the job is submitted with the optional values set by the options object and optional values defined in the scriptFilePath, but optional values set by SubmitOptions object take precedence over those in scriptFilePath. With in the object options or within the scriptFilePath, the last occurance of an optional value takes precedence over earlier occurance..</para>
+              <para>Input argument. Is an instance of the class SubmitOptions. Each optional value is associated to a set operation (e.g: setNbCpu(...)) in the class SubmitOptions.  If no set operation is not called on the instance object  options, the job is submitted with the options defined in the scriptFilePath. Otherewise the job is submitted with the optional values set by the options object and optional values defined in the scriptFilePath, but optional values set by SubmitOptions object take precedence over those in scriptFilePath. With in the object options or within the scriptFilePath, the last occurance of an optional value takes precedence over earlier occurance.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -8809,6 +9260,10 @@ If the machine identifier is equal to autom, the job will be automatically submi
           </varlistentry>
           <varlistentry>
             <term>&quot;Permission denied&quot; [104]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;The work id is unknown&quot; [109]</term>
             <listitem/>
           </varlistentry>
         </variablelist>
@@ -8946,7 +9401,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
           <varlistentry>
             <term><emphasis>options</emphasis></term>
             <listitem>
-              <para>Input argument. Is an object containing the available options jobs for progression ..</para>
+              <para>Input argument. Is an object containing the available options jobs for progression.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -9085,7 +9540,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
       </refmeta>
       <refnamediv>
         <refname>listJobs</refname>
-        <refpurpose>gets a list of all submitted jobs on a machine. If machine identifier is equal to all, submitted jobs on all machines are listed</refpurpose>
+        <refpurpose>gets a list of all submitted jobs on a machine.</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
         <funcsynopsis><funcprototype><funcdef>int <function>vishnu::listJobs</function></funcdef><paramdef>const string&amp; <parameter>sessionKey</parameter></paramdef><paramdef>const string&amp; <parameter>machineId</parameter></paramdef><paramdef>ListJobs&amp; <parameter>listOfJobs</parameter></paramdef><paramdef>const ListJobsOptions&amp; <parameter>options = ListJobsOptions()</parameter></paramdef></funcprototype></funcsynopsis>
@@ -9316,7 +9771,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
           <varlistentry>
             <term><emphasis>outDir</emphasis></term>
             <listitem>
-              <para>Input argument. Specifies the output directory where the files will be stored (by default, the current directory)..</para>
+              <para>Input argument. Specifies the output directory where the files will be stored (by default, the current directory).</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -9375,14 +9830,14 @@ If the machine identifier is equal to autom, the job will be automatically submi
       </refmeta>
       <refnamediv>
         <refname>cancelJob</refname>
-        <refpurpose>cancels a job from its id. If job id is equal to all, all submitted jobs by all users will be cancelled if the user is an administrator, and only jobs submitted by the user will be cancelled if the user is not an administrator.</refpurpose>
+        <refpurpose>Allows to cancel a job submitted on a given machine.</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
         <funcsynopsis><funcprototype><funcdef>int <function>vishnu::cancelJob</function></funcdef><paramdef>const string&amp; <parameter>sessionKey</parameter></paramdef><paramdef>const string&amp; <parameter>machineId</parameter></paramdef><paramdef>const string&amp; <parameter>jobId</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
-        <para>This command allows canceling a job submitted on a specific machine's batch scheduler.</para>
+        <para>cancels a job from its id. If job id is equal to all, all submitted jobs by all users will be cancelled if the user is an administrator, and only jobs submitted by the user will be cancelled if the user is not an administrator.</para>
       </refsect1>
       <refsect1 id="arguments">
         <title>ARGUMENTS</title>
@@ -9462,6 +9917,96 @@ If the machine identifier is equal to autom, the job will be automatically submi
         </variablelist>
       </refsect1>
     </refentry>
+    <refentry>
+      <refmeta>
+        <refentrytitle>addWork</refentrytitle>
+        <manvolnum>3</manvolnum>
+      </refmeta>
+      <refnamediv>
+        <refname>addWork</refname>
+        <refpurpose>Allows to create a work consisting in running jobs.</refpurpose>
+      </refnamediv>
+      <refsynopsisdiv>
+        <funcsynopsis><funcprototype><funcdef>int <function>vishnu::addWork</function></funcdef><paramdef>const string&amp; <parameter>sessionKey</parameter></paramdef><paramdef>Work&amp; <parameter>work</parameter></paramdef><paramdef>const AddWorkOptions&amp; <parameter>option = AddWorkOptions()</parameter></paramdef></funcprototype></funcsynopsis>
+      </refsynopsisdiv>
+      <refsect1 id="description">
+        <title>DESCRIPTION</title>
+        <para>This command adds a work in vishnu</para>
+      </refsect1>
+      <refsect1 id="arguments">
+        <title>ARGUMENTS</title>
+        <variablelist>
+          <varlistentry>
+            <term><emphasis>sessionKey</emphasis></term>
+            <listitem>
+              <para>Input argument. The session key.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis>work</emphasis></term>
+            <listitem>
+              <para>Output argument. The work to add.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis>option</emphasis></term>
+            <listitem>
+              <para>Input argument. Options to add the work.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </refsect1>
+      <refsect1 id="exceptions">
+        <title>EXCEPTIONS</title>
+        <para>The following exceptions may be thrown: </para>
+        <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (SSH error)&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Error invalid parameters&quot; [10]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;The sessionKey is expired. The session is closed.&quot; [29]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;The machine id is unknown&quot; [32]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;The batch scheduler type is unknown&quot; [101]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;The batch scheduler indicates an error&quot; [102]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Permission denied&quot; [104]</term>
+            <listitem/>
+          </varlistentry>
+        </variablelist>
+      </refsect1>
+    </refentry>
   </reference>
   <reference>
     <title>FMS C++ API Reference</title>
@@ -9489,13 +10034,13 @@ values can be obtained using the vishnu_list_machine command)</para>
           <varlistentry>
             <term><emphasis>sessionKey</emphasis></term>
             <listitem>
-              <para>Input argument. The session key..</para>
+              <para>Input argument. The session key.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><emphasis>path</emphasis></term>
             <listitem>
-              <para>Input argument. The  file to create following the pattern  [host:]file path..</para>
+              <para>Input argument. The  file to create following the pattern  [host:]file path.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -9593,7 +10138,7 @@ values can be obtained using the vishnu_list_machine command)</para>
           <varlistentry>
             <term><emphasis>path</emphasis></term>
             <listitem>
-              <para>Input argument. The  directory to create following the pattern  [host:]directory path..</para>
+              <para>Input argument. The  directory to create following the pattern  [host:]directory path.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -9988,7 +10533,7 @@ The mode parameter is the same value as for the unix chmod command.</para>
           <varlistentry>
             <term><emphasis>mode</emphasis></term>
             <listitem>
-              <para>Input argument.  the access rigths of file/directory in octal system..</para>
+              <para>Input argument.  the access rigths of file/directory in octal system.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -10380,7 +10925,7 @@ values can be obtained using the vishnu_list_machine command).
       </refmeta>
       <refnamediv>
         <refname>listDir</refname>
-        <refpurpose>displays  the content of a remote directory. </refpurpose>
+        <refpurpose>displays  the content of a remote directory</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
         <funcsynopsis><funcprototype><funcdef>int <function>vishnu::listDir</function></funcdef><paramdef>const string&amp; <parameter>sessionKey</parameter></paramdef><paramdef>const string&amp; <parameter>path</parameter></paramdef><paramdef>DirEntryList&amp; <parameter>dirContent</parameter></paramdef><paramdef>const LsDirOptions&amp; <parameter>options</parameter></paramdef></funcprototype></funcsynopsis>
@@ -10410,7 +10955,7 @@ values can be obtained using the vishnu_list_machine command).
           <varlistentry>
             <term><emphasis>dirContent</emphasis></term>
             <listitem>
-              <para>Output argument. The content of the directory..</para>
+              <para>Output argument. The content of the directory.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -12535,7 +13080,7 @@ homeDirectory path .</para>
         <refpurpose>lists the local user configurations</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.listLocalAccounts</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListLocalAccounts <parameter>listLocalAcct</parameter></paramdef><paramdef>ListLocalAccOptions <parameter>options = ListLocalAccOptions()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, listLocalAcct=VISHNU.listLocalAccounts</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListLocalAccOptions <parameter>options = ListLocalAccOptions()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -12628,7 +13173,7 @@ local configurations related to your VISHNU account. </para>
         <refpurpose>lists the machines that are accessible through VISHNU</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.listMachines</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListMachines <parameter>listMachine</parameter></paramdef><paramdef>ListMachineOptions <parameter>options = ListMachineOptions()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, listMachine=VISHNU.listMachines</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListMachineOptions <parameter>options = ListMachineOptions()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -12723,7 +13268,7 @@ for other VISHNU commands.</para>
         <refpurpose>lists the commands</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.listHistoryCmd</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListCommands <parameter>listCommands</parameter></paramdef><paramdef>ListCmdOptions <parameter>options = ListCmdOptions()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, listCommands=VISHNU.listHistoryCmd</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListCmdOptions <parameter>options = ListCmdOptions()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -12813,7 +13358,7 @@ for other VISHNU commands.</para>
         <refpurpose>lists the options of the user</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.listOptions</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListOptionsValues <parameter>listOptValues</parameter></paramdef><paramdef>ListOptOptions <parameter>options = ListOptOptions()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, listOptValues=VISHNU.listOptions</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListOptOptions <parameter>options = ListOptOptions()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -12911,7 +13456,7 @@ for other VISHNU commands.</para>
         <refpurpose>lists all sessions of the user</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.listSessions</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListSessions <parameter>listsession</parameter></paramdef><paramdef>ListSessionOptions <parameter>options = ListSessionOptions()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, listsession=VISHNU.listSessions</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListSessionOptions <parameter>options = ListSessionOptions()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -12938,7 +13483,7 @@ The session's status is either 0 (inactive) or 1 (active).</para>
           <varlistentry>
             <term><emphasis>options</emphasis></term>
             <listitem>
-              <para>Input argument. Allows the user to list sessions using several optional criteria such as: the state of sessions (actives or inactives, by default, all sessions are listed), a period, a specific session or for admin to list all sessions of all users or sessions of a specific user..</para>
+              <para>Input argument. Allows the user to list sessions using several optional criteria such as: the state of sessions (actives or inactives, by default, all sessions are listed), a period, a specific session or for admin to list all sessions of all users or sessions of a specific user.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -13205,7 +13750,7 @@ opened the session).</para>
         <refpurpose>lists VISHNU user-authentification systems</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.listAuthSystems</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListAuthSystems <parameter>listAuthSys</parameter></paramdef><paramdef>ListAuthSysOptions <parameter>options = ListAuthSysOptions()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, listAuthSys=VISHNU.listAuthSystems</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListAuthSysOptions <parameter>options = ListAuthSysOptions()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -13617,7 +14162,7 @@ The required parameters are : the VISHNU user identifier, the user-authenticatio
         <refpurpose>lists local user-authentication configurations</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.listAuthAccounts</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListAuthAccounts <parameter>listAuthAccounts</parameter></paramdef><paramdef>ListAuthAccOptions <parameter>options = ListAuthAccOptions()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, listAuthAccounts=VISHNU.listAuthAccounts</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListAuthAccOptions <parameter>options = ListAuthAccOptions()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -13724,7 +14269,7 @@ The required parameters are : the VISHNU user identifier, the user-authenticatio
       </refmeta>
       <refnamediv>
         <refname>VISHNU.submitJob</refname>
-        <refpurpose>submits a job on a machine through the use of a script (scriptFilePath). If the machine identifier is equal to autom, the job will be automatically submitted on a best machine (for now three criterions are used: minimum number of waiting jobs, minimum number of running jobs and the total number of jobs) through the use of a script (scriptFilePath) which must be generic script  using  VISHNU's generic directives for all batch schedulers</refpurpose>
+        <refpurpose>Allows to submit a job consisting in running a given script on a machine.</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
         <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.submitJob</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>string <parameter>scriptFilePath</parameter></paramdef><paramdef>Job <parameter>jobInfo</parameter></paramdef><paramdef>SubmitOptions <parameter>options = SubmitOptions()</parameter></paramdef></funcprototype></funcsynopsis>
@@ -13752,7 +14297,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
           <varlistentry>
             <term><emphasis>scriptFilePath</emphasis></term>
             <listitem>
-              <para>Input argument. The path to the file containing the characteristics (job command, and batch scheduler directive required or optional) of the job to submit..</para>
+              <para>Input argument. The path to the file containing the characteristics (job command, and batch scheduler directive required or optional) of the job to submit.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -13764,7 +14309,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
           <varlistentry>
             <term><emphasis>options</emphasis></term>
             <listitem>
-              <para>Input argument. Is an instance of the class SubmitOptions. Each optional value is associated to a set operation (e.g: setNbCpu(...)) in the class SubmitOptions.  If no set operation is not called on the instance object  options, the job is submitted with the options defined in the scriptFilePath. Otherewise the job is submitted with the optional values set by the options object and optional values defined in the scriptFilePath, but optional values set by SubmitOptions object take precedence over those in scriptFilePath. With in the object options or within the scriptFilePath, the last occurance of an optional value takes precedence over earlier occurance..</para>
+              <para>Input argument. Is an instance of the class SubmitOptions. Each optional value is associated to a set operation (e.g: setNbCpu(...)) in the class SubmitOptions.  If no set operation is not called on the instance object  options, the job is submitted with the options defined in the scriptFilePath. Otherewise the job is submitted with the optional values set by the options object and optional values defined in the scriptFilePath, but optional values set by SubmitOptions object take precedence over those in scriptFilePath. With in the object options or within the scriptFilePath, the last occurance of an optional value takes precedence over earlier occurance.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -13827,6 +14372,10 @@ If the machine identifier is equal to autom, the job will be automatically submi
           </varlistentry>
           <varlistentry>
             <term>TMSVishnuException(&quot;Permission denied&quot; [104])</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>TMSVishnuException(&quot;The work id is unknown&quot; [109])</term>
             <listitem/>
           </varlistentry>
         </variablelist>
@@ -13946,7 +14495,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
         <refpurpose>gets the progression status of jobs</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.getJobProgress</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>ListProgression <parameter>listProgress</parameter></paramdef><paramdef>ProgressOptions <parameter>options = ProgressOptions()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, listProgress=VISHNU.getJobProgress</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>ProgressOptions <parameter>options = ProgressOptions()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -13976,7 +14525,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
           <varlistentry>
             <term><emphasis>options</emphasis></term>
             <listitem>
-              <para>Input argument. Is an object containing the available options jobs for progression ..</para>
+              <para>Input argument. Is an object containing the available options jobs for progression.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -14038,7 +14587,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
         <refpurpose>gets queues information</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.listQueues</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>ListQueues <parameter>listofQueues</parameter></paramdef><paramdef>string <parameter>queueName = string()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, listofQueues=VISHNU.listQueues</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>string <parameter>queueName = string()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -14139,10 +14688,10 @@ If the machine identifier is equal to autom, the job will be automatically submi
       </refmeta>
       <refnamediv>
         <refname>VISHNU.listJobs</refname>
-        <refpurpose>gets a list of all submitted jobs on a machine. If machine identifier is equal to all, submitted jobs on all machines are listed</refpurpose>
+        <refpurpose>gets a list of all submitted jobs on a machine.</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.listJobs</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>ListJobs <parameter>listOfJobs</parameter></paramdef><paramdef>ListJobsOptions <parameter>options = ListJobsOptions()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, listOfJobs=VISHNU.listJobs</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>ListJobsOptions <parameter>options = ListJobsOptions()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -14364,7 +14913,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
         <refpurpose>gets standard output and error output files of completed jobs (applies only once for each job)</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.getCompletedJobsOutput</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>ListJobResults <parameter>listOfResults</parameter></paramdef><paramdef>string <parameter>outDir = string()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, listOfResults=VISHNU.getCompletedJobsOutput</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>string <parameter>outDir = string()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -14394,7 +14943,7 @@ If the machine identifier is equal to autom, the job will be automatically submi
           <varlistentry>
             <term><emphasis>outDir</emphasis></term>
             <listitem>
-              <para>Input argument. Specifies the output directory where the files will be stored (by default, the current directory)..</para>
+              <para>Input argument. Specifies the output directory where the files will be stored (by default, the current directory).</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -14465,14 +15014,14 @@ If the machine identifier is equal to autom, the job will be automatically submi
       </refmeta>
       <refnamediv>
         <refname>VISHNU.cancelJob</refname>
-        <refpurpose>cancels a job from its id. If job id is equal to all, all submitted jobs by all users will be cancelled if the user is an administrator, and only jobs submitted by the user will be cancelled if the user is not an administrator.</refpurpose>
+        <refpurpose>Allows to cancel a job submitted on a given machine.</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
         <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.cancelJob</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>string <parameter>jobId</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
-        <para>This command allows canceling a job submitted on a specific machine's batch scheduler.</para>
+        <para>cancels a job from its id. If job id is equal to all, all submitted jobs by all users will be cancelled if the user is an administrator, and only jobs submitted by the user will be cancelled if the user is not an administrator.</para>
       </refsect1>
       <refsect1 id="arguments">
         <title>ARGUMENTS</title>
@@ -14564,6 +15113,108 @@ If the machine identifier is equal to autom, the job will be automatically submi
         </variablelist>
       </refsect1>
     </refentry>
+    <refentry>
+      <refmeta>
+        <refentrytitle>VISHNU.addWork</refentrytitle>
+        <manvolnum>3</manvolnum>
+      </refmeta>
+      <refnamediv>
+        <refname>VISHNU.addWork</refname>
+        <refpurpose>Allows to create a work consisting in running jobs.</refpurpose>
+      </refnamediv>
+      <refsynopsisdiv>
+        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.addWork</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>Work <parameter>work</parameter></paramdef><paramdef>AddWorkOptions <parameter>option = AddWorkOptions()</parameter></paramdef></funcprototype></funcsynopsis>
+      </refsynopsisdiv>
+      <refsect1 id="description">
+        <title>DESCRIPTION</title>
+        <para>This command adds a work in vishnu</para>
+      </refsect1>
+      <refsect1 id="arguments">
+        <title>ARGUMENTS</title>
+        <variablelist>
+          <varlistentry>
+            <term><emphasis>sessionKey</emphasis></term>
+            <listitem>
+              <para>Input argument. The session key.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis>work</emphasis></term>
+            <listitem>
+              <para>Output argument. The work to add.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><emphasis>option</emphasis></term>
+            <listitem>
+              <para>Input argument. Options to add the work.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </refsect1>
+      <refsect1 id="returned objects">
+        <title>RETURNED OBJECTS</title>
+        <variablelist>
+          <varlistentry>
+            <term><emphasis>errorCode (integer)</emphasis></term>
+            <listitem>
+              <para>Output parameter. Contains 0 on success and the error code on failure.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry/>
+        </variablelist>
+      </refsect1>
+      <refsect1 id="exceptions">
+        <title>EXCEPTIONS</title>
+        <para>The following exceptions may be thrown: </para>
+        <variablelist>
+          <varlistentry>
+            <term>SystemException(&quot;Vishnu not available (Service bus failure)&quot; [1])</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>SystemException(&quot;Vishnu not available (Database error)&quot; [2])</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>SystemException(&quot;Vishnu not available (Database connection)&quot; [3])</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>SystemException(&quot;Vishnu not available (System)&quot; [4])</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>SystemException(&quot;Vishnu not available (SSH error)&quot; [9])</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>UserException(&quot;Error invalid parameters&quot; [10])</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>UMSVishnuException(&quot;The sessionKey is expired. The session is closed.&quot; [29])</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>UMSVishnuException(&quot;The machine id is unknown&quot; [32])</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>TMSVishnuException(&quot;The batch scheduler type is unknown&quot; [101])</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>TMSVishnuException(&quot;The batch scheduler indicates an error&quot; [102])</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>TMSVishnuException(&quot;Permission denied&quot; [104])</term>
+            <listitem/>
+          </varlistentry>
+        </variablelist>
+      </refsect1>
+    </refentry>
   </reference>
   <reference>
     <title>FMS Python API Reference</title>
@@ -14591,13 +15242,13 @@ values can be obtained using the vishnu_list_machine command)</para>
           <varlistentry>
             <term><emphasis>sessionKey</emphasis></term>
             <listitem>
-              <para>Input argument. The session key..</para>
+              <para>Input argument. The session key.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><emphasis>path</emphasis></term>
             <listitem>
-              <para>Input argument. The  file to create following the pattern  [host:]file path..</para>
+              <para>Input argument. The  file to create following the pattern  [host:]file path.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -14707,7 +15358,7 @@ values can be obtained using the vishnu_list_machine command)</para>
           <varlistentry>
             <term><emphasis>path</emphasis></term>
             <listitem>
-              <para>Input argument. The  directory to create following the pattern  [host:]directory path..</para>
+              <para>Input argument. The  directory to create following the pattern  [host:]directory path.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -15150,7 +15801,7 @@ The mode parameter is the same value as for the unix chmod command.</para>
           <varlistentry>
             <term><emphasis>mode</emphasis></term>
             <listitem>
-              <para>Input argument.  the access rigths of file/directory in octal system..</para>
+              <para>Input argument.  the access rigths of file/directory in octal system.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -15605,10 +16256,10 @@ values can be obtained using the vishnu_list_machine command).
       </refmeta>
       <refnamediv>
         <refname>VISHNU.listDir</refname>
-        <refpurpose>displays  the content of a remote directory. </refpurpose>
+        <refpurpose>displays  the content of a remote directory</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.listDir</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>path</parameter></paramdef><paramdef>DirEntryList <parameter>dirContent</parameter></paramdef><paramdef>LsDirOptions <parameter>options</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, dirContent=VISHNU.listDir</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>path</parameter></paramdef><paramdef>LsDirOptions <parameter>options</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -15635,7 +16286,7 @@ values can be obtained using the vishnu_list_machine command).
           <varlistentry>
             <term><emphasis>dirContent</emphasis></term>
             <listitem>
-              <para>Output argument. The content of the directory..</para>
+              <para>Output argument. The content of the directory.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -16335,7 +16986,7 @@ The command listFileTransfers can be used to check the status of the transfer af
         <refpurpose>displays the history of all file transfers submitted by User.</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.listFileTransfers</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>FileTransferList <parameter>fileTransferList</parameter></paramdef><paramdef>LsTransferOptions <parameter>options = LsTransferOptions()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, fileTransferList=VISHNU.listFileTransfers</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>LsTransferOptions <parameter>options = LsTransferOptions()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -16655,7 +17306,7 @@ The access to other user's sessions is only permitted to administrators.</para>
         <refpurpose>displays the current values of system metrics</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.getMetricCurrentValue</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>ListMetric <parameter>metricValue</parameter></paramdef><paramdef>CurMetricOp <parameter>options</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, metricValue=VISHNU.getMetricCurrentValue</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>CurMetricOp <parameter>options</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -16742,7 +17393,7 @@ Please note that retrieving these values uses some valuable system ressources an
         <refpurpose>displays the history of values of a system metric</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.getMetricHistory</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>ListMetric <parameter>metricValues</parameter></paramdef><paramdef>MetricHistOp <parameter>options = MetricHistOp()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, metricValues=VISHNU.getMetricHistory</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>string <parameter>machineId</parameter></paramdef><paramdef>MetricHistOp <parameter>options = MetricHistOp()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
@@ -16903,7 +17554,7 @@ Please note that retrieving these values uses some valuable system ressources an
         <refpurpose>To get the system info on a machine</refpurpose>
       </refnamediv>
       <refsynopsisdiv>
-        <funcsynopsis><funcprototype><funcdef><function>ret=VISHNU.getSystemInfo</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>ListSysInfo <parameter>res</parameter></paramdef><paramdef>SysInfoOp <parameter>options = SysInfoOp()</parameter></paramdef></funcprototype></funcsynopsis>
+        <funcsynopsis><funcprototype><funcdef><function>ret, res=VISHNU.getSystemInfo</function></funcdef><paramdef>string <parameter>sessionKey</parameter></paramdef><paramdef>SysInfoOp <parameter>options = SysInfoOp()</parameter></paramdef></funcprototype></funcsynopsis>
       </refsynopsisdiv>
       <refsect1 id="description">
         <title>DESCRIPTION</title>
