@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl"
-        href="http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl"?>
 <book
     xmlns:xml="xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <info>
@@ -5746,6 +5744,10 @@
               <entry><para>ACTIVE</para></entry>
               <entry><para>1</para></entry>
             </row>
+            <row>
+              <entry><para>DELETED</para></entry>
+              <entry><para>2</para></entry>
+            </row>
           </tbody>
         </tgroup>
       </informaltable>
@@ -7919,6 +7921,10 @@
             <row>
               <entry><para>ALREADY_DOWNLOADED</para></entry>
               <entry><para>7</para></entry>
+            </row>
+            <row>
+              <entry><para>FAILED</para></entry>
+              <entry><para>8</para></entry>
             </row>
           </tbody>
         </tgroup>
