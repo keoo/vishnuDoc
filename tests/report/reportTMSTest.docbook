@@ -4,17 +4,17 @@
 
 <book  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://docbook.org/ns/docbook">
    <info>
-      <title> VISHNU - SLURM - Tests report</title>
+      <title> VISHNU - TMS - Tests report</title>
       <productname>VISHNU</productname>
       <releaseinfo>1.0</releaseinfo>
-      <date>August 2011</date>
-   
+      <date>May 2011</date>
+    
+    <author>
+      <personname><firstname>Benjamin</firstname><surname>Isnard</surname></personname>
+    </author>  
     <author>
       <personname><firstname>Daouda</firstname><surname>Traoré</surname></personname>
-    </author> 
-    <author>
-      <personname><firstname>Benjamin</firstname><surname>Depardon</surname></personname>
-    </author>  
+    </author>
     <author>
       <personname><firstname>Eugène</firstname><surname>Pamba Capo-Chichi</surname></personname>
     </author>
@@ -28,10 +28,19 @@
     <revhistory>
       <revision>
         <revnumber>1</revnumber>
-        <date>09/08/2011</date>
+        <date>05/05/2011</date>
         <authorinitials>  SYSFERA SAS</authorinitials>
         <revdescription>
           <para>Deliverable version</para>
+        </revdescription>
+      </revision>
+
+      <revision>
+        <revnumber>2</revnumber>
+        <date>22/12/2011</date>
+        <authorinitials>  SYSFERA SAS</authorinitials>
+        <revdescription>
+          <para>Add tests for T1.1-B2 and T1.1-B3</para>
         </revdescription>
       </revision>
     </revhistory>
@@ -76,8 +85,8 @@ same conditions as regards security.</para>
     
   <chapter>
     <title> Introduction </title>
-     <para>Author of the test code : Ibrahima CISSE and Daouda Traoré</para>
-     <para>Author of the test report : Daouda Traoré</para>
+     <para>Author of the test code : Ibrahima CISSE</para>
+     <para>Author of the test report : Eugène PAMBA CAPO-CHICHI</para>
      
      <para> The tests which follows have been done in the following environment: </para>
       <para><itemizedlist>
@@ -94,10 +103,10 @@ same conditions as regards security.</para>
             <para>gcc version : V4.3.3</para>
           </listitem>
 	  <listitem>
-            <para>DIET version : V2.7.1</para>
+            <para>DIET version : V2.6.1</para>
           </listitem>
 	  <listitem>
-	   <para> Batch scheduler : SLURM V2.2.1 </para>
+	   <para> Batch scheduler : TORQUE V2.5 </para>
 	 </listitem>
 	 <listitem>
 	   <para> RAM memory : 4Gb </para>
@@ -134,6 +143,20 @@ same conditions as regards security.</para>
               <entry><para>Normal execution of submitJob</para></entry>
               <entry><para>The job identifier is returned</para></entry>
               <entry><para>The job identifier is returned</para></entry>
+              <entry><para>0</para></entry>
+            </row>
+            <row>
+              <entry><para>T1.1-B2</para></entry>
+              <entry><para>Normal execution of submitJob</para></entry>
+              <entry><para>The job output environment variables are returned</para></entry>
+              <entry><para>The job output environment variables are returned</para></entry>
+              <entry><para>0</para></entry>
+            </row>
+            <row>
+              <entry><para>T1.1-B3</para></entry>
+              <entry><para>Normal execution of submitJob</para></entry>
+              <entry><para>The job option working directory is correctly set</para></entry>
+              <entry><para>The job option working directory is correctly set</para></entry>
               <entry><para>0</para></entry>
             </row>
             <row>
@@ -442,6 +465,7 @@ same conditions as regards security.</para>
           </tbody>
         </tgroup>
       </informaltable>
+      <para> <emphasis role = "bold"> Remarks T2.7-B </emphasis>: there is a failure when the script's execution is very fast (under one seconds). </para>
     </section>
       
       <section>
@@ -573,7 +597,7 @@ same conditions as regards security.</para>
                   <para>STR-SERV-DOWN</para>
                </entry>
                <entry>
-                  <para>09/08/11</para>
+                  <para>05/05/11</para>
                </entry>
                <entry>
                   <para>The tms sed is stopped and restarted</para>
@@ -591,7 +615,7 @@ same conditions as regards security.</para>
                   <para>STR-AGENT-DOWN</para>
                </entry>
                <entry>
-                  <para>09/08/11</para>
+                  <para>05/05/11</para>
                </entry>
                <entry>
                   <para>The SysFera-DS Agent is stopped and restarted </para>
@@ -610,7 +634,7 @@ same conditions as regards security.</para>
                   <para>STR-BATCH-DOWN</para>
                </entry>
                <entry>
-                  <para>09/08/11</para>
+                  <para>05/05/11</para>
                </entry>
                <entry>
                   <para> The batch scheduler is stopped and the command submitJob is launched</para>
@@ -660,7 +684,7 @@ same conditions as regards security.</para>
                   <para>LOAD-2.1-submitJob</para>
                </entry>
                <entry>
-                  <para>09/08/11</para>
+                  <para>05/05/11</para>
                </entry>
                <entry>
                   <para>Simultaneous launch of 100 commands</para>
@@ -677,7 +701,7 @@ same conditions as regards security.</para>
                   <para>LOAD-2.1-listJobs</para>
                </entry>
                <entry>
-                  <para>09/08/11</para>
+                  <para>05/05/11</para>
                </entry>
                <entry>
                   <para>Success - Simultaneous launch of 100 commands</para>
@@ -694,7 +718,7 @@ same conditions as regards security.</para>
                   <para>LOAD-2.1-listQueues</para>
                </entry>
                <entry>
-                  <para>09/08/11</para>
+                  <para>05/05/11</para>
                </entry>
                <entry>
                   <para>Simultaneous launch of 100 commands</para>
@@ -710,10 +734,11 @@ same conditions as regards security.</para>
       </tgroup>
       </informaltable>
       <para> <emphasis role = "bold"> LOAD-2.1-submitJob </emphasis>: To allow 100 simultaneous ssh connexion, we have changed
-        the default value of  <emphasis>MaxStartups</emphasis> to 
-                <emphasis>50:50:200</emphasis> in /etc/ssh/sshd_config. </para>
+        the default value of  <emphasis>MaxStartups</emphasis> to
+                <emphasis>50:50:200</emphasis> in /etc/ssh/sshd_config. </para> 
     </chapter>
   
+    
   <chapter>
     <title>Performance tests </title>
     
@@ -745,16 +770,16 @@ same conditions as regards security.</para>
                   <para>CDP-3.1-submitJob</para>
                </entry>
                <entry>
-                  <para>comparison with " ssh localhost sbatch " </para>
+                  <para>comparison with " ssh localhost qsub " </para>
                </entry>
                <entry>
                   <para>submitJob</para>
                </entry>
                <entry>
-                  <para>0,28s</para>
+                  <para>0,30s</para>
                </entry>
 	       <entry>
-                  <para>0,18s</para>
+                  <para>0,17s</para>
                </entry>
 	       <entry>
                   <para>Failure</para>
@@ -765,16 +790,16 @@ same conditions as regards security.</para>
                   <para>CDP-3.1-cancelJob</para>
                </entry>
                <entry>
-                  <para>comparison with " ssh localhost scancel " </para>
+                  <para>comparison with " ssh localhost qsub " </para>
                </entry>
                <entry>
                   <para>cancelJob</para>
                </entry>
                <entry>
-                  <para>0,36s</para>
+                  <para>0,25s</para>
                </entry>
 	       <entry>
-                  <para>0,18s</para>
+                  <para>0,21s</para>
                </entry>
 	       <entry>
                   <para>Failure</para>
@@ -785,16 +810,16 @@ same conditions as regards security.</para>
                   <para>CDP-3.1-listJobs</para>
                </entry>
                <entry>
-                  <para>comparison with " ssh localhost squeue " </para>
+                  <para>comparison with " ssh localhost qstat " </para>
                </entry>
                <entry>
                   <para>listJobs</para>
                </entry>
                <entry>
-                  <para>0,09s</para>
+                  <para>0,08s</para>
                </entry>
 	       <entry>
-                  <para>0,18s</para>
+                  <para>0,17s</para>
                </entry>
 	       <entry>
                   <para>Success</para>
@@ -806,16 +831,16 @@ same conditions as regards security.</para>
                   <para>CDP-3.2.1-listQueues</para>
                </entry>
                <entry>
-                  <para>execution time less than "ssh localhost scontrol show  partition" </para>
+                  <para>execution time less than "ssh localhost qstat -Q" </para>
                </entry>
                <entry>
                   <para>listQueues</para>
                </entry>
                <entry>
-                  <para>0,09s</para>
+                  <para>0,10s</para>
                </entry>
 	       <entry>
-                  <para>0,17s</para>
+                  <para>0,16s</para>
                </entry>
 	       <entry>
                   <para>Success</para>
@@ -851,13 +876,13 @@ same conditions as regards security.</para>
                   <para>CDP-3.2.2-submitJob</para>
                </entry>
                <entry>
-                  <para>CPU consumption</para>
+                  <para>memory consumption</para>
                </entry>
                <entry>
                   <para>submitJob</para>
                </entry>
                <entry>
-                  <para>5% of the CPU used</para>
+                  <para>0,8% of the RAM memory</para>
                </entry>
 	       <entry>
                   <para>Success</para>
@@ -875,7 +900,7 @@ same conditions as regards security.</para>
                   <para>tms server</para>
                </entry>
                <entry>
-                  <para>0,5% of the RAM memory</para>
+                  <para>0,7% of the RAM memory</para>
                </entry>
 	       <entry>
                   <para>Success</para>

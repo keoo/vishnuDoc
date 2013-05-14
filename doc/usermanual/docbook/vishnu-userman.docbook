@@ -96,7 +96,7 @@
         <authorinitials>SysFera</authorinitials>
         <revdescription>
       <para>Add a section dedicated of the VISHNU Job Output Environment Variables. Add  of other syntaxes for VISHNU generic script. Update of vishnu submit job reference, vishnu create dir reference. Add of vishnu_current_session_id a new command line reference. 
-        Add the use for the .netrc file of the connection and the reconnection.
+        Add the use of the .netrc file of the connection and the reconnection.
    </para></revdescription>
       </revision>
       <revision>
@@ -444,7 +444,7 @@
                   <para><emphasis role="bold">#% vishnu_cput</emphasis>: allow to specify the job cpu limit time,</para>
                 </listitem>
                 <listitem>
-                  <para><emphasis role="bold">#% vishnu_nb_cpu</emphasis>: allow to specify the number of cpus of the job,</para>
+                  <para><emphasis role="bold">#% vishnu_nb_cpu</emphasis>: allow to specify the number of cpus per node of the job,</para>
                 </listitem>
                 <listitem>
                   <para><emphasis role="bold">#% vishnu_nbNodesAndCpuPerNode</emphasis>: allow to specify the number of nodes and the cpu of each node. For exemple if you want to use 4 nodes and to use 3 cpus of each node, you must sepecify thes numbers by &quot;4:3&quot;, </para>
@@ -717,6 +717,26 @@ The value must be an integer. Predefined values are: 0 (UNDEFINED), 1 (CLOSE_ON_
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
           <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
           </varlistentry>
@@ -828,6 +848,26 @@ are specified, vishnu_reconnect will read them in the  .netrc file located in th
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
           <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
           </varlistentry>
@@ -920,6 +960,26 @@ the session (e.g., job submission or file transfers). After the session is close
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
           <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
           </varlistentry>
@@ -998,6 +1058,26 @@ the session (e.g., job submission or file transfers). After the session is close
         <title>DIAGNOSTICS</title>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
           <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
@@ -1078,6 +1158,26 @@ homeDirectory path .</para>
         <title>DIAGNOSTICS</title>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
           <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
@@ -1199,6 +1299,26 @@ homeDirectory path .</para>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
           <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
           </varlistentry>
@@ -1289,6 +1409,26 @@ homeDirectory path .</para>
         <title>DIAGNOSTICS</title>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
           <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
@@ -1390,6 +1530,26 @@ local configurations related to your VISHNU account. </para>
         <title>DIAGNOSTICS</title>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
           <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
@@ -1493,6 +1653,26 @@ for other VISHNU commands.</para>
         <title>DIAGNOSTICS</title>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
           <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
@@ -1606,6 +1786,26 @@ for other VISHNU commands.</para>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
           <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
           </varlistentry>
@@ -1703,6 +1903,26 @@ for other VISHNU commands.</para>
         <title>DIAGNOSTICS</title>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
           <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
@@ -1857,6 +2077,26 @@ The value must be an integer. Predefined values are: 0 (UNDEFINED), 1 (CLOSE_ON_
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
           <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
           </varlistentry>
@@ -1943,6 +2183,26 @@ opened the session).</para>
         <title>DIAGNOSTICS</title>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
           <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
@@ -2110,25 +2370,25 @@ opened the session).</para>
           <varlistentry>
             <term><option>-t <replaceable>wallTime</replaceable></option></term>
             <listitem>
-              <para>The maximum wall-clock time during which the job can run.</para>
+              <para>The maximum wall-clock time during which the job can run (in seconds or in the format [[HH:]MM:]SS).</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><option>-m <replaceable>memory</replaceable></option></term>
             <listitem>
-              <para>Is the memory size that the job requires.</para>
+              <para>Is the memory size that the job requires (in MegaBytes).</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><option>-P <replaceable>nbCpu</replaceable></option></term>
             <listitem>
-              <para>The number of cpu that the job requires.</para>
+              <para>The number of cpu per node that the job requires.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><option>-N <replaceable>nbNodesAndCpuPerNode</replaceable></option></term>
             <listitem>
-              <para>The number of nodes and processors per node. For example if you want to use 4 nodes with 3 cpus for each node, you must specify these numbers by &quot;4:3&quot;.</para>
+              <para>The number of nodes and processors per node (in the format nbNodes:nbCpuPerNode). For example if you want to use 4 nodes with 3 cpus for each node, you must specify these numbers by &quot;4:3&quot;.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -2146,13 +2406,13 @@ opened the session).</para>
           <varlistentry>
             <term><option>-M <replaceable>mailNotification</replaceable></option></term>
             <listitem>
-              <para>Assigns the notification type of the job. Valid type values are BEGIN, END, ERROR, and ALL (any state change)..</para>
+              <para>Assigns the notification type of the job. Valid type values are BEGIN, END, ERROR, and ALL (any state change).</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><option>-u <replaceable>mailNotifyUser</replaceable></option></term>
             <listitem>
-              <para>The name of user to receive email notification of state changes as defined by the option mailNotification. The default value is the submitting user..</para>
+              <para>The name of user to receive email notification of state changes as defined by the option mailNotification. The default value is the submitting user.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -2164,13 +2424,13 @@ opened the session).</para>
           <varlistentry>
             <term><option>-D <replaceable>workingDir</replaceable></option></term>
             <listitem>
-              <para>Assigns a job remote working dir..</para>
+              <para>Assigns a job remote working dir.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><option>-T <replaceable>cpuTime</replaceable></option></term>
             <listitem>
-              <para>Assigns a job cpu limit time..</para>
+              <para>Assigns a job cpu limit time (in seconds or in the format [[HH:]MM:]SS).</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -2226,6 +2486,22 @@ opened the session).</para>
         <title>DIAGNOSTICS</title>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
           <varlistentry>
             <term>&quot;Vishnu not available (SSH error)&quot; [9]</term>
             <listitem/>
@@ -2321,6 +2597,26 @@ opened the session).</para>
         <title>DIAGNOSTICS</title>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
           <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
@@ -2423,6 +2719,26 @@ opened the session).</para>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
           <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
           </varlistentry>
@@ -2504,6 +2820,26 @@ opened the session).</para>
         <title>DIAGNOSTICS</title>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
           <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
@@ -2591,7 +2927,7 @@ opened the session).</para>
           <varlistentry>
             <term><option>-P <replaceable>nbCpu</replaceable></option></term>
             <listitem>
-              <para>lists the jobs with the specified number of CPUs.</para>
+              <para>lists the jobs with the specified number of CPUs per node.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -2649,6 +2985,26 @@ The value must be an integer. Predefined values are: -1 (UNDEFINED), 1 (VERY_LOW
         <title>DIAGNOSTICS</title>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Internal Error: Undefined exception&quot; [9]</term>
+            <listitem/>
+          </varlistentry>
           <varlistentry>
             <term>&quot;There is no open session in this terminal&quot; [13]</term>
             <listitem/>
@@ -2743,6 +3099,22 @@ The value must be an integer. Predefined values are: -1 (UNDEFINED), 1 (VERY_LOW
         <title>DIAGNOSTICS</title>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
           <varlistentry>
             <term>&quot;Vishnu not available (SSH error)&quot; [9]</term>
             <listitem/>
@@ -2850,6 +3222,22 @@ The value must be an integer. Predefined values are: -1 (UNDEFINED), 1 (VERY_LOW
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
           <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
             <term>&quot;Vishnu not available (SSH error)&quot; [9]</term>
             <listitem/>
           </varlistentry>
@@ -2940,6 +3328,22 @@ The value must be an integer. Predefined values are: -1 (UNDEFINED), 1 (VERY_LOW
         <title>DIAGNOSTICS</title>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (Database connection)&quot; [3]</term>
+            <listitem/>
+          </varlistentry>
+          <varlistentry>
+            <term>&quot;Vishnu not available (System)&quot; [4]</term>
+            <listitem/>
+          </varlistentry>
           <varlistentry>
             <term>&quot;Vishnu not available (SSH error)&quot; [9]</term>
             <listitem/>
@@ -3045,35 +3449,11 @@ values can be obtained using the vishnu_list_machine command)</para>
         <para>The following diagnostics may be issued on stderr and the command will return the code provided within brackets: </para>
         <variablelist>
           <varlistentry>
-            <term>&quot;A problem occurs with the database.&quot; [-9]</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>&quot;User does not have permission access.&quot; [-8]</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>&quot;Option unknown in the config file.&quot; [-7]</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [-5]</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>&quot;The FMS server is unavailable.&quot; [-4]</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>&quot;Invalid provided machine identifier.&quot; [-3]</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
             <term>&quot;Vishnu not available (Database error)&quot; [2]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -3196,7 +3576,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -3315,7 +3695,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -3428,7 +3808,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -3525,7 +3905,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -3623,7 +4003,7 @@ The mode parameter is the same value as for the unix chmod command.</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -3728,7 +4108,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -3833,7 +4213,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -3931,7 +4311,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -4042,7 +4422,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -4162,7 +4542,7 @@ The value must be an integer. Predefined values are: 0 (SCP), 1 (RSYNC), 2 (UNDE
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -4283,7 +4663,7 @@ The value must be an integer. Predefined values are: 0 (SCP), 1 (RSYNC), 2 (UNDE
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -4419,7 +4799,7 @@ The value must be an integer. Predefined values are: 0 (SCP), 1 (RSYNC), 2 (UNDE
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -4540,7 +4920,7 @@ The value must be an integer. Predefined values are: 0 (SCP), 1 (RSYNC), 2 (UNDE
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -4657,7 +5037,7 @@ The command listFileTransfers can be used to check the status of the transfer af
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -4786,7 +5166,7 @@ The value must be an integer. Predefined values are: 0 (INPROGRESS), 1 (COMPLETE
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -4888,7 +5268,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -7405,30 +7785,6 @@ values can be obtained using the vishnu_list_machine command)</para>
         <para>The following exceptions may be thrown: </para>
         <variablelist>
           <varlistentry>
-            <term>&quot;A problem occurs with the database.&quot; [-9]</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>&quot;User does not have permission access.&quot; [-8]</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>&quot;Option unknown in the config file.&quot; [-7]</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [-5]</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>&quot;The FMS server is unavailable.&quot; [-4]</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>&quot;Invalid provided machine identifier.&quot; [-3]</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
             <term>&quot;Vishnu not available (Service bus failure)&quot; [1]</term>
             <listitem/>
           </varlistentry>
@@ -7441,7 +7797,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -7545,7 +7901,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -7645,7 +8001,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -7739,7 +8095,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -7839,7 +8195,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -7940,7 +8296,7 @@ The mode parameter is the same value as for the unix chmod command.</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -8047,7 +8403,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -8154,7 +8510,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -8255,7 +8611,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -8362,7 +8718,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -8471,7 +8827,7 @@ i.e. a local copy cannot be handled by this command.
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -8587,7 +8943,7 @@ The command listFileTransfers can be used to check the status of the transfer af
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -8696,7 +9052,7 @@ i.e. a local move cannot be handled by this command.
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -8812,7 +9168,7 @@ The command listFileTransfers can be used to check the status of the transfer af
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -8906,7 +9262,7 @@ The command listFileTransfers can be used to check the status of the transfer af
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -9010,7 +9366,7 @@ using a vishnu synchronous or asynchronous copy or move file command.
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -9115,7 +9471,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>&quot;an option or a parameter provided is invalid for this service.&quot; [10]</term>
+            <term>&quot;an option or a parameter provided is invalid for this service&quot; [10]</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -11784,30 +12140,6 @@ values can be obtained using the vishnu_list_machine command)</para>
         <para>The following exceptions may be thrown: </para>
         <variablelist>
           <varlistentry>
-            <term>SystemException(&quot;A problem occurs with the database.&quot; [-9])</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>SystemException(&quot;User does not have permission access.&quot; [-8])</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>SystemException(&quot;Option unknown in the config file.&quot; [-7])</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>SystemException(&quot;an option or a parameter provided is invalid for this service.&quot; [-5])</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>SystemException(&quot;The FMS server is unavailable.&quot; [-4])</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
-            <term>SystemException(&quot;Invalid provided machine identifier.&quot; [-3])</term>
-            <listitem/>
-          </varlistentry>
-          <varlistentry>
             <term>SystemException(&quot;Vishnu not available (Service bus failure)&quot; [1])</term>
             <listitem/>
           </varlistentry>
@@ -11820,7 +12152,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -11936,7 +12268,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -12048,7 +12380,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -12154,7 +12486,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -12266,7 +12598,7 @@ values can be obtained using the vishnu_list_machine command)</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -12379,7 +12711,7 @@ The mode parameter is the same value as for the unix chmod command.</para>
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -12503,7 +12835,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -12627,7 +12959,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -12745,7 +13077,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -12864,7 +13196,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -12985,7 +13317,7 @@ i.e. a local copy cannot be handled by this command.
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -13113,7 +13445,7 @@ The command listFileTransfers can be used to check the status of the transfer af
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -13234,7 +13566,7 @@ i.e. a local move cannot be handled by this command.
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -13362,7 +13694,7 @@ The command listFileTransfers can be used to check the status of the transfer af
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -13468,7 +13800,7 @@ The command listFileTransfers can be used to check the status of the transfer af
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -13584,7 +13916,7 @@ using a vishnu synchronous or asynchronous copy or move file command.
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>
@@ -13701,7 +14033,7 @@ values can be obtained using the vishnu_list_machine command).
             <listitem/>
           </varlistentry>
           <varlistentry>
-            <term>UserException(&quot;an option or a parameter provided is invalid for this service.&quot; [10])</term>
+            <term>UserException(&quot;an option or a parameter provided is invalid for this service&quot; [10])</term>
             <listitem/>
           </varlistentry>
           <varlistentry>

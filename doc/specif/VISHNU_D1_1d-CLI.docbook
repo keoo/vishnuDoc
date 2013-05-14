@@ -1986,28 +1986,28 @@
                 <entry><para>wallTime</para></entry>
                 <entry><para>int</para></entry>
                 <entry><para>t</para></entry>
-                <entry><para>The maximum wall-clock time during which the job can run</para></entry>
+                <entry><para>The maximum wall-clock time during which the job can run (in seconds or in the format [[HH:]MM:]SS)</para></entry>
                 <entry><para>NO</para></entry>
               </row>
               <row>
                 <entry><para>memory</para></entry>
                 <entry><para>int</para></entry>
                 <entry><para>m</para></entry>
-                <entry><para>Is the memory size that the job requires</para></entry>
+                <entry><para>Is the memory size that the job requires (in MegaBytes)</para></entry>
                 <entry><para>NO</para></entry>
               </row>
               <row>
                 <entry><para>nbCpu</para></entry>
                 <entry><para>int</para></entry>
                 <entry><para>P</para></entry>
-                <entry><para>The number of cpu that the job requires</para></entry>
+                <entry><para>The number of cpu per node that the job requires</para></entry>
                 <entry><para>NO</para></entry>
               </row>
               <row>
                 <entry><para>nbNodesAndCpuPerNode</para></entry>
                 <entry><para>string</para></entry>
                 <entry><para>N</para></entry>
-                <entry><para>The number of nodes and processors per node. For example if you want to use 4 nodes with 3 cpus for each node, you must specify these numbers by &quot;4:3&quot;</para></entry>
+                <entry><para>The number of nodes and processors per node (in the format nbNodes:nbCpuPerNode). For example if you want to use 4 nodes with 3 cpus for each node, you must specify these numbers by &quot;4:3&quot;</para></entry>
                 <entry><para>NO</para></entry>
               </row>
               <row>
@@ -2028,14 +2028,14 @@
                 <entry><para>mailNotification</para></entry>
                 <entry><para>string</para></entry>
                 <entry><para>M</para></entry>
-                <entry><para>Assigns the notification type of the job. Valid type values are BEGIN, END, ERROR, and ALL (any state change).</para></entry>
+                <entry><para>Assigns the notification type of the job. Valid type values are BEGIN, END, ERROR, and ALL (any state change)</para></entry>
                 <entry><para>NO</para></entry>
               </row>
               <row>
                 <entry><para>mailNotifyUser</para></entry>
                 <entry><para>string</para></entry>
                 <entry><para>u</para></entry>
-                <entry><para>The name of user to receive email notification of state changes as defined by the option mailNotification. The default value is the submitting user.</para></entry>
+                <entry><para>The name of user to receive email notification of state changes as defined by the option mailNotification. The default value is the submitting user</para></entry>
                 <entry><para>NO</para></entry>
               </row>
               <row>
@@ -2049,14 +2049,14 @@
                 <entry><para>workingDir</para></entry>
                 <entry><para>string</para></entry>
                 <entry><para>D</para></entry>
-                <entry><para>Assigns a job remote working dir.</para></entry>
+                <entry><para>Assigns a job remote working dir</para></entry>
                 <entry><para>NO</para></entry>
               </row>
               <row>
                 <entry><para>cpuTime</para></entry>
                 <entry><para>string</para></entry>
                 <entry><para>T</para></entry>
-                <entry><para>Assigns a job cpu limit time.</para></entry>
+                <entry><para>Assigns a job cpu limit time (in seconds or in the format [[HH:]MM:]SS)</para></entry>
                 <entry><para>NO</para></entry>
               </row>
             </tbody>
@@ -2289,7 +2289,7 @@
                 <entry><para>nbCpu</para></entry>
                 <entry><para>int</para></entry>
                 <entry><para>P</para></entry>
-                <entry><para>lists the jobs with the specified number of CPUs</para></entry>
+                <entry><para>lists the jobs with the specified number of CPUs per node</para></entry>
                 <entry><para>NO</para></entry>
               </row>
               <row>

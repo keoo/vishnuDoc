@@ -34,6 +34,15 @@
           <para>Deliverable version</para>
         </revdescription>
       </revision>
+    <revision>
+        <revnumber>2</revnumber>
+        <date>11/01/2012</date>
+        <authorinitials>  SYSFERA SAS</authorinitials>
+        <revdescription>
+          <para>Added test case F1.CR2-E4 corresponding to recursive directories creation</para>
+        </revdescription>
+      </revision>
+    
     </revhistory>
     
       <copyright>
@@ -259,6 +268,14 @@ same conditions as regards security.</para>
 	    <row>
              <entry><para>F1.CR2-E3</para></entry>
               <entry><para>Bad machine Identifier</para></entry>
+              <entry><para>VishnuException</para></entry>
+              <entry><para>VishnuException</para></entry>
+              <entry><para>0</para></entry>
+            </row>
+ <row>
+             <entry><para>F1.CR2-E4</para></entry>
+              <entry><para> The new directory path contains
+                  parent directories which don't exist </para></entry>
               <entry><para>VishnuException</para></entry>
               <entry><para>VishnuException</para></entry>
               <entry><para>0</para></entry>
