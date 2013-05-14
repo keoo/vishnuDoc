@@ -113,6 +113,23 @@
             Added new error code for addLocalAccount and updateLocalAccount.
           </para></revdescription>
       </revision>
+      <revision>
+        <revnumber>10</revnumber>
+        <date>15/12/2011</date>
+        <authorinitials>SysFera</authorinitials>
+        <revdescription>
+          
+          
+          
+        <para>Updates of TMS:
+            Extended vishnu_submit_job options.
+          </para><para>Updates of FMS:
+            Added recursive option to vishnu_create_dir command.
+          </para><para>Updates of UMS:
+            Added vishnu_current_session_id command.
+            Added -w option to connect and reconnect command.
+          </para></revdescription>
+      </revision>
     </revhistory>
   </info>
   <chapter>
@@ -303,7 +320,8 @@
               choice="opt"><option>-p <replaceable>closePolicy</replaceable></option></arg><arg
               choice="opt"><option>-d <replaceable>sessionInactivityDelay</replaceable></option></arg><arg
               choice="opt"><option>-s <replaceable>substituteUserId</replaceable></option></arg><arg
-              choice="plain"><replaceable>userId</replaceable></arg></cmdsynopsis>
+              choice="opt"><option>-u <replaceable>userId</replaceable></option></arg><arg
+              choice="opt"><option>-w <replaceable>password</replaceable></option></arg></cmdsynopsis>
         <para><emphasis role="bold">Parameters</emphasis></para>
         <informaltable>
           <tgroup cols="5">
@@ -328,20 +346,6 @@
             </thead>
             <tbody>
               <row>
-                <entry><para>userId</para></entry>
-                <entry><para>string</para></entry>
-                <entry/>
-                <entry><para>userId represents the VISHNU user identifier</para></entry>
-                <entry><para>YES</para></entry>
-              </row>
-              <row>
-                <entry><para>password</para></entry>
-                <entry><para>string</para></entry>
-                <entry/>
-                <entry><para>password represents the password of the user, it is an interactive parameter</para></entry>
-                <entry><para>YES</para></entry>
-              </row>
-              <row>
                 <entry><para>closePolicy</para></entry>
                 <entry><para><link linkend="SessionCloseType">SessionCloseType</link></para></entry>
                 <entry><para>p</para></entry>
@@ -360,6 +364,20 @@
                 <entry><para>string</para></entry>
                 <entry><para>s</para></entry>
                 <entry><para>is an admin option which allows an admin to open a session as if she was another user identified by her userId</para></entry>
+                <entry><para>NO</para></entry>
+              </row>
+              <row>
+                <entry><para>userId</para></entry>
+                <entry><para>string</para></entry>
+                <entry><para>u</para></entry>
+                <entry><para>userId represents the VISHNU user identifier</para></entry>
+                <entry><para>NO</para></entry>
+              </row>
+              <row>
+                <entry><para>password</para></entry>
+                <entry><para>string</para></entry>
+                <entry><para>w</para></entry>
+                <entry><para>password represents the password of the user</para></entry>
                 <entry><para>NO</para></entry>
               </row>
             </tbody>
@@ -411,7 +429,9 @@
         <para>The vishnu_reconnect command reconnects to a session that is still active</para>
         <para><emphasis role="bold">Example of use </emphasis></para>
         <cmdsynopsis><command>vishnu_reconnect</command><arg choice="opt"><option>-h</option></arg><arg
-              choice="plain"><replaceable>userId</replaceable></arg><arg choice="plain"><replaceable>sessionId</replaceable></arg></cmdsynopsis>
+              choice="opt"><option>-u <replaceable>userId</replaceable></option></arg><arg
+              choice="opt"><option>-w <replaceable>password</replaceable></option></arg><arg
+              choice="plain"><replaceable>sessionId</replaceable></arg></cmdsynopsis>
         <para><emphasis role="bold">Parameters</emphasis></para>
         <informaltable>
           <tgroup cols="5">
@@ -436,25 +456,25 @@
             </thead>
             <tbody>
               <row>
-                <entry><para>userId</para></entry>
-                <entry><para>string</para></entry>
-                <entry/>
-                <entry><para>userId represents the VISHNU user identifier</para></entry>
-                <entry><para>YES</para></entry>
-              </row>
-              <row>
-                <entry><para>password</para></entry>
-                <entry><para>string</para></entry>
-                <entry/>
-                <entry><para>password represents the password of the user, it is an interactive parameter</para></entry>
-                <entry><para>YES</para></entry>
-              </row>
-              <row>
                 <entry><para>sessionId</para></entry>
                 <entry><para>string</para></entry>
                 <entry/>
                 <entry><para>sessionId is the identifier of the session defined in the database</para></entry>
                 <entry><para>YES</para></entry>
+              </row>
+              <row>
+                <entry><para>userId</para></entry>
+                <entry><para>string</para></entry>
+                <entry><para>u</para></entry>
+                <entry><para>userId represents the VISHNU user identifier</para></entry>
+                <entry><para>NO</para></entry>
+              </row>
+              <row>
+                <entry><para>password</para></entry>
+                <entry><para>string</para></entry>
+                <entry><para>w</para></entry>
+                <entry><para>password represents the password of the user</para></entry>
+                <entry><para>NO</para></entry>
               </row>
             </tbody>
           </tgroup>
@@ -598,7 +618,7 @@
                 <entry><para>email</para></entry>
                 <entry><para>string</para></entry>
                 <entry><para>m</para></entry>
-                <entry><para>represents the updated email adress of the user</para></entry>
+                <entry><para>represents the updated email address of the user</para></entry>
                 <entry><para>NO</para></entry>
               </row>
               <row>
@@ -904,7 +924,7 @@
                 <entry><para>acLogin</para></entry>
                 <entry><para>string</para></entry>
                 <entry><para>l</para></entry>
-                <entry><para>accLogin represents the login of the user on the associated machine</para></entry>
+                <entry><para>acLogin represents the login of the user on the associated machine</para></entry>
                 <entry><para>NO</para></entry>
               </row>
               <row>
@@ -1351,7 +1371,7 @@
                 <entry><para>NO</para></entry>
               </row>
               <row>
-                <entry><para>listAllmachine</para></entry>
+                <entry><para>listAllMachine</para></entry>
                 <entry><para>boolean</para></entry>
                 <entry><para>a</para></entry>
                 <entry><para>is an option for listing all VISHNU machines</para></entry>
@@ -1763,6 +1783,19 @@
         <para><emphasis role="bold">Environment variables</emphasis></para>
         <para>This command defines no environment variables.</para>
       </section>
+      <section>
+        <title>vishnu_current_session_id</title>
+        <para><emphasis role="bold">Access</emphasis></para>
+        <para>This command line can be used by any VISHNU user</para>
+        <para><emphasis role="bold">Description </emphasis></para>
+        <para>The vishnu_current_session_id command display the session id</para>
+        <para><emphasis role="bold">Example of use </emphasis></para>
+        <cmdsynopsis><command>vishnu_current_session_id</command><arg choice="opt"><option>-h</option></arg></cmdsynopsis>
+        <para><emphasis role="bold">Parameters</emphasis></para>
+        <para>This command defines no arguments.</para>
+        <para><emphasis role="bold">Environment variables</emphasis></para>
+        <para>This command defines no environment variables.</para>
+      </section>
     </section>
     <section>
       <title>Parameters definitions</title>
@@ -1892,6 +1925,11 @@
               choice="opt"><option>-N <replaceable>nbNodesAndCpuPerNode</replaceable></option></arg><arg
               choice="opt"><option>-o <replaceable>outputPath</replaceable></option></arg><arg
               choice="opt"><option>-e <replaceable>errorPath</replaceable></option></arg><arg
+              choice="opt"><option>-M <replaceable>mailNotification</replaceable></option></arg><arg
+              choice="opt"><option>-u <replaceable>mailNotifyUser</replaceable></option></arg><arg
+              choice="opt"><option>-g <replaceable>group</replaceable></option></arg><arg
+              choice="opt"><option>-D <replaceable>workingDir</replaceable></option></arg><arg
+              choice="opt"><option>-T <replaceable>cpuTime</replaceable></option></arg><arg
               choice="plain"><replaceable>machineId</replaceable></arg><arg choice="plain"><replaceable>scriptFilePath</replaceable></arg></cmdsynopsis>
         <para><emphasis role="bold">Parameters</emphasis></para>
         <informaltable>
@@ -1969,7 +2007,7 @@
                 <entry><para>nbNodesAndCpuPerNode</para></entry>
                 <entry><para>string</para></entry>
                 <entry><para>N</para></entry>
-                <entry><para>The number of nodes and processors per node</para></entry>
+                <entry><para>The number of nodes and processors per node. For example if you want to use 4 nodes with 3 cpus for each node, you must specify these numbers by &quot;4:3&quot;</para></entry>
                 <entry><para>NO</para></entry>
               </row>
               <row>
@@ -1984,6 +2022,41 @@
                 <entry><para>string</para></entry>
                 <entry><para>e</para></entry>
                 <entry><para>Assigns the path and file for job error</para></entry>
+                <entry><para>NO</para></entry>
+              </row>
+              <row>
+                <entry><para>mailNotification</para></entry>
+                <entry><para>string</para></entry>
+                <entry><para>M</para></entry>
+                <entry><para>Assigns the notification type of the job. Valid type values are BEGIN, END, ERROR, and ALL (any state change).</para></entry>
+                <entry><para>NO</para></entry>
+              </row>
+              <row>
+                <entry><para>mailNotifyUser</para></entry>
+                <entry><para>string</para></entry>
+                <entry><para>u</para></entry>
+                <entry><para>The name of user to receive email notification of state changes as defined by the option mailNotification. The default value is the submitting user.</para></entry>
+                <entry><para>NO</para></entry>
+              </row>
+              <row>
+                <entry><para>group</para></entry>
+                <entry><para>string</para></entry>
+                <entry><para>g</para></entry>
+                <entry><para>Assigns a job group name.</para></entry>
+                <entry><para>NO</para></entry>
+              </row>
+              <row>
+                <entry><para>workingDir</para></entry>
+                <entry><para>string</para></entry>
+                <entry><para>D</para></entry>
+                <entry><para>Assigns a job remote working dir.</para></entry>
+                <entry><para>NO</para></entry>
+              </row>
+              <row>
+                <entry><para>cpuTime</para></entry>
+                <entry><para>string</para></entry>
+                <entry><para>T</para></entry>
+                <entry><para>Assigns a job cpu limit time.</para></entry>
                 <entry><para>NO</para></entry>
               </row>
             </tbody>
@@ -3669,7 +3742,7 @@
         <para>The vishnu_create_dir command creates directories on remote machines.</para>
         <para><emphasis role="bold">Example of use </emphasis></para>
         <cmdsynopsis><command>vishnu_create_dir</command><arg choice="opt"><option>-h</option></arg><arg
-              choice="plain"><replaceable>path</replaceable></arg></cmdsynopsis>
+              choice="opt"><option>-p</option></arg><arg choice="plain"><replaceable>path</replaceable></arg></cmdsynopsis>
         <para><emphasis role="bold">Parameters</emphasis></para>
         <informaltable>
           <tgroup cols="5">
@@ -3699,6 +3772,13 @@
                 <entry/>
                 <entry><para>The  directory to create following the pattern  [host:]directory path.</para></entry>
                 <entry><para>YES</para></entry>
+              </row>
+              <row>
+                <entry><para>isRecursive</para></entry>
+                <entry><para>boolean</para></entry>
+                <entry><para>p</para></entry>
+                <entry><para>It specifies when the create command is recursive (create parent directory also) or not</para></entry>
+                <entry><para>NO</para></entry>
               </row>
             </tbody>
           </tgroup>
@@ -3749,7 +3829,7 @@
                 <entry><para>isRecursive</para></entry>
                 <entry><para>boolean</para></entry>
                 <entry><para>r</para></entry>
-                <entry><para>It specifies when the remove command is recursive (case of directory) or not.</para></entry>
+                <entry><para>It specifies when the remove command is recursive (case of directory) or not</para></entry>
                 <entry><para>NO</para></entry>
               </row>
             </tbody>
@@ -4126,7 +4206,7 @@
         <para>The vishnu_copy_file command executes a synchronous copy of file.</para>
         <para><emphasis role="bold">Example of use </emphasis></para>
         <cmdsynopsis><command>vishnu_copy_file</command><arg choice="opt"><option>-h</option></arg><arg
-              choice="opt"><option>-r</option></arg><arg choice="opt"><option>-c <replaceable>trCommand</replaceable></option></arg><arg
+              choice="opt"><option>-r</option></arg><arg choice="opt"><option>-t <replaceable>trCommand</replaceable></option></arg><arg
               choice="plain"><replaceable>src</replaceable></arg><arg choice="plain"><replaceable>dest</replaceable></arg></cmdsynopsis>
         <para><emphasis role="bold">Parameters</emphasis></para>
         <informaltable>
@@ -4175,7 +4255,7 @@
               <row>
                 <entry><para>trCommand</para></entry>
                 <entry><para><link linkend="TransferCommand">TransferCommand</link></para></entry>
-                <entry><para>c</para></entry>
+                <entry><para>t</para></entry>
                 <entry><para>the command to use to perform file transfer.</para></entry>
                 <entry><para>NO</para></entry>
               </row>
@@ -4228,7 +4308,7 @@
         <para>The vishnu_copy_async_file command executes an asynchronous copy of file.</para>
         <para><emphasis role="bold">Example of use </emphasis></para>
         <cmdsynopsis><command>vishnu_copy_async_file</command><arg choice="opt"><option>-h</option></arg><arg
-              choice="opt"><option>-r</option></arg><arg choice="opt"><option>-c <replaceable>trCommand</replaceable></option></arg><arg
+              choice="opt"><option>-r</option></arg><arg choice="opt"><option>-t <replaceable>trCommand</replaceable></option></arg><arg
               choice="plain"><replaceable>src</replaceable></arg><arg choice="plain"><replaceable>dest</replaceable></arg></cmdsynopsis>
         <para><emphasis role="bold">Parameters</emphasis></para>
         <informaltable>
@@ -4277,7 +4357,7 @@
               <row>
                 <entry><para>trCommand</para></entry>
                 <entry><para><link linkend="TransferCommand">TransferCommand</link></para></entry>
-                <entry><para>c</para></entry>
+                <entry><para>t</para></entry>
                 <entry><para>the command to use to perform file transfer.</para></entry>
                 <entry><para>NO</para></entry>
               </row>
@@ -4330,7 +4410,7 @@
         <para>The vishnu_move_file command executes a synchronous move of file.</para>
         <para><emphasis role="bold">Example of use </emphasis></para>
         <cmdsynopsis><command>vishnu_move_file</command><arg choice="opt"><option>-h</option></arg><arg
-              choice="opt"><option>-r</option></arg><arg choice="opt"><option>-c <replaceable>trCommand</replaceable></option></arg><arg
+              choice="opt"><option>-r</option></arg><arg choice="opt"><option>-t <replaceable>trCommand</replaceable></option></arg><arg
               choice="plain"><replaceable>src</replaceable></arg><arg choice="plain"><replaceable>dest</replaceable></arg></cmdsynopsis>
         <para><emphasis role="bold">Parameters</emphasis></para>
         <informaltable>
@@ -4379,7 +4459,7 @@
               <row>
                 <entry><para>trCommand</para></entry>
                 <entry><para><link linkend="TransferCommand">TransferCommand</link></para></entry>
-                <entry><para>c</para></entry>
+                <entry><para>t</para></entry>
                 <entry><para>the command to use to perform file transfer.</para></entry>
                 <entry><para>NO</para></entry>
               </row>
@@ -4432,7 +4512,7 @@
         <para>The vishnu_move_async_file command executes an asynchronous move of file.</para>
         <para><emphasis role="bold">Example of use </emphasis></para>
         <cmdsynopsis><command>vishnu_move_async_file</command><arg choice="opt"><option>-h</option></arg><arg
-              choice="opt"><option>-r</option></arg><arg choice="opt"><option>-c <replaceable>trCommand</replaceable></option></arg><arg
+              choice="opt"><option>-r</option></arg><arg choice="opt"><option>-t <replaceable>trCommand</replaceable></option></arg><arg
               choice="plain"><replaceable>src</replaceable></arg><arg choice="plain"><replaceable>dest</replaceable></arg></cmdsynopsis>
         <para><emphasis role="bold">Parameters</emphasis></para>
         <informaltable>
@@ -4481,7 +4561,7 @@
               <row>
                 <entry><para>trCommand</para></entry>
                 <entry><para><link linkend="TransferCommand">TransferCommand</link></para></entry>
-                <entry><para>c</para></entry>
+                <entry><para>t</para></entry>
                 <entry><para>the command to use to perform file transfer.</para></entry>
                 <entry><para>NO</para></entry>
               </row>

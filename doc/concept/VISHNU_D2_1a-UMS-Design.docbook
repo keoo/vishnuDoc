@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<book xmlns="http://docbook.org/ns/docbook" version="5.0">
+<book
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <info>
     <author>
       <personname>
@@ -40,6 +41,22 @@
         <revdescription>
           
         <para>Deliverable version</para></revdescription>
+      </revision>
+      <revision>
+        <revnumber>2</revnumber>
+        <date>24/02/2011</date>
+        <authorinitials>SysFera</authorinitials>
+        <revdescription>
+            
+          <para>Modified addUser and addMachine signature.</para></revdescription>
+      </revision>
+      <revision>
+        <revnumber>3</revnumber>
+        <date>16/12/2011</date>
+        <authorinitials>SysFera</authorinitials>
+        <revdescription>
+            
+          <para>Replace all Oracle occurrences by MySQL</para></revdescription>
       </revision>
     </revhistory>
   </info>
@@ -205,7 +222,7 @@
             </para>
           </listitem>
           <listitem>
-            <para><emphasis role="bold">Vishnu database</emphasis>: this component represents a unique instance of an Oracle or PostgreSQL database.
+            <para><emphasis role="bold">Vishnu database</emphasis>: this component represents a unique instance of MySQL or PostgreSQL database.
             </para>
           </listitem>
         </itemizedlist>
@@ -416,32 +433,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_USERID</para></entry>
-                <entry><para>The userId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_DATE_OPTION</para></entry>
-                <entry><para>The date option is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -537,44 +529,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>NOT_AUTHENTICATED</para></entry>
-                <entry><para>Unknown user</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_CLOSURE_MODE</para></entry>
-                <entry><para>The name of the closure mode is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_TIMEOUT</para></entry>
-                <entry><para>The value of the timeout is incorrect (negative or higher than the TIMEOUT threshold)</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_USERID</para></entry>
-                <entry><para>The userId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>NO_ADMIN</para></entry>
-                <entry><para>The user is not an administrator</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_PASSWORD_SIZE</para></entry>
-                <entry><para>The size of the password is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_USERID_SIZE</para></entry>
-                <entry><para>The size of the userId is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -670,48 +625,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>NOT_AUTHENTICATED</para></entry>
-                <entry><para>Unknown user</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_USERID_SIZE</para></entry>
-                <entry><para>The size of the userId is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_PASSWORD_SIZE</para></entry>
-                <entry><para>The size of the password is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSION_INCOMPATIBILITY</para></entry>
-                <entry><para>This session identifier is incompatible with the authenticated user</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_SESSION_ID</para></entry>
-                <entry><para>The session Id is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_MACHINE_FOR_SESSION</para></entry>
-                <entry><para>This session has been opened with another machine</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -772,28 +686,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>COMMAND_RUNNING</para></entry>
-                <entry><para>Command(s) is/are running</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -868,36 +761,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_USERID</para></entry>
-                <entry><para>The userId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_SESSION_OPTION</para></entry>
-                <entry><para>The name of the session option is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_DATE_OPTION</para></entry>
-                <entry><para>The date option is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -937,7 +801,7 @@
                 <entry><para>string</para></entry>
                 <entry><para><link linkend="User">User</link></para></entry>
                 <entry><para>The user object</para></entry>
-                <entry><para>IN</para></entry>
+                <entry><para>INOUT</para></entry>
               </row>
               <row>
                 <entry><para>errorInfo</para></entry>
@@ -965,52 +829,11 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>NO_ADMIN</para></entry>
-                <entry><para>The user is not an administrator</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_USERID_SIZE</para></entry>
-                <entry><para>The size of the userId is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_PASSWORD_SIZE</para></entry>
-                <entry><para>The size of the password is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>USERID_EXISTING</para></entry>
-                <entry><para>The userId already exists in the database</para></entry>
-              </row>
-              <row>
-                <entry><para>INVALID_MAIL_ADRESS</para></entry>
-                <entry><para>The mail adress is invalid</para></entry>
-              </row>
-              <row>
-                <entry><para>USERID_REQUIRED</para></entry>
-                <entry><para>The userId must be defined</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
-        <para>UMS::addVishnuUser</para>
+        <para>UMS::addUser</para>
       </section>
       <section>
         <title>Service userUpdate</title>
@@ -1074,40 +897,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>NO_ADMIN</para></entry>
-                <entry><para>The user is not an administrator</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_USERID</para></entry>
-                <entry><para>The userId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>INVALID_MAIL_ADRESS</para></entry>
-                <entry><para>The mail adress is invalid</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_USERID_SIZE</para></entry>
-                <entry><para>The size of the userId is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -1175,36 +965,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_USERID</para></entry>
-                <entry><para>The userId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>NO_ADMIN</para></entry>
-                <entry><para>The user is not an administrator</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_USERID_SIZE</para></entry>
-                <entry><para>The size of the userId is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -1279,36 +1040,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>NO_ADMIN</para></entry>
-                <entry><para>The user is not an administrator</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_USERID</para></entry>
-                <entry><para>The userId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_DATE_OPTION</para></entry>
-                <entry><para>The date option is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -1383,28 +1115,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>NOT_AUTHENTICATED</para></entry>
-                <entry><para>Unknown user</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_USERID_SIZE</para></entry>
-                <entry><para>The size of the userId is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_PASSWORD_SIZE</para></entry>
-                <entry><para>The size of the password is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -1472,40 +1183,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>NO_ADMIN</para></entry>
-                <entry><para>The user is not an administrator</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_USERID</para></entry>
-                <entry><para>The userId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_USERID_SIZE</para></entry>
-                <entry><para>The size of the userId is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_PASSWORD_SIZE</para></entry>
-                <entry><para>The size of the password is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -1548,6 +1226,13 @@
                 <entry><para>IN</para></entry>
               </row>
               <row>
+                <entry><para>sshPublicKey</para></entry>
+                <entry><para>string</para></entry>
+                <entry><para>n/a</para></entry>
+                <entry><para>The SSH public key generated by VISHNU for accessing a local account</para></entry>
+                <entry><para>OUT</para></entry>
+              </row>
+              <row>
                 <entry><para>errorInfo</para></entry>
                 <entry><para>string</para></entry>
                 <entry><para>n/a</para></entry>
@@ -1573,44 +1258,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>LOCAL_ACCOUNT_EXIST</para></entry>
-                <entry><para>The local account already exists for the given user on the given machine</para></entry>
-              </row>
-              <row>
-                <entry><para>USERID_REQUIRED</para></entry>
-                <entry><para>The userId must be defined</para></entry>
-              </row>
-              <row>
-                <entry><para>MACHINEID_REQUIRED</para></entry>
-                <entry><para>The machineId must be defined</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_USERID</para></entry>
-                <entry><para>The userId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_MACHINE</para></entry>
-                <entry><para>The machineId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -1678,32 +1326,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>UNKNOWN_USERID</para></entry>
-                <entry><para>The userId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_MACHINE</para></entry>
-                <entry><para>The machineId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_LOCAL_ACCOUNT</para></entry>
-                <entry><para>The local configuration for the given user on the given machine is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -1778,28 +1401,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_LOCAL_ACCOUNT</para></entry>
-                <entry><para>The local configuration for the given user on the given machine is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -1874,36 +1476,11 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_USERID</para></entry>
-                <entry><para>The userId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_DATE_OPTION</para></entry>
-                <entry><para>The date option is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
-        <para>UMS::listLocalAccount</para>
+        <para>UMS::listLocalAccounts</para>
       </section>
       <section>
         <title>Service configurationSave</title>
@@ -1967,24 +1544,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>NO_ADMIN</para></entry>
-                <entry><para>The user is not an administrator</para></entry>
-              </row>
-              <row>
-                <entry><para>SAVE_CONFIG_ERROR</para></entry>
-                <entry><para>A problem occurs during the configuration saving </para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -2052,24 +1612,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>NO_ADMIN</para></entry>
-                <entry><para>The user is not an administrator</para></entry>
-              </row>
-              <row>
-                <entry><para>RESTORE_CONFIG_ERROR</para></entry>
-                <entry><para>A problem occurs during the configuration restoring</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -2109,7 +1652,7 @@
                 <entry><para>string</para></entry>
                 <entry><para><link linkend="Machine">Machine</link></para></entry>
                 <entry><para>Machine information</para></entry>
-                <entry><para>IN</para></entry>
+                <entry><para>INOUT</para></entry>
               </row>
               <row>
                 <entry><para>errorInfo</para></entry>
@@ -2137,36 +1680,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>MACHINE_EXISTING</para></entry>
-                <entry><para>The machineId already exists in the database</para></entry>
-              </row>
-              <row>
-                <entry><para>MACHINEID_REQUIRED</para></entry>
-                <entry><para>The machineId must be defined</para></entry>
-              </row>
-              <row>
-                <entry><para>NO_ADMIN</para></entry>
-                <entry><para>The user is not an administrator</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -2234,36 +1748,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>MACHINEID_REQUIRED</para></entry>
-                <entry><para>The machineId must be defined</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_MACHINE</para></entry>
-                <entry><para>The machineId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>NO_ADMIN</para></entry>
-                <entry><para>The user is not an administrator</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -2331,32 +1816,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>NO_ADMIN</para></entry>
-                <entry><para>The user is not an administrator</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_MACHINE</para></entry>
-                <entry><para>The machineId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -2431,36 +1891,11 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_USERID</para></entry>
-                <entry><para>The userId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_DATE_OPTION</para></entry>
-                <entry><para>The date option is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
-        <para>UMS::listMachine</para>
+        <para>UMS::listMachines</para>
       </section>
       <section>
         <title>Service optionValueList</title>
@@ -2531,40 +1966,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>NO_ADMIN</para></entry>
-                <entry><para>The user is not an administrator</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_USERID</para></entry>
-                <entry><para>The userId is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_OPTION</para></entry>
-                <entry><para>the name of the option is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>INCORRECT_DATE_OPTION</para></entry>
-                <entry><para>The date option is incorrect</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -2632,28 +2034,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_OPTION</para></entry>
-                <entry><para>the name of the option is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
@@ -2721,32 +2102,7 @@
 </entry>
               </row>
             </thead>
-            <tbody>
-              <row>
-                <entry><para>VISHNU_OK</para></entry>
-                <entry><para>The service was performed  successfully</para></entry>
-              </row>
-              <row>
-                <entry><para>NO_ADMIN</para></entry>
-                <entry><para>The user is not an administrator</para></entry>
-              </row>
-              <row>
-                <entry><para>UNKNOWN_OPTION</para></entry>
-                <entry><para>the name of the option is unknown</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_EXPIRED</para></entry>
-                <entry><para>The sessionKey has expired. The session is closed.</para></entry>
-              </row>
-              <row>
-                <entry><para>SESSIONKEY_NOT_FOUND</para></entry>
-                <entry><para>The sessionKey is unrecognized</para></entry>
-              </row>
-              <row>
-                <entry><para>DB_ERROR</para></entry>
-                <entry><para>A problem occurs with the database</para></entry>
-              </row>
-            </tbody>
+            <tbody/>
           </tgroup>
         </informaltable>
         <para><emphasis role="bold">Used by this(these) API function(s): </emphasis></para>
